@@ -3,7 +3,7 @@
 This is the quick-start to CodeIgniter testing. Its intent is to describe what 
 it takes to set up your application and get it ready to run unit tests. 
 It is not intended to be a full description of the test features that you can 
-use to test your application. Those details can be found in the documentation. (UWU TEST)
+use to test your application. Those details can be found in the documentation.
 
 ## Resources
 * [CodeIgniter 4 User Guide on Testing](https://codeigniter4.github.io/userguide/testing/index.html)

@@ -1,6 +1,6 @@
 # Running Application Tests
 
-This is a the quick-start to CodeIgniter testing. Its intent is to describe what 
+This is the quick-start to CodeIgniter testing. Its intent is to describe what 
 it takes to set up your application and get it ready to run unit tests. 
 It is not intended to be a full description of the test features that you can 
 use to test your application. Those details can be found in the documentation.

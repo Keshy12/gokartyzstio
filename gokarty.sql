@@ -70,6 +70,7 @@ INSERT INTO `miasto` (`miasto_id`, `nazwa`) VALUES
 (1, 'Limanowa'),
 (2, 'Stara Wieś'),
 (3, 'Nowy Sącz');
+(4, 'Piekiełko');
 
 -- --------------------------------------------------------
 

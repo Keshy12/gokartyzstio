@@ -47,3 +47,8 @@ Dillinger uses a number of open source projects to work properly:
 - Liste przejazdów(3 poprzednie, aktualny , 3 następne),
 - Ranking(Top 10 przejazdów),
 
+
+| Place Holder | Place Holder |
+| - | - |
+---
+

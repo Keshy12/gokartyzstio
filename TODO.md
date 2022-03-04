@@ -1,5 +1,5 @@
-#Strony:<br/>
-<br/>
+#Strony:
+
 ##Zgłaszanie zawodników (Sędzia, Admin):<br/>
  *Formularz(imie, nazwisko, data urodzenia, szkoła[picker], regulamin i zatwierzenie regulaminu)<br/>
 (Jeżeli status zawodów równy "w trakcie" nie pokazuj tej strony). <br/>

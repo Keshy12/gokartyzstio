@@ -1,5 +1,5 @@
 # Strony:
----
+
 ## Strona Główna
 | Marcin Stożek | Mateusz Potoniec |
 | ------ | ------ |

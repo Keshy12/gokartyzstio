@@ -9,7 +9,7 @@ class Shop extends BaseController
         return view('shop');
     }
 
-    public function product($type="none",$product_id=0)
+    public function product($type="laptop",$product_id='Lenovo')
     {
         echo "<h2>This is a product: ".$type." with an id: ".$product_id."</h2>";
         // return view('product');

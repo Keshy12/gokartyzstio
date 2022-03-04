@@ -33,7 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 //$routes->get('/', 'Home::index');
-$routes->add('product','Shop::product');
+$routes->add('product/(:any)/(:any)','Shop::product/$1/$2');
 
 /*
  * --------------------------------------------------------------------

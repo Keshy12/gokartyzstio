@@ -3,7 +3,7 @@
 ##Zgłaszanie zawodników (Sędzia, Admin):<br/>
  *Formularz(imie, nazwisko, data urodzenia, szkoła[picker], regulamin i zatwierzenie regulaminu)<br/>
 (Jeżeli status zawodów równy "w trakcie" nie pokazuj tej strony). <br/>
---------- Mateusz, Marcin ---------<br/>
+--------- Marcin S. , Mateusz ---------<br/>
 <br/>
 <br/>
 ##Modyfikacja (Sędzia, Admin):<br/>

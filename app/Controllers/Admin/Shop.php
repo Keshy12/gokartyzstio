@@ -13,7 +13,7 @@ class Shop extends BaseController
 
     public function product($type="none",$product_id=0)
     {
-        echo "<h2>This is an admin product: ".$type." with an id: ".$product_id."</h2>";
+        echo "<h2>This is an ADMIN product: ".$type." with an id: ".$product_id."</h2>";
         // return view('product');
     }
 

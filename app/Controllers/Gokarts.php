@@ -15,10 +15,10 @@ class Gokarts extends BaseController
         // echo '<pre>';
 
 
-        // $data = [
-        //     'meta_title' => 'Codeigniter 4 Blog',   
-        //     'title' => 'This is a Blog Page',
-        // ];
+        $data = [
+            'meta_title' => 'Codeigniter 4 Blog',   
+            'title' => 'This is a Blog Page',
+        ];
  
         return view('gokarts',$data);
     }

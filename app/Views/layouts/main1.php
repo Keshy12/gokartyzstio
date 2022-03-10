@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Strona Główna</a>
+                    <a class="nav-link" href="/gokarts">Strona Główna</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Zawody</a>
@@ -27,18 +27,32 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Archiwum</a>
                 </li>
+                <?php if(isset($_SESSION["zalogowany"])): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=$link1?>"><?=$button1?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=$link2?>"><?=$button2?></a>
+                </li>
+                <?php endif ?>
             </ul>
             <span class="navbar-item">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logowanie</a>
+                    <?php if(isset($_SESSION["zalogowany"])): ?>
+                        <a class="nav-link" href="/gokarts/logout">Wyloguj</a>
+                    <?php else: ?>
+                        <a class="nav-link" href="/gokarts/login">Logowanie</a>
+                    <?php endif ?>
                     </li>
                 </ul>
             </span>
         </div>
     </nav>
 </header>
+<body>
     <?= $this->renderSection('content')?>
+</body>
 <footer>
   <div class="text-center p-3 bg-dark">
       <a class="text-white">© 2022 Copyright:</a>

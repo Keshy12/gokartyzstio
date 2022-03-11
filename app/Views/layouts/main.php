@@ -50,14 +50,13 @@
         </div>
     </nav>
 </header>
-<body>
+<body class="flex-fill">
     <?= $this->renderSection('content')?>
 </body>
 <footer>
-  <div class="text-center p-3 bg-dark">
-      <a class="text-white">© 2022 Copyright:</a>
-      <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
-  </div>
-<!-- Copyright -->
+    <div class="text-center p-3 bg-dark relative-bottom">
+        <a class="text-white">© 2022 Copyright:</a>
+        <a class="link" href="https://zstio.edu.pl/">zstio.edu.pl</a>
+    </div>
 </footer>
 </html>

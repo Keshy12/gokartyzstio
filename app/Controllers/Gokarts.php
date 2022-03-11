@@ -17,12 +17,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Codeigniter 4 Blog',   
-            'title' => 'This is a Blog Page',
-            'button1' => 'Modyfikacja',   
-            'link1' => 'Link1',
-            'button2' => 'Sędzia',   
-            'link2' => 'link2',
+            'meta_title' => 'Tytuł strony',
         ];
  
         return view('gokarts',$data);
@@ -31,12 +26,9 @@ class Gokarts extends BaseController
     public function login()
     {
         $session = \Config\Services::session();
-        
+
         $data = [
-            'button1' => 'Modyfikacja',   
-            'link1' => 'Link1',
-            'button2' => 'Sędzia',   
-            'link2' => 'link2',
+            'meta_title' => 'Tytuł strony',
         ];
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
             if($_POST["userName"] == "user1" && $_POST["userPassword"] == "pass1") {
@@ -55,11 +47,9 @@ class Gokarts extends BaseController
     {
         $session = \Config\Services::session();
         
+
         $data = [
-            'button1' => 'Modyfikacja',   
-            'link1' => 'Link1',
-            'button2' => 'Sędzia',   
-            'link2' => 'link2',
+            'meta_title' => 'Tytuł strony',
         ];
         unset($_SESSION["zalogowany"]);
         return view('gokarts',$data);

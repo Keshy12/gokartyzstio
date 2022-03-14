@@ -7,7 +7,7 @@
         <!-- PIERWSZY RZĄD -->
         <div class="col">
             <!-- ELEMENT NAJNOWSZY -->
-            <div class="card border-success bg-success mb-3" style="max-width: 50rem;">
+            <div class="card border-success bg-success mb-3" style="max-width: 100vh;">
                 <div class="card-body">
                     <h4 class="card-title">Zawody Klasy 3-4</h4>
                     <p >Data: 18.06.2022 / 18.07.2022 </p>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <!-- ELEMENT ZWYKLY -->
-            <div class="card border mb-3" style="max-width: 50rem;">
+            <div class="card border mb-3" style="max-width: 100vh;">
                 <div class="card-body">
                     <h4 class="card-title">Zawody Klasy 3-4</h4>
                     <p >Data: 18.06.2022 / 18.07.2022 </p>
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="card border mb-3" style="max-width: 50rem;">
+            <div class="card border mb-3" style="max-width: 100vh;">
                 <div class="card-body">
                     <h4 class="card-title">Zawody Klasy 3-4</h4>
                     <p >Data: 18.06.2022 / 18.07.2022 </p>
@@ -33,7 +33,7 @@
         </div>
         <!-- DRUGI RZĄD -->
         <div class="col">
-            <div class="card border mb-3" style="max-width: 50rem;">
+            <div class="card border mb-3" style="max-width: 100vh;">
                 <div class="card-body">
                     <h4 class="card-title">Zawody Klasy 1-2</h4>
                     <p >Data: 18.06.2022 / 18.07.2022 </p>
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="card border mb-3" style="max-width: 50rem;">
+            <div class="card border mb-3" style="max-width: 100vh;">
                 <div class="card-body">
                     <h4 class="card-title">Zawody Klasy 1-2</h4>
                     <p >Data: 18.06.2022 / 18.07.2022 </p>
@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="card border mb-3" style="max-width: 50rem;">
+            <div class="card border mb-3" style="max-width: 100vh;">
                 <div class="card-body">
                     <h4 class="card-title">Zawody Klasy 1-2</h4>
                     <p >Data: 18.06.2022 / 18.07.2022 </p>

@@ -4,12 +4,9 @@
     <style>
         #footer {
             position: fixed;
-            padding: 10px 10px 0px 10px;
             bottom: 0;
             width: 100%;
             /* Height of the footer*/ 
-            height: 40px;
-            background: grey;
         }
     </style>
     <meta charset="UTF-8">
@@ -64,7 +61,7 @@
 <body>
     <?= $this->renderSection('content')?>
 </body>
-<footer id="#footer">
+<footer id="footer">
   <div class="text-center p-3 bg-dark">
       <a class="text-white">© 2022 Copyright:</a>
       <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>

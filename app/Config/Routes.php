@@ -33,6 +33,12 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->add('gokarty', 'gokarts');
+$routes->add('gokarty/logowanie', 'gokarts::login');
+$routes->add('gokarty/wylogowanie', 'gokarts::logout');
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

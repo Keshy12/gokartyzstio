@@ -1,25 +1,91 @@
 <?= $this->extend('layouts/main')?>
 <?= $this->section('content')?>
-    <div class="container mt-5">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-15">
-                <article>
-                    <header class="mb-4">
-                        <h1 class="fw-bolder mb-1">ZAWODY KARTINGOWE „ŚLADAMI ROBERTA KUBICY”</h1>
-                    </header>
-                    <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="/assets/images/mainPage.jpg" /></figure>
-                    <!-- Post content-->
-                    <section class="mb-5">
-                        <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
-                        <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                        <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
-                        <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-                        <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
-                    </section>
-                </article>
+            <div class="col-7">
+                <h1 class="mb-2">Aktualne Przejazdy</h1>
+                <div class="card border-secondary mb-3" style="max-width: 50rem;">
+                    <div class="card-body">
+                        <h4 class="mt-2">Marcin Stożek ZSTIO Limanowa Czas: 3:43.432</h4>
+                    </div>
+                </div>
+                <div class="card border-secondary mb-3" style="max-width: 50rem;">
+                    <div class="card-body">
+                        <h4 class="mt-2">Marcin Tomaszek ZSTIO Limanowa Czas: 2:59.932</h4>
+                    </div>
+                </div>
+                <div class="card border-success mb-3" style="max-width: 50rem;">
+                    <div class="card-body">
+                        <h4 class="mt-2">Kacper Zięba ZSTIO Rupniów City</h4>
+                    </div>
+                </div>
+                <div class="card border-info mb-3" style="max-width: 50rem;">
+                    <div class="card-body">
+                        <h4 class="mt-2">Michał Wiewiórka ZSTIO Limanowa</h4>
+                    </div>
+                </div>
+                <div class="card border-info mb-3" style="max-width: 50rem;">
+                    <div class="card-body">
+                        <h4 class="mt-2">Mateusz Potoniec ZSTIO Limanowa</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4 class="mt-2">Tablica Wyników</h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table border text-center">
+                            <thead>
+                            <tr>
+                                <th scope="col">🏆</th>
+                                <th scope="col">Imię</th>
+                                <th scope="col">Nazwisko</th>
+                                <th scope="col">Szkoła</th>
+                                <th scope="col">Czas</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="table-default">
+                                <th scope="row">1</th>
+                                <td>Mariusz</td>
+                                <td>Kebab</td>
+                                <td>ZSTIO Limanowa</td>
+                                <td>1:25.123</td>
+                            </tr>
+                            <tr class="table-default">
+                                <th scope="row">2</th>
+                                <td>Mariusz</td>
+                                <td>Kebab</td>
+                                <td>ZSTIO Limanowa</td>
+                                <td>1:25.123</td>
+                            </tr>
+                            <tr class="table-default">
+                                <th scope="row">3</th>
+                                <td>Mariusz</td>
+                                <td>Kebab</td>
+                                <td>ZSTIO Limanowa</td>
+                                <td>1:25.123</td>
+                            </tr>
+                            <tr class="table-default">
+                                <th scope="row">4</th>
+                                <td>Mariusz</td>
+                                <td>Kebab</td>
+                                <td>ZSTIO Limanowa</td>
+                                <td>1:25.123</td>
+                            </tr>
+                            <tr class="table-default">
+                                <th scope="row">5</th>
+                                <td>Mariusz</td>
+                                <td>Kebab</td>
+                                <td>ZSTIO Limanowa</td>
+                                <td>1:25.123</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 <?= $this->endSection() ?>

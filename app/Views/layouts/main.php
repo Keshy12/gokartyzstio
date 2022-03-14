@@ -10,7 +10,7 @@
 </head>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark h5">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/gokarty">
             <img src="/assets/images/gokart.png" width="80" height="50" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

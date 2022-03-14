@@ -18,10 +18,11 @@ class CustomModel{
         return $builder;
     }
 
-    function getPass(){
+    function getPass($nazwa){
         $builder = $this->db->table('uzytkownik');
         $builder->select('haslo');
-        return $builder;
+        $builder->where('login', $nazwa);
+        return $builder->get()->getResult();
     }
 
 }

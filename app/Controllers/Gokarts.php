@@ -30,14 +30,14 @@ class Gokarts extends BaseController
 
         $db = db_connect();
         $model = new CustomModel($db);
-        $_login = $model->getLogin();
-        $_pass = $model->getPass();
+
         
         $data = [
             'meta_title' => 'Tytuł strony',
         ];
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
-            if($_POST["userName"] == $_login[0]->login && hash('sha256', $_POST['userPassword']) == $_pass[0]->haslo) {
+            $pass = $model->getPass($_POST['userName']);
+            if(hash('sha256',$_POST['userPassword']) == $pass[0]->haslo) {
                 $_SESSION["zalogowany"] = "user1";
                 return view('gokarts',$data);
             } 

@@ -88,8 +88,8 @@ class Gokarts extends BaseController
 
         //////
         //////
-        $result1=$model->leaderboard();
-        $data['result1']= $result1;
+        $resultleaderboard=$model->leaderboard();
+        $data['resultleaderboard']= $resultleaderboard;
         $data['i']=1;
         //////
         return view('zawody',$data);

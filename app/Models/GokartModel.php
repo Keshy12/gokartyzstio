@@ -55,7 +55,7 @@ class GokartModel{
 
     function leaderboard()
     {
-        $result=$this->db->table('zawodnik')
+        $resultleaderboard=$this->db->table('zawodnik')
         ->join('przejazd', 'zawodnik_id')
         ->join('szkola', 'szkola_id')
         ->join('czas', 'przejazd_id')
@@ -67,10 +67,9 @@ class GokartModel{
         ->orderBy('czas', 'ASC')
         ->where('status_zawodow_id', 2)
         ->where('status_zawodnika_id',1)
-        ->limit(8)
-        ->get()
+        ->get(8)
         ->getResult();
-        return $result;
+        return $resultleaderboard;
     }
 
 }

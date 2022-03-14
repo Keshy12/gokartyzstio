@@ -5,7 +5,7 @@ use App\Models\GokartModel;
 class GokartController extends BaseController
 {
 
-    public function index($table)
+    public function index()
     {
         $db = db_connect();
         $model = new GokartModel($db);
@@ -19,7 +19,7 @@ class GokartController extends BaseController
 
         $data = ['result' => $result];
 
-        return view('main', $data);
+        return view('zawody', $data);
 
     }
 

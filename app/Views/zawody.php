@@ -4,31 +4,37 @@
         <div class="row mt-3">
             <div class="col">
                 <h2>Aktualne Przejazdy</h2>
-                <div class="card border-secondary mb-2">
-                    <div class="card-body">
-                        <h4 class="mt-2">Marcin Tomaszek ZSTIO Limanowa Czas: 2:59.932</h4>
+                <?php foreach($result as $row) : ?>
+                    <?php 
+                        switch($row->status_zawodnika_id)
+                        {
+                            case 1:
+                                ?>
+                                <div class="card border-secondary mb-2">
+                                    <div class="card-body">
+                                        <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?> <r class="float-right">Czas: <?= $row->czas ?></r></h4>
+                                <?php
+                                break;
+                            case 2:
+                                ?>
+                                <div class="card border-success mb-2">
+                                    <div class="card-body">
+                                        <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?></h4>
+                                <?php
+                                break;
+                            case 3:
+                                ?>
+                                <div class="card border-info mb-2">
+                                    <div class="card-body">
+                                        <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?></h4>
+                                <?php
+                                break;
+                        }           
+                    ?>
+                        </div>
                     </div>
-                </div>
-                <div class="card border-success mb-2">
-                    <div class="card-body">
-                        <h4 class="mt-2">Kacper Zięba ZSTIO Rupniów City</h4>
-                    </div>
-                </div>
-                <div class="card border-info mb-2">
-                    <div class="card-body">
-                        <h4 class="mt-2">Michał Wiewiórka ZSTIO Limanowa</h4>
-                    </div>
-                </div>
-                <div class="card border-info mb-2">
-                    <div class="card-body">
-                        <h4 class="mt-2">Mateusz Potoniec ZSTIO Limanowa</h4>
-                    </div>
-                </div>
-                <div class="card border-info mb-3">
-                    <div class="card-body">
-                        <h4 class="mt-2">Marcin Stożek ZSTIO Limanowa</h4>
-                    </div>
-                </div>
+
+                <?php endforeach; ?>
             </div>
             <div class="col">
                 <h2>Tablica Wyników</h2>

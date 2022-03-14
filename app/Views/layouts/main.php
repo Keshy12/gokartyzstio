@@ -28,12 +28,12 @@
                     <a class="nav-link" href="/gokarty/archiwum">Archiwum</a>
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Modyfikacja</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sędzia</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Modyfikacja</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sędzia</a>
+                </li>
                 <?php endif ?>
             </ul>
             <span class="navbar-item">
@@ -50,13 +50,14 @@
         </div>
     </nav>
 </header>
-<body class="flex-fill">
-<?= $this->renderSection('content')?>
+<body>
+    <?= $this->renderSection('content')?>
 </body>
 <footer>
-    <div class="text-center p-3 bg-dark relative-bottom">
-        <a class="text-white">© 2022 Copyright:</a>
-        <a class="link" href="https://zstio.edu.pl/">zstio.edu.pl</a>
-    </div>
+  <div class="text-center p-3 bg-dark">
+      <a class="text-white">© 2022 Copyright:</a>
+      <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
+  </div>
+<!-- Copyright -->
 </footer>
 </html>

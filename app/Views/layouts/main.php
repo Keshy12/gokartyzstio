@@ -22,10 +22,10 @@
                     <a class="nav-link" href="/gokarty">Strona Główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarts/zawody">Zawody</a>
+                    <a class="nav-link" href="/gokarty/zawody">Zawody</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarts/archiwum">Archiwum</a>
+                    <a class="nav-link" href="/gokarty/archiwum">Archiwum</a>
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
                     <li class="nav-item">

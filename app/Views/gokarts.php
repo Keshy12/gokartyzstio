@@ -5,10 +5,10 @@
             <div class="col-lg-15">
                 <article>
                     <header class="mb-4">
-                        <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
+                        <h1 class="fw-bolder mb-1">ZAWODY KARTINGOWE „ŚLADAMI ROBERTA KUBICY”</h1>
                     </header>
                     <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                    <figure class="mb-4"><img class="img-fluid rounded" src="/assets/images/mainPage.jpg" /></figure>
                     <!-- Post content-->
                     <section class="mb-5">
                         <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>

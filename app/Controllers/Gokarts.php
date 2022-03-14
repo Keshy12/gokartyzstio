@@ -71,6 +71,22 @@ class Gokarts extends BaseController
 
         return view('zawody',$data);
     }
-    
+
+    public function archiwum()
+    {
+        $session = \Config\Services::session();
+        // $db = db_connect();
+        // $model = new CustomModel($db);
+        // echo '<pre>';
+        //  print_r($model->getPosts());
+        // echo '<pre>';
+
+
+        $data = [
+            'meta_title' => 'Tytuł strony',
+        ];
+
+        return view('archiwum',$data);
+    }
     
 }

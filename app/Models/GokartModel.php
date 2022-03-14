@@ -53,4 +53,24 @@ class GokartModel{
         return $result;
     }
 
+    function leaderboard()
+    {
+        $result=$this->db->table('zawodnik')
+        ->join('przejazd', 'zawodnik_id')
+        ->join('szkola', 'szkola_id')
+        ->join('czas', 'przejazd_id')
+        ->join('zawody','zawody_id')
+        ->join('status_zawodow','status_zawodow_id')
+        ->join('tmp_przejazd','przejazd_id')
+        ->join('status_zawodnika','status_zawodnika_id')
+        ->join('gokart','gokart_id')
+        ->orderBy('czas', 'ASC')
+        ->where('status_zawodow_id', 1)
+        ->where('status_zawodnika_id',1)
+        ->limit(8)
+        ->get()
+        ->getResult();
+        return $result;
+    }
+
 }

@@ -85,6 +85,12 @@ class Gokarts extends BaseController
         $result = array_merge($result, $model->nieprzejechany());
 
         $data['result'] = $result;
+
+        //////
+        //////
+        $result1=$model->leaderboard();
+        $data['result1']= $result1;
+        $data['i']=1;
         //////
         return view('zawody',$data);
     }

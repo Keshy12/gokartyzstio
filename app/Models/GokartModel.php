@@ -65,7 +65,7 @@ class GokartModel{
         ->join('status_zawodnika','status_zawodnika_id')
         ->join('gokart','gokart_id')
         ->orderBy('czas', 'ASC')
-        ->where('status_zawodow_id', 1)
+        ->where('status_zawodow_id', 2)
         ->where('status_zawodnika_id',1)
         ->limit(8)
         ->get()

@@ -12,12 +12,16 @@ class CustomModel{
         $this->db =& $db;
     }
 
-    function getPosts(){
-        $builder = $this->db->table('posts');
-        $builder->join('users','posts.post_author = users.user_id');
-        $posts = $builder->get()->getResult();
-        return $posts;
-        
+    function getLogin(){
+        $builder = $this->db->table('uzytkownik');
+        $builder->select('login');
+        return $builder;
+    }
+
+    function getPass(){
+        $builder = $this->db->table('uzytkownik');
+        $builder->select('haslo');
+        return $builder;
     }
 
 }

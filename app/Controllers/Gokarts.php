@@ -3,7 +3,8 @@
 namespace App\Controllers;
 
 // use App\Models\BlogModel;
-// use App\Models\CustomModel;
+use App\Models\CustomModel;
+
 class Gokarts extends BaseController
 {
     public function index()
@@ -27,11 +28,16 @@ class Gokarts extends BaseController
     {
         $session = \Config\Services::session();
 
+        $db = db_connect();
+        $model = new CustomModel($db);
+        $_login = $model->getLogin();
+        $_pass = $model->getPass();
+        
         $data = [
             'meta_title' => 'Tytuł strony',
         ];
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
-            if($_POST["userName"] == "user1" && $_POST["userPassword"] == "pass1") {
+            if($_POST["userName"] == $_login[0]->login && hash('sha256', $_POST['userPassword']) == $_pass[0]->haslo) {
                 $_SESSION["zalogowany"] = "user1";
                 return view('gokarts',$data);
             } 

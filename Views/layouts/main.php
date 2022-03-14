@@ -19,30 +19,30 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarty">Strona Główna</a>
+                    <a class="nav-link" href="/gokarts">Strona Główna</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/gokarts/zawody">Zawody</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarts/archiwum">Archiwum</a>
+                    <a class="nav-link" href="#">Archiwum</a>
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Modyfikacja</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sędzia</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Modyfikacja</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sędzia</a>
+                </li>
                 <?php endif ?>
             </ul>
             <span class="navbar-item">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                     <?php if(isset($_SESSION["zalogowany"])): ?>
-                        <a class="nav-link" href="/gokarty/wylogowanie">Wyloguj</a>
+                        <a class="nav-link" href="/gokarts/logout">Wyloguj</a>
                     <?php else: ?>
-                        <a class="nav-link" href="/gokarty/logowanie">Logowanie</a>
+                        <a class="nav-link" href="/gokarts/login">Logowanie</a>
                     <?php endif ?>
                     </li>
                 </ul>
@@ -50,13 +50,14 @@
         </div>
     </nav>
 </header>
-<body class="flex-fill">
-<?= $this->renderSection('content')?>
+<body>
+    <?= $this->renderSection('content')?>
 </body>
 <footer>
-    <div class="text-center p-3 bg-dark relative-bottom">
-        <a class="text-white">© 2022 Copyright:</a>
-        <a class="link" href="https://zstio.edu.pl/">zstio.edu.pl</a>
-    </div>
+  <div class="text-center p-3 bg-dark">
+      <a class="text-white">© 2022 Copyright:</a>
+      <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
+  </div>
+<!-- Copyright -->
 </footer>
 </html>

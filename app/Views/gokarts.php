@@ -6,12 +6,13 @@
                 <h1 class="fw-bolder mb-1">ZAWODY KARTINGOWE „ŚLADAMI ROBERTA KUBICY”</h1>
                     <figure class="mb-4"><img class="img-fluid rounded w-75" src="/assets/images/mainPage.jpg" /></figure>
                     <section class="mb-5">
-                        <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
-                        <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                        <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
-                        <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-                        <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                        <h2 class="fw-bolder mb-4 mt-2 "><b>Zespół Szkół Technicznych i Ogólnokształcacych im. Jana Pawła II</b></h2>
+                        <p class="fs-5 mb-4">ZSTiO Limanowa słynie z wysokiego poziomy nauczania zawodowego wielu profilu technicznych, jednym z nich jest technik pojazdów samochodowych. W celu promocji tego profilu Nasza szkoła decyduje się na organizację zawodów sportowych o nazwie "Śladami Roberta Kubicy".  </p>
+                        <p class="fs-5 mb-4">Interesują cię gokarty? Myślisz, że to czas aby wygrać puchary? Chcesz spróbować swoich sił? Dołącz do nas! Uczestnikami zawodów może być każdy uczeń Naszej szkoły, bądź uczeń szkoły zaprzyjaźnionej.</p>
+                        <p class="fs-5 mb-4">Zawody kartingowe są idealną okazją aby odnaleźć w sobie ukryty talelent kierowcy, sprawdzić swoje umiejętności, wzbudzić w sobie pasję do motoryzacji lub po prostu dobrze się bawić. Zawody są darmowe, odbywają się one dla różnych grup wiekowych, aby zachować balans umiejętności pomiędzy zawodnikami.</p>
+                        <p class="fs-5 mb-4">Baczne oko sędziów jak zarówno zaangażowanych opiekunów czuwa nad bezpieczeństwem i dokładnością przebiegu rywalizacji.</p>
+                        <h4 class="fw-bolder mb-4 mt-5">Spróbuj swoich sił!</h4>
+                        <p class="fs-5 mb-4"><b>W celu zapisania się na zawody skontaktuj się z nami.</b></p>
                     </section>
             </div>
         </div>

@@ -3,28 +3,28 @@
     <div class="container-fluid">
         <h1 class="mt-3">Aktualne Przejazdy</h1>
         <div class="row mt-3">
-            <div class="col-6">
-                <div class="card border-secondary mb-3" style="max-width: 50rem;">
+            <div class="col">
+                <div class="card border-secondary mb-3">
                     <div class="card-body">
                         <h4 class="mt-2">Marcin Tomaszek ZSTIO Limanowa Czas: 2:59.932</h4>
                     </div>
                 </div>
-                <div class="card border-success mb-3" style="max-width: 50rem;">
+                <div class="card border-success mb-3">
                     <div class="card-body">
                         <h4 class="mt-2">Kacper Zięba ZSTIO Rupniów City</h4>
                     </div>
                 </div>
-                <div class="card border-info mb-3" style="max-width: 50rem;">
+                <div class="card border-info mb-3">
                     <div class="card-body">
                         <h4 class="mt-2">Michał Wiewiórka ZSTIO Limanowa</h4>
                     </div>
                 </div>
-                <div class="card border-info mb-3" style="max-width: 50rem;">
+                <div class="card border-info mb-3">
                     <div class="card-body">
                         <h4 class="mt-2">Mateusz Potoniec ZSTIO Limanowa</h4>
                     </div>
                 </div>
-                <div class="card border-info mb-3" style="max-width: 50rem;">
+                <div class="card border-info mb-3">
                     <div class="card-body">
                         <h4 class="mt-2">Marcin Stożek ZSTIO Limanowa</h4>
                     </div>
@@ -34,7 +34,7 @@
                 <h4 class="mt-2">Tablica Wyników</h4>
                 <div class="row">
                     <div class="col-lg-12">
-                        <table class="table border text-center">
+                        <table class="table border text-center vw-50">
                             <thead>
                             <tr>
                                 <th scope="col">🏆</th>

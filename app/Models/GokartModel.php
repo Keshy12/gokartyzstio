@@ -19,16 +19,17 @@ class GokartModel{
 
     function jedzie()
     {
-        $result = $this->db->table('tmp_przejazd');
-        $result->where('status_zawodnika_id', 2);
+        $result = $this->db->table('tmp_przejazd')
+            ->where('status_zawodnika_id', 2);
         $result = $this->join($result);
+        
         return $result->get()->getResult();
     }
 
     function przejechany($id)
     {
-        $result = $this->db->table('tmp_przejazd');
-        $result->where('status_zawodnika_id', 1);
+        $result = $this->db->table('tmp_przejazd')
+            ->where('status_zawodnika_id', 1);
         if($id > 2) 
             $result->where('tmp_przejazd_id >=', $id-2);
         $result = $this->join($result);
@@ -38,8 +39,8 @@ class GokartModel{
 
     function nieprzejechany()
     {
-        $result = $this->db->table('tmp_przejazd');
-        $result->where('status_zawodnika_id', 3);
+        $result = $this->db->table('tmp_przejazd')
+            ->where('status_zawodnika_id', 3);
         $result = $this->join($result);
         return $result->get(2)->getResult();
     }
@@ -48,8 +49,10 @@ class GokartModel{
 
     function join($result)
     {
-        $result->join('przejazd', 'przejazd_id');
-        $result->join('zawodnik', 'zawodnik_id');
+        $result->join('przejazd', 'przejazd_id')
+            ->join('zawodnik', 'zawodnik_id')
+            ->join('szkola', 'szkola_id')
+            ->join('gokart', 'gokart_id');
         return $result;
     }
 

@@ -17,7 +17,9 @@ class GokartController extends BaseController
         $result = array_merge($result, $result_id);
         $result = array_merge($result, $model->nieprzejechany());
 
-        return view('main', $result);
+        $data = ['result' => $result];
+
+        return view('main', $data);
 
     }
 

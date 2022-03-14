@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    <style>
+        #footer {
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/ 
+            height: 40px;
+            background: grey;
+        }
+    </style>
     <meta charset="UTF-8">
     <title><?= isset($meta_title) ? $meta_title : 'ZSTiO Limanowa' ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -53,7 +64,7 @@
 <body>
     <?= $this->renderSection('content')?>
 </body>
-<footer>
+<footer id="#footer">
   <div class="text-center p-3 bg-dark">
       <a class="text-white">© 2022 Copyright:</a>
       <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>

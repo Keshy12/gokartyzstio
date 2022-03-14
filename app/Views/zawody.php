@@ -53,71 +53,17 @@
                             </thead>
                             <tbody class="font-weight-bold">
                             <!-- ELEMENT -->
+                            <?php foreach($result1 as $row) : ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mariusz</td>
-                                <td>Kebab</td>
-                                <td>ZSTIO Limanowa</td>
-                                <td>1:25.123</td>
-                                <td>Czerwony Szybki</td>
+                                <th scope="row"><?= $i; $i++ ?></th>
+                                <td><?= $row->imie ?></td>
+                                <td><?= $row->nazwisko ?></td>
+                                <td><?= $row->akronim ?></td>
+                                <td><?= $row->czas ?></td>
+                                <td><?= $row->nazwa ?></td>
                             </tr>
+                            <?php endforeach; ?>
                             <!-- ELEMENT KONIEC -->
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mariusz</td>
-                                <td>Kebab</td>
-                                <td>ZSTIO Limanowa</td>
-                                <td>1:25.123</td>
-                                <td>Czerwony Szybki</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Mariusz</td>
-                                <td>Kebab</td>
-                                <td>ZSTIO Limanowa</td>
-                                <td>1:25.123</td>
-                                <td>Czerwony Szybki</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Mariusz</td>
-                                <td>Kebab</td>
-                                <td>ZSTIO Limanowa</td>
-                                <td>1:25.123</td>
-                                <td>Czerwony Szybki</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Mariusz</td>
-                                <td>Kebab</td>
-                                <td>ZSTIO Limanowa</td>
-                                <td>1:25.123</td>
-                                <td>Czerwony Szybki</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Mariusz</td>
-                                <td>Kebab</td>
-                                <td>ZSTIO Limanowa</td>
-                                <td>1:25.123</td>
-                                <td>Czerwony Szybki</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Mariusz</td>
-                                <td>Kebab</td>
-                                <td>ZSTIO Limanowa</td>
-                                <td>1:25.123</td>
-                                <td>Czerwony Szybki</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Mariusz</td>
-                                <td>Kebab</td>
-                                <td>ZSTIO Limanowa</td>
-                                <td>1:25.123</td>
-                                <td>Czerwony Szybki</td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>

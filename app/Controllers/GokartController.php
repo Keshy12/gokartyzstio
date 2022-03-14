@@ -5,7 +5,7 @@ use App\Models\GokartModel;
 class GokartController extends BaseController
 {
 
-    public function index($table)
+    public function index()
     {
         $db = db_connect();
         $model = new GokartModel($db);
@@ -17,7 +17,9 @@ class GokartController extends BaseController
         $result = array_merge($result, $result_id);
         $result = array_merge($result, $model->nieprzejechany());
 
-        return view('main', $result);
+        $data = ['result' => $result];
+
+        return view('zawody', $data);
 
     }
 

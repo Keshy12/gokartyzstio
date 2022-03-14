@@ -1,15 +1,10 @@
 <?= $this->extend('layouts/main')?>
 <?= $this->section('content')?>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-15">
-                <article>
-                    <header class="mb-4">
-                        <h1 class="fw-bolder mb-1">ZAWODY KARTINGOWE „ŚLADAMI ROBERTA KUBICY”</h1>
-                    </header>
-                    <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="/assets/images/mainPage.jpg" /></figure>
-                    <!-- Post content-->
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col text-center">
+                <h1 class="fw-bolder mb-1">ZAWODY KARTINGOWE „ŚLADAMI ROBERTA KUBICY”</h1>
+                    <figure class="mb-4"><img class="img-fluid rounded w-75" src="/assets/images/mainPage.jpg" /></figure>
                     <section class="mb-5">
                         <h2 class="fw-bolder mb-4 mt-2 "><b>Zespół Szkół Technicznych i Ogólnokształcacych im. Jana Pawła II</b></h2>
                         <p class="fs-5 mb-4">ZSTiO Limanowa słynie z wysokiego poziomy nauczania zawodowego wielu profilu technicznych, jednym z nich jest technik pojazdów samochodowych. W celu promocji tego profilu Nasza szkoła decyduje się na organizację zawodów sportowych o nazwie "Śladami Roberta Kubicy".  </p>
@@ -19,7 +14,6 @@
                         <h4 class="fw-bolder mb-4 mt-5">Spróbuj swoich sił!</h4>
                         <p class="fs-5 mb-4"><b>W celu zapisania się na zawody skontaktuj się z nami.</b></p>
                     </section>
-                </article>
             </div>
         </div>
     </div>

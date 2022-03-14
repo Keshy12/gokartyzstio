@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\GokartModel;
+
 // use App\Models\BlogModel;
 // use App\Models\CustomModel;
 class Gokarts extends BaseController
@@ -68,9 +70,40 @@ class Gokarts extends BaseController
         $data = [
             'meta_title' => 'Tytuł strony',
         ];
+        ///////
+        $db = db_connect();
+        $model = new GokartModel($db);
 
+        $result_id = $model->jedzie();
+        if(!$result_id)
+            return redirect()->to('gokarts');
+
+        $id = $result_id[0]->tmp_przejazd_id;
+
+        $result = $model->przejechany($id);
+        $result = array_merge($result, $result_id);
+        $result = array_merge($result, $model->nieprzejechany());
+
+        $data['result'] = $result;
+        //////
         return view('zawody',$data);
     }
-    
+
+    public function archiwum()
+    {
+        $session = \Config\Services::session();
+        // $db = db_connect();
+        // $model = new CustomModel($db);
+        // echo '<pre>';
+        //  print_r($model->getPosts());
+        // echo '<pre>';
+
+
+        $data = [
+            'meta_title' => 'Tytuł strony',
+        ];
+
+        return view('archiwum',$data);
+    }
     
 }

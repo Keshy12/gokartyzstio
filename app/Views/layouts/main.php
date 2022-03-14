@@ -25,7 +25,7 @@
                     <a class="nav-link" href="/gokarts/zawody">Zawody</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Archiwum</a>
+                    <a class="nav-link" href="/gokarts/archiwum">Archiwum</a>
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
                     <li class="nav-item">

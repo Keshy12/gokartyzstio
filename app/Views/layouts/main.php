@@ -22,7 +22,7 @@
                     <a class="nav-link" href="/gokarts">Strona Główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Zawody</a>
+                    <a class="nav-link" href="/gokarts/zawody">Zawody</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Archiwum</a>

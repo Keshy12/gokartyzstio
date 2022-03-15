@@ -7,6 +7,10 @@ class GokartsMainController extends BaseController
     public function index()
     {
         $session = \Config\Services::session();
+        if(!isset($_SESSION["zalogowany"]))
+        {
+            $_SESSION["zalogowany"] = "";
+        };
         // $db = db_connect();
         // $model = new CustomModel($db);
         // echo '<pre>';

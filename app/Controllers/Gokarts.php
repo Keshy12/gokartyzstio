@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\GokartModel;
+use App\Models\ZawodyModel;
 
 // use App\Models\BlogModel;
 // use App\Models\CustomModel;
@@ -72,7 +72,7 @@ class Gokarts extends BaseController
         ];
         ///////
         $db = db_connect();
-        $model = new GokartModel($db);
+        $model = new ZawodyModel($db);
 
         $result_id = $model->comp_now();
         if(!$result_id)

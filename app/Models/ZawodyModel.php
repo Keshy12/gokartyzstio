@@ -2,7 +2,7 @@
 
 use CodeIgniter\Database\ConnectionInterface;
 
-class GokartModel{
+class ZawodyModel{
 
     protected $db;
 
@@ -31,7 +31,7 @@ class GokartModel{
         $result = $this->db->table('tm_przejazd')
             ->where('status_przejazdu_id', 1);
         if($id > 2) 
-            $result->where('tm_przejazdu_id >=', $id-1);
+            $result->where('tm_przejazd_id >=', $id-1);
         $result = $this->join($result);
         return $result->get(1)->getResult();
     }

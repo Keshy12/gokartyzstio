@@ -9,7 +9,10 @@ class LoginController extends BaseController
     public function login()
     {
         $session = \Config\Services::session();
-
+        if(!isset($_SESSION["zalogowany"]))
+        {
+            $_SESSION["zalogowany"] = "";
+        };
         $db = db_connect();
         $model = new LoginModel($db);
 
@@ -38,7 +41,7 @@ class LoginController extends BaseController
         $data = [
             'meta_title' => 'Wylogowanie',
         ];
-        unset($_SESSION["zalogowany"]);
+        $_SESSION["zalogowany"] = "";
         return view('gokartsMain',$data);
     }
 }

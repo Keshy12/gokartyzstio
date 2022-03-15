@@ -27,7 +27,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/main/arch">Archiwum</a>
                 </li>
-                <?php if(isset($_SESSION["zalogowany"])): ?>
+                <?php if($_SESSION["zalogowany"] == "user1"): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/main/mod">Modyfikacja</a>
                 </li>
@@ -39,7 +39,7 @@
             <span class="navbar-item">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                    <?php if(isset($_SESSION["zalogowany"])): ?>
+                    <?php if($_SESSION["zalogowany"] == "user1"): ?>
                         <a class="nav-link" href="/main/logout">Wyloguj</a>
                     <?php else: ?>
                         <a class="nav-link" href="/main/login">Logowanie</a>

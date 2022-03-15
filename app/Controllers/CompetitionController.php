@@ -11,7 +11,7 @@ class CompetitionController extends BaseController
         $session = \Config\Services::session();
 
         $data = [
-            'meta_title' => 'Competition',
+            'meta_title' => 'Zawody',
         ];
         ///////
         $db = db_connect();
@@ -42,7 +42,7 @@ class CompetitionController extends BaseController
         $data['i']=1;
 
         //////
-        
+
         return view('competition',$data);
     }
 
@@ -51,7 +51,7 @@ class CompetitionController extends BaseController
         $session = \Config\Services::session();
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Wyniki',
         ];
 
         $db = db_connect();
@@ -60,7 +60,7 @@ class CompetitionController extends BaseController
         $result = $model->leaderboard(-1);
         foreach($result as $row)
             $row->czas = $model->formatMilliseconds($row->czas);
-        
+
         $data['resultleaderboard'] = $result;
         $data['i'] = 1;
 

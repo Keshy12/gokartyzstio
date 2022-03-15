@@ -14,7 +14,7 @@ class GokartsMainController extends BaseController
         // echo '<pre>';
 
         $data = [
-            'meta_title' => 'Main',
+            'meta_title' => 'Strona Główna',
         ];
  
         return view('gokartsMain',$data);

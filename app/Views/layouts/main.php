@@ -10,7 +10,7 @@
 </head>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark h5">
-        <a class="navbar-brand" href="/gokarty">
+        <a class="navbar-brand" href="#">
             <img src="/assets/images/gokart.png" width="80" height="50" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,20 +19,20 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarty">Strona Główna</a>
+                    <a class="nav-link" href="/gokarts">Strona Główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarty/zawody">Zawody</a>
+                    <a class="nav-link" href="/gokarts/zawody">Zawody</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarty/archiwum">Archiwum</a>
+                    <a class="nav-link" href="/gokarts/archiwum">Archiwum</a>
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarty/modyfikacja">Modyfikacja</a>
+                    <a class="nav-link" href="#">Modyfikacja</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarty/sedzia">Sędzia</a>
+                    <a class="nav-link" href="/gokarts/arbiter">Sędzia</a>
                 </li>
                 <?php endif ?>
             </ul>
@@ -40,9 +40,9 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                     <?php if(isset($_SESSION["zalogowany"])): ?>
-                        <a class="nav-link" href="/gokarty/wylogowanie">Wyloguj</a>
+                        <a class="nav-link" href="/gokarts/logout">Wyloguj</a>
                     <?php else: ?>
-                        <a class="nav-link" href="/gokarty/logowanie">Logowanie</a>
+                        <a class="nav-link" href="/gokarts/login">Logowanie</a>
                     <?php endif ?>
                     </li>
                 </ul>

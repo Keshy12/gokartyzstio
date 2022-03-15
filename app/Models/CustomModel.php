@@ -18,5 +18,11 @@ class CustomModel{
         $builder->where('login', $nazwa);
         return $builder->get()->getResult();
     }
+    function getLogin(){
+        $builder = $this->db->table('uzytkownik');
+        $builder->select('login');
+        return $builder->get()->getResult();
+    }
+
 
 }

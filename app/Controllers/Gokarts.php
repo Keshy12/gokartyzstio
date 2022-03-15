@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\GokartModel;
+use App\Models\ZawodyModel;
 
 // use App\Models\BlogModel;
 use App\Models\CustomModel;
@@ -79,26 +79,32 @@ class Gokarts extends BaseController
         ];
         ///////
         $db = db_connect();
-        $model = new GokartModel($db);
+        $model = new ZawodyModel($db);
 
-        $result_id = $model->jedzie();
+        $result_id = $model->comp_now();
         if(!$result_id)
             return redirect()->to('gokarts');
 
-        $id = $result_id[0]->tmp_przejazd_id;
+        $id = $result_id[0]->tm_przejazd_id;
 
-        $result = $model->przejechany($id);
+        $result = $model->comp_before($id);
+        foreach($result as $row)
+            $row->czas = $model->formatMilliseconds($row->czas);
         $result = array_merge($result, $result_id);
-        $result = array_merge($result, $model->nieprzejechany());
+        $result = array_merge($result, $model->comp_after());
 
         $data['result'] = $result;
 
         //////
         //////
-        $result1=$model->leaderboard();
-        $data['result1']= $result1;
+        $resultleaderboard=$model->leaderboard();
+        foreach($resultleaderboard as $row)
+            $row->czas = $model->formatMilliseconds($row->czas);
+        $data['resultleaderboard']= $resultleaderboard;
         $data['i']=1;
+
         //////
+        
         return view('zawody',$data);
     }
 

@@ -32,7 +32,7 @@
                     <a class="nav-link" href="#">Modyfikacja</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sędzia</a>
+                    <a class="nav-link" href="/gokarts/arbiter">Sędzia</a>
                 </li>
                 <?php endif ?>
             </ul>

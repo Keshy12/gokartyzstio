@@ -17,38 +17,36 @@ class GokartModel{
 
     }
 
-    function jedzie()
+    function comp_now()
     {
         $result = $this->db->table('tm_przejazd')
-            ->where('status_zawodnika_id', 2);
+            ->where('status_przejazdu_id', 2);
         $result = $this->join($result);
         
         return $result->get()->getResult();
     }
 
-    function przejechany($id)
+    function comp_before($id)
     {
         $result = $this->db->table('tm_przejazd')
-            ->where('status_zawodnika_id', 1);
+            ->where('status_przejazdu_id', 1);
         if($id > 2) 
-            $result->where('tm_przejazd_id >=', $id-1);
+            $result->where('tm_przejazdu_id >=', $id-1);
         $result = $this->join($result);
-        $result->join('czas', 'przejazd_id');
         return $result->get(1)->getResult();
     }
 
-    function nieprzejechany()
+    function comp_after()
     {
         $result = $this->db->table('tm_przejazd')
-            ->where('status_zawodnika_id', 3);
+            ->where('status_przejazdu_id', 3);
         $result = $this->join($result);
         return $result->get(3)->getResult();
     }  
 
     function join($result)
     {
-        $result->join('przejazd', 'przejazd_id')
-            ->join('zawodnik', 'zawodnik_id')
+        $result->join('tm_zawodnik', 'tm_zawodnik_id')
             ->join('szkola', 'szkola_id');
         return $result;
     }
@@ -61,7 +59,7 @@ class GokartModel{
         ->join('status_przejazdu','status_przejazdu_id')
         ->join('gokart','gokart_id')
         ->orderBy('czas', 'ASC')
-        ->where('status_zawodnika_id',1)
+        ->where('status_przejazdu_id',1)
         ->get(8)
         ->getResult();
         return $resultleaderboard;

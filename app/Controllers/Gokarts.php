@@ -80,15 +80,15 @@ class Gokarts extends BaseController
         $db = db_connect();
         $model = new GokartModel($db);
 
-        $result_id = $model->jedzie();
+        $result_id = $model->comp_now();
         if(!$result_id)
             return redirect()->to('gokarts');
 
-        $id = $result_id[0]->tmp_przejazd_id;
+        $id = $result_id[0]->tm_przejazd_id;
 
-        $result = $model->przejechany($id);
+        $result = $model->comp_before($id);
         $result = array_merge($result, $result_id);
-        $result = array_merge($result, $model->nieprzejechany());
+        $result = array_merge($result, $model->comp_after());
 
         $data['result'] = $result;
 

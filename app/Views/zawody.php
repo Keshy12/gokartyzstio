@@ -6,7 +6,7 @@
                 <h2>Aktualne Przejazdy</h2>
                 <?php foreach($result as $row) : ?>
                     <?php 
-                        switch($row->status_zawodnika_id)
+                        switch($row->status_przejazdu_id)
                         {
                             case 1:
                                 ?>

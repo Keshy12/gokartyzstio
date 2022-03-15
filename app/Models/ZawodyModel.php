@@ -12,7 +12,7 @@ class ZawodyModel{
 
     function all(){
         
-        $result = $this->db->table('tmp_przejazd');
+        $result = $this->db->table('tm_przejazd');
         return $result->get()->getResult();
 
     }

@@ -53,7 +53,7 @@
                             </thead>
                             <tbody class="font-weight-bold">
                             <!-- ELEMENT -->
-                            <?php foreach($result1 as $row) : ?>
+                            <?php foreach($resultleaderboard as $row) : ?>
                             <tr>
                                 <th scope="row"><?= $i; $i++ ?></th>
                                 <td><?= $row->imie ?></td>

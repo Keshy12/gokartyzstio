@@ -41,7 +41,7 @@ class LoginController extends BaseController
         $data = [
             'meta_title' => 'Wylogowanie',
         ];
-        unset($_SESSION["zalogowany"]);
+        $_SESSION["zalogowany"] = "";
         return view('gokartsMain',$data);
     }
 }

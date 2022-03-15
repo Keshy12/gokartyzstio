@@ -11,7 +11,7 @@ class ArchiveController extends BaseController
         $session = \Config\Services::session();
 
         $data = [
-            'meta_title' => 'Archive',
+            'meta_title' => 'Archiwum',
         ];
 
         $db = db_connect();

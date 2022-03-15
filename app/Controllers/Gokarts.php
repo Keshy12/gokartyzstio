@@ -39,7 +39,8 @@ class Gokarts extends BaseController
         ];
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
             $pass = $model->getPass($_POST['userName']);
-            if(hash('sha256',$_POST['userPassword']) == $pass[0]->haslo) {
+            $login = $model->getLogin();
+            if($_POST["userName"] == $login[0]->login && hash('sha256',$_POST['userPassword']) == $pass[0]->haslo) {
                 $_SESSION["zalogowany"] = "user1";
                 return view('gokarts',$data);
             } 

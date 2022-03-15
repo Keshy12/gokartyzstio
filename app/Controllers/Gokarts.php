@@ -135,5 +135,22 @@ class Gokarts extends BaseController
 
         return view('arbiter',$data);
     }
+
+    public function modification()
+    {
+        $session = \Config\Services::session();
+        // $db = db_connect();
+        // $model = new CustomModel($db);
+        // echo '<pre>';
+        //  print_r($model->getPosts());
+        // echo '<pre>';
+
+
+        $data = [
+            'meta_title' => 'Tytuł strony',
+        ];
+
+        return view('modification',$data);
+    }
     
 }

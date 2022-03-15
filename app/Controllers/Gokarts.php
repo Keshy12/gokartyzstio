@@ -95,9 +95,15 @@ class Gokarts extends BaseController
         //////
         //////
         $resultleaderboard=$model->leaderboard();
+        foreach($resultleaderboard as $row)
+        {
+            $row->czas = $model->formatMilliseconds($row->czas);
+        }
         $data['resultleaderboard']= $resultleaderboard;
         $data['i']=1;
+
         //////
+        
         return view('zawody',$data);
     }
 

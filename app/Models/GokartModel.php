@@ -31,7 +31,7 @@ class GokartModel{
         $result = $this->db->table('tm_przejazd')
             ->where('status_przejazdu_id', 1);
         if($id > 2) 
-            $result->where('tm_przejazdu_id >=', $id-1);
+            $result->where('tm_przejazd_id >=', $id-1);
         $result = $this->join($result);
         return $result->get(1)->getResult();
     }
@@ -63,6 +63,18 @@ class GokartModel{
         ->get(8)
         ->getResult();
         return $resultleaderboard;
+    }
+
+    public function formatMilliseconds($milliseconds) {
+        $seconds = floor($milliseconds / 1000);
+        $minutes = floor($seconds / 60);
+        $milliseconds = $milliseconds % 1000;
+        $seconds = $seconds % 60;
+        $minutes = $minutes % 60;
+    
+        $format = '%02u:%02u.%03u';
+        $time = sprintf($format, $minutes, $seconds, $milliseconds);
+        return $time;
     }
 
 }

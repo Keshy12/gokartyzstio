@@ -15,7 +15,7 @@ class LoginController extends BaseController
 
         
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Login',
         ];
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
             $pass = $model->getPass($_POST['userName']);
@@ -36,7 +36,7 @@ class LoginController extends BaseController
         $session = \Config\Services::session();
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Logout',
         ];
         unset($_SESSION["zalogowany"]);
         return view('gokartsMain',$data);

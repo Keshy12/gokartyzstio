@@ -33,6 +33,15 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->add('main', 'GokartsMainController');
+$routes->add('main/login', 'LoginController::login');
+$routes->add('main/logout', 'LoginController::logout');
+$routes->add('main/comp', 'CompetitionController');
+$routes->add('main/arch', 'ArchiveController');
+$routes->add('main/mod', 'ModificationController');
+$routes->add('main/judge', 'ArbiterController');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

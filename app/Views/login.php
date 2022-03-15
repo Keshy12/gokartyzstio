@@ -7,7 +7,7 @@
                 <div class="card-header">
                     LOGOWANIE
                 </div>
-                <form action="../LoginController/login" method="POST">
+                <form action="../main/login" method="POST">
                 <div class="card-body">
                     <input type="text" id="userName" name="userName" class="form-control input-sm chat-input" placeholder="Nazwa Użytkownika" required/>
                     </br>

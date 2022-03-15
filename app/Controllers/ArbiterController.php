@@ -9,7 +9,7 @@ class ArbiterController extends BaseController
         $session = \Config\Services::session();
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Judge',
         ];
 
         return view('arbiter',$data);

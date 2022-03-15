@@ -18,8 +18,6 @@ class ArchiveController extends BaseController
         $model = new ArchiveModel($db);
         $result= $model->showAllCompetitions();
         $data['result']=$result;
-        $data['i']=1;
-        $data['j']=1;
 
         return view('archive',$data);
     }

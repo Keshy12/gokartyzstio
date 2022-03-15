@@ -9,7 +9,6 @@
             <!-- ELEMENT NAJNOWSZY -->
 
             <?php foreach($result as $row) :?>
-                <?php if($i%2==1):?>
                     <?php if($row->status_zawodow_id==2): echo('<div class="card border-success bg-success mb-3 vw-50 p-2 m-3 ml-5 " style="width:45%">')?>
                     <?php else: echo('<div class="card mb-3 vw-50 p-2 m-3 ml-5 " style="width:45%">')?>
                     <?php  endif; ?>
@@ -19,8 +18,6 @@
                             <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
                         </div>
                     </div>
-                <?php  else: $i++; ?>
-                <?php  endif; ?>
             <?php endforeach; ?>
        
         

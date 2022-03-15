@@ -113,7 +113,7 @@ class Gokarts extends BaseController
         return view('archiwum',$data);
     }
 
-    public function modyfikacja()
+    public function arbiter()
     {
         $session = \Config\Services::session();
         // $db = db_connect();
@@ -127,7 +127,7 @@ class Gokarts extends BaseController
             'meta_title' => 'Tytuł strony',
         ];
 
-        return view('modyfikacja',$data);
+        return view('arbiter',$data);
     }
     
 }

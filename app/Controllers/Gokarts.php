@@ -6,6 +6,7 @@ use App\Models\GokartModel;
 
 // use App\Models\BlogModel;
 use App\Models\CustomModel;
+
 class Gokarts extends BaseController
 {
     public function index()
@@ -29,6 +30,10 @@ class Gokarts extends BaseController
     {
         $session = \Config\Services::session();
 
+        $db = db_connect();
+        $model = new CustomModel($db);
+
+        
         $data = [
             'meta_title' => 'Tytuł strony',
         ];

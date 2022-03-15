@@ -11,7 +11,7 @@ class CompetitionController extends BaseController
         $session = \Config\Services::session();
 
         $data = [
-            'meta_title' => 'Competition',
+            'meta_title' => 'Zawody',
         ];
         ///////
         $db = db_connect();
@@ -51,7 +51,7 @@ class CompetitionController extends BaseController
         $session = \Config\Services::session();
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Wyniki',
         ];
 
         $db = db_connect();

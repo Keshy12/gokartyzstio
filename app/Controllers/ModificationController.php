@@ -9,7 +9,7 @@ class ModificationController extends BaseController
         $session = \Config\Services::session();
 
         $data = [
-            'meta_title' => 'Modification',
+            'meta_title' => 'Modyfikacja',
         ];
 
         return view('modification',$data);

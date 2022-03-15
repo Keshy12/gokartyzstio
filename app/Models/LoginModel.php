@@ -4,7 +4,7 @@
 use CodeIgniter\Database\ConnectionInterface;
 
 
-class CustomModel{
+class LoginModel{
 
     protected $db;
 

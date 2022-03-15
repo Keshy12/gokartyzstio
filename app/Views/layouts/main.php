@@ -19,20 +19,20 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarts">Strona Główna</a>
+                    <a class="nav-link" href="/GokartsMainController">Strona Główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarts/zawody">Zawody</a>
+                    <a class="nav-link" href="/CompetitionController">Zawody</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarts/archiwum">Archiwum</a>
+                    <a class="nav-link" href="/ArchiveController">Archiwum</a>
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarts/modification">Modyfikacja</a>
+                    <a class="nav-link" href="/ModificationController">Modyfikacja</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gokarts/arbiter">Sędzia</a>
+                    <a class="nav-link" href="/ArbiterController">Sędzia</a>
                 </li>
                 <?php endif ?>
             </ul>
@@ -40,9 +40,9 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                     <?php if(isset($_SESSION["zalogowany"])): ?>
-                        <a class="nav-link" href="/gokarts/logout">Wyloguj</a>
+                        <a class="nav-link" href="/LoginController/logout">Wyloguj</a>
                     <?php else: ?>
-                        <a class="nav-link" href="/gokarts/login">Logowanie</a>
+                        <a class="nav-link" href="/LoginController/login">Logowanie</a>
                     <?php endif ?>
                     </li>
                 </ul>

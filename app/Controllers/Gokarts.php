@@ -20,7 +20,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Strona Główna',
         ];
  
         return view('gokarts',$data);
@@ -35,7 +35,7 @@ class Gokarts extends BaseController
 
         
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Logowanie',
         ];
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
             $pass = $model->getPass($_POST['userName']);
@@ -58,7 +58,7 @@ class Gokarts extends BaseController
         
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Wylogowanie',
         ];
         unset($_SESSION["zalogowany"]);
         return view('gokarts',$data);
@@ -75,7 +75,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Zawody',
         ];
         ///////
         $db = db_connect();
@@ -119,7 +119,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Archiwum',
         ];
 
         return view('archiwum',$data);
@@ -136,7 +136,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Strona Sędziowska',
         ];
 
         return view('arbiter',$data);
@@ -153,7 +153,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Tytuł strony',
+            'meta_title' => 'Modyfikacja',
         ];
 
         return view('modification',$data);

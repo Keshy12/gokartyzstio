@@ -29,10 +29,10 @@
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Modyfikacja</a>
+                    <a class="nav-link" href="/gokarts/modification">Modyfikacja</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sędzia</a>
+                    <a class="nav-link" href="/gokarts/arbiter">Sędzia</a>
                 </li>
                 <?php endif ?>
             </ul>
@@ -53,7 +53,7 @@
 <body>
     <?= $this->renderSection('content')?>
 </body>
-<footer>
+<footer class="static-bottom">
   <div class="text-center p-3 bg-dark">
       <a class="text-white">© 2022 Copyright:</a>
       <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>

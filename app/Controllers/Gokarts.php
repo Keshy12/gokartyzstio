@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\GokartModel;
+use App\Models\ZawodyModel;
 
 // use App\Models\BlogModel;
 use App\Models\CustomModel;
@@ -39,7 +39,8 @@ class Gokarts extends BaseController
         ];
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
             $pass = $model->getPass($_POST['userName']);
-            if(hash('sha256',$_POST['userPassword']) == $pass[0]->haslo) {
+            $login = $model->getLogin();
+            if($_POST["userName"] == $login[0]->login && hash('sha256',$_POST['userPassword']) == $pass[0]->haslo) {
                 $_SESSION["zalogowany"] = "user1";
                 return view('gokarts',$data);
             } 
@@ -78,7 +79,7 @@ class Gokarts extends BaseController
         ];
         ///////
         $db = db_connect();
-        $model = new GokartModel($db);
+        $model = new ZawodyModel($db);
 
         $result_id = $model->comp_now();
         if(!$result_id)
@@ -87,6 +88,8 @@ class Gokarts extends BaseController
         $id = $result_id[0]->tm_przejazd_id;
 
         $result = $model->comp_before($id);
+        foreach($result as $row)
+            $row->czas = $model->formatMilliseconds($row->czas);
         $result = array_merge($result, $result_id);
         $result = array_merge($result, $model->comp_after());
 
@@ -96,9 +99,7 @@ class Gokarts extends BaseController
         //////
         $resultleaderboard=$model->leaderboard();
         foreach($resultleaderboard as $row)
-        {
             $row->czas = $model->formatMilliseconds($row->czas);
-        }
         $data['resultleaderboard']= $resultleaderboard;
         $data['i']=1;
 
@@ -122,6 +123,40 @@ class Gokarts extends BaseController
         ];
 
         return view('archiwum',$data);
+    }
+
+    public function arbiter()
+    {
+        $session = \Config\Services::session();
+        // $db = db_connect();
+        // $model = new CustomModel($db);
+        // echo '<pre>';
+        //  print_r($model->getPosts());
+        // echo '<pre>';
+
+
+        $data = [
+            'meta_title' => 'Tytuł strony',
+        ];
+
+        return view('arbiter',$data);
+    }
+
+    public function modification()
+    {
+        $session = \Config\Services::session();
+        // $db = db_connect();
+        // $model = new CustomModel($db);
+        // echo '<pre>';
+        //  print_r($model->getPosts());
+        // echo '<pre>';
+
+
+        $data = [
+            'meta_title' => 'Tytuł strony',
+        ];
+
+        return view('modification',$data);
     }
     
 }

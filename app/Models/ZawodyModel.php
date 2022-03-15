@@ -2,7 +2,7 @@
 
 use CodeIgniter\Database\ConnectionInterface;
 
-class GokartModel{
+class ZawodyModel{
 
     protected $db;
 

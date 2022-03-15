@@ -39,8 +39,8 @@
             <div class="modal-content p-3 border-danger">
                 <h4>Potwierdzenie</h4>
                 <h5>Czy napewno chcesz wykonać tę operacje?</h5>
-                <button type="button" class="btn btn-outline-danger mb-1">Tak</button>
-                <button type="button" class="btn btn-outline-success">Nie</button>
+                <button type="button" class="btn btn-outline-danger mb-1" >Tak</button>
+                <button type="button" class="btn btn-outline-success" data-dismiss="modal">Nie</button>
             </div>
         </div>
     </div>

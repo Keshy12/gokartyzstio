@@ -20,7 +20,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Strona Główna',
+            'meta_title' => 'Tytuł strony',
         ];
  
         return view('gokarts',$data);
@@ -35,7 +35,7 @@ class Gokarts extends BaseController
 
         
         $data = [
-            'meta_title' => 'Logowanie',
+            'meta_title' => 'Tytuł strony',
         ];
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
             $pass = $model->getPass($_POST['userName']);
@@ -58,7 +58,7 @@ class Gokarts extends BaseController
         
 
         $data = [
-            'meta_title' => 'Wylogowanie',
+            'meta_title' => 'Tytuł strony',
         ];
         unset($_SESSION["zalogowany"]);
         return view('gokarts',$data);
@@ -75,7 +75,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Zawody',
+            'meta_title' => 'Tytuł strony',
         ];
         ///////
         $db = db_connect();
@@ -88,6 +88,8 @@ class Gokarts extends BaseController
         $id = $result_id[0]->tm_przejazd_id;
 
         $result = $model->comp_before($id);
+        foreach($result as $row)
+            $row->czas = $model->formatMilliseconds($row->czas);
         $result = array_merge($result, $result_id);
         $result = array_merge($result, $model->comp_after());
 
@@ -97,9 +99,7 @@ class Gokarts extends BaseController
         //////
         $resultleaderboard=$model->leaderboard();
         foreach($resultleaderboard as $row)
-        {
             $row->czas = $model->formatMilliseconds($row->czas);
-        }
         $data['resultleaderboard']= $resultleaderboard;
         $data['i']=1;
 
@@ -119,7 +119,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Archiwum',
+            'meta_title' => 'Tytuł strony',
         ];
 
         return view('archiwum',$data);
@@ -136,7 +136,7 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Strona Sędziowska',
+            'meta_title' => 'Tytuł strony',
         ];
 
         return view('arbiter',$data);
@@ -153,13 +153,13 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'Modyfikacja',
+            'meta_title' => 'Tytuł strony',
         ];
 
         return view('modification',$data);
     }
 
-    public function ee()
+    public function scoreboard()
     {
         $session = \Config\Services::session();
         // $db = db_connect();
@@ -170,10 +170,11 @@ class Gokarts extends BaseController
 
 
         $data = [
-            'meta_title' => 'EasterEgg',
+            'meta_title' => 'Tytuł strony',
         ];
 
-        return view('ee',$data);
+        return view('scoreboard',$data);
     }
+
     
 }

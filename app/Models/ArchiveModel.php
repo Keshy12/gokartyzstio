@@ -10,12 +10,23 @@ class ArchiveModel{
         $this->db =& $db;
     }
 
-
     function showAllCompetitions(){        
         $result = $this->db->table('zawody')       
         ->join('status_zawodow','status_zawodow_id')
-        ->orderBy('data_zakonczenia', 'DESC');
+        ->where('status_zawodow_id !=', 1)
+        ->orderBy('status_zawodow_id', 'ASC')
+        ->orderBy('data_rozpoczecia', 'DESC');
         return $result->get()->getResult();
+    }
+
+    function showSelectedCompetition($id){
+        $result = $this->db->table('zawody')
+        ->join('archiwum', 'zawody_id')
+        ->join('szkola', 'szkola_id')
+        ->join('gokart', 'gokart_id')
+        ->where('zawody_id', $id)
+        ->get()->getResult();
+        return $result;
     }
 
 }

@@ -21,4 +21,15 @@ class ArchiveController extends BaseController
 
         return view('archive',$data);
     }
+
+    function archiveTable($id)
+    {
+        $db = db_connect();
+        $model = new ArchiveModel($db);
+        $result = $model->showSelectedCompetition($id);
+        
+        $data['resultleaderboard'] = $result;
+        $data['i'] = 1;
+        return view('scoreboard', $data);
+    }
 }

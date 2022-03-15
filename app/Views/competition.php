@@ -37,7 +37,7 @@
                 <?php endforeach; ?>
             </div>
             <div class="col">
-                <h2>Tablica Wyników <button type="button" class="btn btn-outline-dark float-right" data-mdb-ripple-color="dark"><a href="/main/score">Wszystkie Wyniki</a></button></h2>
+                <h2>Tablica Wyników <a href="/main/score"><button type="button" class="btn btn-outline-dark float-right" data-mdb-ripple-color="dark">Wszystkie Wyniki</button></a></h2>
                 <div class="row">
                     <div class="col-lg-12">
                         <table class="table border text-center">

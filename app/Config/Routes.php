@@ -38,6 +38,7 @@ $routes->add('main/login', 'LoginController::login');
 $routes->add('main/logout', 'LoginController::logout');
 $routes->add('main/comp', 'CompetitionController');
 $routes->add('main/arch', 'ArchiveController');
+$routes->add('main/arch/archiveTable/(:any)', 'ArchiveController::archiveTable/$1');
 $routes->add('main/mod', 'ModificationController');
 $routes->add('main/judge', 'ArbiterController');
 $routes->add('main/score', 'CompetitionController::scoreboard');

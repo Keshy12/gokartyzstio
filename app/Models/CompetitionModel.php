@@ -2,7 +2,7 @@
 
 use CodeIgniter\Database\ConnectionInterface;
 
-class ZawodyModel{
+class CompetitionModel{
 
     protected $db;
 
@@ -17,7 +17,7 @@ class ZawodyModel{
 
     }
 
-    function comp_now()
+    function comp_now()  // jedzie()
     {
         $result = $this->db->table('tm_przejazd')
             ->where('status_przejazdu_id', 2);
@@ -26,7 +26,7 @@ class ZawodyModel{
         return $result->get()->getResult();
     }
 
-    function comp_before($id)
+    function comp_before($id)   // przejechany()
     {
         $result = $this->db->table('tm_przejazd')
             ->where('status_przejazdu_id', 1);
@@ -36,7 +36,7 @@ class ZawodyModel{
         return $result->get(1)->getResult();
     }
 
-    function comp_after()
+    function comp_after()        // pojedzie()
     {
         $result = $this->db->table('tm_przejazd')
             ->where('status_przejazdu_id', 3);

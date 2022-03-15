@@ -12,6 +12,14 @@ class ArbiterController extends BaseController
             'meta_title' => 'Strona Sędziowska',
         ];
 
-        return view('arbiter',$data);
+        if($_SESSION["zalogowany"] == "user1")
+        {
+            return view('arbiter',$data);
+        }
+        else
+        {
+            return view('gokartsMain',$data);
+        }
+        
     }
 }

@@ -38,6 +38,7 @@
             </div>
             <div class="col">
                 <h2>Tablica Wyników</h2>
+                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Wszystkie Wyniki</button>
                 <div class="row">
                     <div class="col-lg-12">
                         <table class="table border text-center">

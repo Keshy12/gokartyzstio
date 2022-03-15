@@ -65,20 +65,6 @@ class CompetitionModel{
         }
     }
 
-    function leaderboardfull()
-    {
-        $resultleaderboardfull=$this->db->table('tm_zawodnik')
-        ->join('tm_przejazd', 'tm_zawodnik_id')
-        ->join('szkola', 'szkola_id')
-        ->join('status_przejazdu','status_przejazdu_id')
-        ->join('gokart','gokart_id')
-        ->orderBy('czas', 'ASC')
-        ->where('status_przejazdu_id',1)
-        ->get()
-        ->getResult();
-        return $resultleaderboardfull;
-    }
-
     function schoolAVG()
     {
         $resultschoolAVG=$this->db->table('tm_przejazd')

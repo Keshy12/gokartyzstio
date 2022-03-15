@@ -65,6 +65,23 @@ class CompetitionModel{
         }
     }
 
+    function schoolAVG()
+    {
+        $resultschoolAVG=$this->db->table('tm_przejazd')
+        ->select('szkola.nazwa', ' round(AVG(czas) as time')
+        ->join('tm_zawodnik', 'tm_zawodnik_id')
+        ->join('szkola', 'szkola_id')
+        ->groupBy('nazwa')
+        ->orderBy('time','ASC')
+        ->get()
+        ->getResult();
+        return $resultschoolAVG;
+
+        // $resultleaderboard=$this->db->query("SELECT szkola.nazwa, round(AVG(czas)) as time FROM `tm_przejazd` JOIN tm_zawodnik USING (tm_zawodnik_id) join szkola using (szkola_id) GROUP BY szkola.nazwa ORDER by time ASC ")
+        // ->getResult();
+        // return $resultleaderboard;
+    }
+
     public function formatMilliseconds($milliseconds) {
         $seconds = floor($milliseconds / 1000);
         $minutes = floor($seconds / 60);

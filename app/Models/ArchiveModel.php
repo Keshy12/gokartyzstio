@@ -4,8 +4,17 @@ use CodeIgniter\Database\ConnectionInterface;
 
 class ArchiveModel{
 
-    function all(){        
-        $result = $this->db->table('tm_przejazd');
+    protected $db;
+
+    public function __construct(ConnectionInterface $db){
+        $this->db =& $db;
+    }
+
+
+    function showAllCompetitions(){        
+        $result = $this->db->table('zawody')       
+        ->join('status_zawodow','status_zawodow_id')
+        ->orderBy('data_zakonczenia', 'DESC');
         return $result->get()->getResult();
     }
 

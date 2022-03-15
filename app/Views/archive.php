@@ -5,58 +5,22 @@
     <h2 class="mt-3">Historia Zawodów</h2>
     <div class="row mt-3">
         <!-- PIERWSZY RZĄD -->
-        <div class="col">
+        
             <!-- ELEMENT NAJNOWSZY -->
-            <div class="card border-success bg-success mb-3 vw-50">
-                <div class="card-body">
-                    <h4 class="card-title">Zawody Klasy 3-4</h4>
-                    <p >Data: 18.06.2022 / 18.07.2022 </p>
-                    <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
-                </div>
-            </div>
-            <!-- ELEMENT ZWYKLY -->
-            <div class="card border mb-3 vw-50">
-                <div class="card-body">
-                    <h4 class="card-title">Zawody Klasy 3-4</h4>
-                    <p >Data: 18.06.2022 / 18.07.2022 </p>
-                    <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
-                </div>
-            </div>
 
-            <div class="card border mb-3 vw-50">
-                <div class="card-body">
-                    <h4 class="card-title">Zawody Klasy 3-4</h4>
-                    <p >Data: 18.06.2022 / 18.07.2022 </p>
-                    <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
-                </div>
-            </div>
-        </div>
-        <!-- DRUGI RZĄD -->
-        <div class="col">
-            <div class="card border mb-3 vw-50">
-                <div class="card-body">
-                    <h4 class="card-title">Zawody Klasy 1-2</h4>
-                    <p >Data: 18.06.2022 / 18.07.2022 </p>
-                    <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
-                </div>
-            </div>
-
-            <div class="card border mb-3 vw-50">
-                <div class="card-body">
-                    <h4 class="card-title">Zawody Klasy 1-2</h4>
-                    <p >Data: 18.06.2022 / 18.07.2022 </p>
-                    <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
-                </div>
-            </div>
-
-            <div class="card border mb-3 vw-50">
-                <div class="card-body">
-                    <h4 class="card-title">Zawody Klasy 1-2</h4>
-                    <p >Data: 18.06.2022 / 18.07.2022 </p>
-                    <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
-                </div>
-            </div>
-        </div>
+            <?php foreach($result as $row) :?>
+                    <?php if($row->status_zawodow_id==2): echo('<div class="card border-success bg-success mb-3 vw-50 p-2 m-3 ml-5 " style="width:45%">')?>
+                    <?php else: echo('<div class="card mb-3 vw-50 p-2 m-3 ml-5 " style="width:45%">')?>
+                    <?php  endif; ?>
+                        <div class="card-body">
+                            <h4 class="card-title"><?= $row->nazwa ?></h4>
+                            <p >Data: <?= $row->data_rozpoczecia ?> / <?= $row->nazwa ?> </p>
+                            <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
+                        </div>
+                    </div>
+            <?php endforeach; ?>
+       
+        
     </div>
 </div>
 <?= $this->endSection() ?>

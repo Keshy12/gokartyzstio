@@ -10,13 +10,6 @@ class CompetitionModel{
         $this->db =& $db;
     }
 
-    function all(){
-        
-        $result = $this->db->table('tm_przejazd');
-        return $result->get()->getResult();
-
-    }
-
     function comp_now()  // jedzie()
     {
         $result = $this->db->table('tm_przejazd')
@@ -47,11 +40,12 @@ class CompetitionModel{
     function join($result)
     {
         $result->join('tm_zawodnik', 'tm_zawodnik_id')
-            ->join('szkola', 'szkola_id');
+            ->join('szkola', 'szkola_id')
+            ->join('gokart', 'gokart_id');
         return $result;
     }
 
-    function leaderboard()
+    function leaderboard($limit)
     {
         $resultleaderboard=$this->db->table('tm_zawodnik')
         ->join('tm_przejazd', 'tm_zawodnik_id')
@@ -59,10 +53,16 @@ class CompetitionModel{
         ->join('status_przejazdu','status_przejazdu_id')
         ->join('gokart','gokart_id')
         ->orderBy('czas', 'ASC')
-        ->where('status_przejazdu_id',1)
-        ->get(8)
-        ->getResult();
-        return $resultleaderboard;
+        ->where('status_przejazdu_id',1);
+        switch($limit)
+        {
+            case -1:
+                return $resultleaderboard->get()->getResult();
+                break;
+            default :
+                return $resultleaderboard->get($limit)->getResult();
+                break;
+        }
     }
 
     public function formatMilliseconds($milliseconds) {

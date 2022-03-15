@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 // use App\Models\BlogModel;
 use App\Models\CustomModel;
+
 class Gokarts extends BaseController
 {
     public function index()
@@ -27,6 +28,10 @@ class Gokarts extends BaseController
     {
         $session = \Config\Services::session();
 
+        $db = db_connect();
+        $model = new CustomModel($db);
+
+        
         $data = [
             'meta_title' => 'Tytuł strony',
         ];
@@ -54,23 +59,6 @@ class Gokarts extends BaseController
         ];
         unset($_SESSION["zalogowany"]);
         return view('gokarts',$data);
-    }
-
-    public function zawody()
-    {
-        $session = \Config\Services::session();
-        // $db = db_connect();
-        // $model = new CustomModel($db);
-        // echo '<pre>';
-        //  print_r($model->getPosts());
-        // echo '<pre>';
-
-
-        $data = [
-            'meta_title' => 'Tytuł strony',
-        ];
-
-        return view('zawody',$data);
     }
     
     

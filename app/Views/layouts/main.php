@@ -29,7 +29,7 @@
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Modyfikacja</a>
+                        <a class="nav-link" href="/gokarts/modyfikacja">Modyfikacja</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Sędzia</a>

@@ -10,7 +10,7 @@
 </head>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark h5">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/main">
             <img src="/assets/images/gokart.png" width="80" height="50" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,20 +19,20 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/GokartsMainController">Strona Główna</a>
+                    <a class="nav-link" href="/main">Strona Główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/CompetitionController">Zawody</a>
+                    <a class="nav-link" href="/main/comp">Zawody</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ArchiveController">Archiwum</a>
+                    <a class="nav-link" href="/main/arch">Archiwum</a>
                 </li>
                 <?php if(isset($_SESSION["zalogowany"])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ModificationController">Modyfikacja</a>
+                    <a class="nav-link" href="/main/mod">Modyfikacja</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ArbiterController">Sędzia</a>
+                    <a class="nav-link" href="/main/judge">Sędzia</a>
                 </li>
                 <?php endif ?>
             </ul>
@@ -40,9 +40,9 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                     <?php if(isset($_SESSION["zalogowany"])): ?>
-                        <a class="nav-link" href="/LoginController/logout">Wyloguj</a>
+                        <a class="nav-link" href="/main/logout">Wyloguj</a>
                     <?php else: ?>
-                        <a class="nav-link" href="/LoginController/login">Logowanie</a>
+                        <a class="nav-link" href="/main/login">Logowanie</a>
                     <?php endif ?>
                     </li>
                 </ul>

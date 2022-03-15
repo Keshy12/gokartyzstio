@@ -158,5 +158,22 @@ class Gokarts extends BaseController
 
         return view('modification',$data);
     }
+
+    public function ee()
+    {
+        $session = \Config\Services::session();
+        // $db = db_connect();
+        // $model = new CustomModel($db);
+        // echo '<pre>';
+        //  print_r($model->getPosts());
+        // echo '<pre>';
+
+
+        $data = [
+            'meta_title' => 'EasterEgg',
+        ];
+
+        return view('ee',$data);
+    }
     
 }

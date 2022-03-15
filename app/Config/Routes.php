@@ -36,9 +36,9 @@ $routes->get('/', 'Home::index');
 $routes->add('gokarty', 'gokarts');
 $routes->add('gokarty/logowanie', 'gokarts::login');
 $routes->add('gokarty/wylogowanie', 'gokarts::logout');
-$routes->add('gokarty/zawody', 'gokarts::zawody');
-$routes->add('gokarty/archiwum', 'gokarts::archiwum');
-$routes->add('gokarty/modyfikacja', 'gokarts::modyfikacja');
+$routes->add('gokarty/zawody', 'gokarts::competition');
+$routes->add('gokarty/archiwum', 'gokarts::archive');
+$routes->add('gokarty/modyfikacja', 'gokarts::modification');
 $routes->add('gokarty/sedzia', 'gokarts::arbiter');
 
 

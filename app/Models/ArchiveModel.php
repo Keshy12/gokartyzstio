@@ -2,7 +2,7 @@
 
 use CodeIgniter\Database\ConnectionInterface;
 
-class ArchiwomModel{
+class ArchiveModel{
 
     function all(){        
         $result = $this->db->table('tm_przejazd');

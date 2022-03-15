@@ -6,7 +6,7 @@
                 <h2>Aktualne Przejazdy</h2>
                 <?php foreach($result as $row) : ?>
                     <?php 
-                        switch($row->status_zawodnika_id)
+                        switch($row->status_przejazdu_id)
                         {
                             case 1:
                                 ?>
@@ -53,7 +53,7 @@
                             </thead>
                             <tbody class="font-weight-bold">
                             <!-- ELEMENT -->
-                            <?php foreach($result1 as $row) : ?>
+                            <?php foreach($resultleaderboard as $row) : ?>
                             <tr>
                                 <th scope="row"><?= $i; $i++ ?></th>
                                 <td><?= $row->imie ?></td>

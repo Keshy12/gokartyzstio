@@ -59,20 +59,32 @@ class BaseController extends Controller
         $model = new ArbiterModel($db);
         $status = $model->getStatus();
         $_COOKIE["status"] = "";
+        $zaplanowane = false;
+        $w_trakcie = false;
         foreach($status as $stat)
         {
             if($stat->status_zawodow_id == 1)
             {
-                $_COOKIE["status"] = "zaplanowane";
+                $zaplanowane = true;
             }
             if($stat->status_zawodow_id == 2)
             {
-                $_COOKIE["status"] = "w_trakcie";
-            }
-            if($stat->status_zawodow_id == 1 && $stat->status_zawodow_id == 2)
-            {
-                $_COOKIE["status"] = "oba";
+                $w_trakcie = true;
             }
         }
+        if($zaplanowane && $w_trakcie)
+        {
+            $_COOKIE["status"] = "oba"; 
+        }
+        elseif($zaplanowane)
+        {
+            $_COOKIE["status"] = "zaplanowane"; 
+        }
+        elseif($w_trakcie)
+        {
+            $_COOKIE["status"] = "w_trakcie"; 
+        }
+        
+        
     }
 }

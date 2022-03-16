@@ -27,23 +27,27 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/main/arch">Archiwum</a>
                 </li>
-                <?php if(isset($_SESSION["zalogowany"])): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="/main/mod">Modyfikacja</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/main/judge">Sędzia</a>
-                </li>
-                <?php endif ?>
+                <?php if(isset($_SESSION['zalogowany'])) :?>
+                    <?php if($_SESSION["zalogowany"] == "user1"): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/main/mod">Modyfikacja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/main/judge">Sędzia</a>
+                    </li>
+                    <?php endif; ?>
+                <?php endif; ?>
             </ul>
             <span class="navbar-item">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                    <?php if(isset($_SESSION["zalogowany"])): ?>
-                        <a class="nav-link" href="/main/logout">Wyloguj</a>
-                    <?php else: ?>
-                        <a class="nav-link" href="/main/login">Logowanie</a>
-                    <?php endif ?>
+                    <?php if(isset($_SESSION['zalogowany'])) :?>
+                        <?php if($_SESSION["zalogowany"] == "user1"): ?>
+                            <a class="nav-link" href="/main/logout">Wyloguj</a>
+                        <?php else: ?>
+                            <a class="nav-link" href="/main/login">Logowanie</a>
+                        <?php endif; ?>
+                    <?php endif;?>
                     </li>
                 </ul>
             </span>

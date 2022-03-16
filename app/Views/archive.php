@@ -12,7 +12,10 @@
                         <div class="card-body">
                             <h4 class="card-title"><?= $row->nazwa ?></h4>
                             <p >Data: <?= $row->data_rozpoczecia ?> / <?= $row->nazwa ?> </p>
-                            <button type="button" class="btn btn-outline-dark">Tabela Wyników</button>
+                            <?php if($row->status_zawodow_id==2): echo "<a href='/main/score'>"?>
+                            <?php else: echo "<a href='arch/archiveTable/$row->zawody_id'>" ?>
+                            <?php  endif; ?>
+                            <button type="button" class="btn btn-outline-dark">Tabela Wyników</button></a>
                         </div>
                     </div>
             <?php endforeach; ?>

@@ -9,6 +9,10 @@ class ArchiveController extends BaseController
     function index()
     {
         $session = \Config\Services::session();
+        if(!isset($_SESSION["zalogowany"]))
+        {
+            $_SESSION["zalogowany"] = "";
+        };
 
         $data = [
             'meta_title' => 'Archiwum',
@@ -20,5 +24,16 @@ class ArchiveController extends BaseController
         $data['result']=$result;
 
         return view('archive',$data);
+    }
+
+    function archiveTable($id)
+    {
+        $db = db_connect();
+        $model = new ArchiveModel($db);
+        $result = $model->showSelectedCompetition($id);
+        
+        $data['resultleaderboard'] = $result;
+        $data['i'] = 1;
+        return view('scoreboard', $data);
     }
 }

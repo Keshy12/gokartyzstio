@@ -52,6 +52,9 @@
                         </li>
                         <?php elseif($_COOKIE["status"] == "oba"): ?>
                         <li class="nav-item">
+                            <a class="nav-link" href="/main/judge">Sędzia</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
                         </li>
                         <?php endif; ?>
@@ -66,6 +69,9 @@
                             <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
                         </li>
                         <?php elseif($_COOKIE["status"] == "oba"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/judge">Sędzia</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
                         </li>

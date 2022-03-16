@@ -25,7 +25,7 @@ class ArchiveModel{
         ->join('szkola', 'szkola_id')
         ->join('gokart', 'gokart_id')
         ->where('zawody_id', $id)
-        ->where('czas IS NOT', NULL)
+        ->orderBy('(CASE WHEN czas IS NULL Then "Dyskwalfikacja" else 0 end), czas ASC')
         ->get()->getResult();
         return $result;
     }

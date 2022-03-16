@@ -31,7 +31,8 @@ class CompetitionModel{
     function comp_after()        // pojedzie()
     {
         $result = $this->db->table('tm_przejazd')
-            ->where('status_przejazdu_id', 3);
+            ->where('status_przejazdu_id', 3)
+            ->orderBy('tm_przejazd_id', 'ASC');
         $result = $this->join($result);
         return $result->get(3)->getResult();
     }  
@@ -51,9 +52,9 @@ class CompetitionModel{
         ->join('szkola', 'szkola_id')
         ->join('status_przejazdu','status_przejazdu_id')
         ->join('gokart','gokart_id')
-        ->orderBy('czas', 'ASC')
-        ->where('status_przejazdu_id',1)
-        ->where('czas IS NOT', NULL);
+        ->orderBy('(CASE WHEN czas IS NULL Then "Dyskwalfikacja" else 0 end), czas ASC')
+        ->where('status_przejazdu_id',1);
+
         switch($limit)
         {
             case -1:

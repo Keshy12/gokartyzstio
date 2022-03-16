@@ -25,7 +25,11 @@
                                 <td><?= $row->imie ?></td>
                                 <td><?= $row->nazwisko ?></td>
                                 <td><?= $row->akronim ?></td>
-                                <td><?= $row->czas ?></td>
+                                <?php if(is_null($row->czas)) : ?>
+                                    <td>DSQ</td>
+                                <?php else : ?>
+                                    <td><?= $row->czas ?></td>
+                                <?php endif; ?>
                                 <td><?= $row->nazwa ?></td>
                             </tr>
                         <?php endforeach; ?>

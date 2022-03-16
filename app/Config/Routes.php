@@ -41,6 +41,8 @@ $routes->add('main/arch', 'ArchiveController');
 $routes->add('main/arch/archiveTable/(:any)', 'ArchiveController::archiveTable/$1');
 // $routes->add('main/mod', 'ModificationController');
 $routes->add('main/judge', 'ArbiterController');
+$routes->add('main/judge/disqualify', 'ArbiterController::disqualify');
+$routes->add('main/judge/addTime', 'ArbiterController::addTime');
 $routes->add('main/score', 'CompetitionController::scoreboard');
 
 /*

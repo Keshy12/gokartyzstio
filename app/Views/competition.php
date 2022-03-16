@@ -13,11 +13,11 @@
                                 <?php if(is_null($row->czas)) : ?>
                                     <div class="card border-danger mb-2">
                                         <div class="card-body">
-                                            <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?> <r class="float-right">DYSKWALIFIKACJA</r></h4>
+                                            <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?> <r class="float-right">DYSKWALIFIKACJA</r></h4>
                                 <?php else : ?>
                                     <div class="card border-secondary mb-2">
                                         <div class="card-body">
-                                            <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?> <r class="float-right">Czas: <?= $row->czas ?></r></h4>
+                                            <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?> <r class="float-right">Czas: <?= $row->czas ?></r></h4>
                                 <?php endif; ?>
                                 <?php
                                 break;
@@ -25,21 +25,20 @@
                                 ?>
                                 <div class="card border-success mb-2">
                                     <div class="card-body">
-                                        <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?></h4>
+                                        <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?></h4>
                                 <?php
                                 break;
                             case 3:
                                 ?>
                                 <div class="card border-info mb-2">
                                     <div class="card-body">
-                                        <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?></h4>
+                                        <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?></h4>
                                 <?php
                                 break;
                         }           
                     ?>
                         </div>
                     </div>
-
                 <?php endforeach; ?>
             </div>
             <div class="col">
@@ -65,7 +64,11 @@
                                 <td><?= $row->imie ?></td>
                                 <td><?= $row->nazwisko ?></td>
                                 <td><?= $row->akronim ?></td>
-                                <td><?= $row->czas ?></td>
+                                <?php if(is_null($row->czas)) : ?>
+                                    <td>DSQ</td>
+                                <?php else : ?>
+                                    <td><?= $row->czas ?></td>
+                                <?php endif; ?>
                                 <td><?= $row->nazwa ?></td>
                             </tr>
                             <?php endforeach; ?>

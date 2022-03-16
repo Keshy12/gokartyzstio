@@ -8,19 +8,11 @@ class LoginController extends BaseController
 {
     public function login()
     {
-        $session = \Config\Services::session();
-        if(!isset($_SESSION["zalogowany"]))
-        {
-            $_SESSION["zalogowany"] = "";
-        };
+        BaseModel::setSession();
+        $data = BaseModel::setTitle('Logowanie');
+        
         $db = db_connect();
         $model = new LoginModel($db);
-
-        
-        $data = [
-            'meta_title' => 'Logowanie',
-        ];
-        
         
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
             $login = $model->getLogin();

@@ -3,10 +3,11 @@
 
 <div class="container-fluid">
     <div class="row m-3">
-        <div class="col-4"><h2>Zawody</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Modyfikowanie Zawodów</button>
+        <div class="col-3"><h2>Zawody</h2>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij Nowe</button>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Edytuj</button>
         </div>
-        <div class="col"><h2>Dodawanie</h2>
+        <div class="col-3"><h2>Dodawanie</h2>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>
         </div>

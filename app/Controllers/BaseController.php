@@ -69,7 +69,7 @@ class BaseController extends Controller
             {
                 $_COOKIE["status"] = "w_trakcie";
             }
-            if($stat->status_zawodow_id == 1 || $stat->status_zawodow_id == 2)
+            if($stat->status_zawodow_id == 1 && $stat->status_zawodow_id == 2)
             {
                 $_COOKIE["status"] = "oba";
             }

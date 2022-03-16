@@ -2,15 +2,16 @@
 <?= $this->section('content')?>
 <div class="container-fluid">
     <div class="row m-3">
-        <div class="col"><h2>Modyfikacja</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zawodnik</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Przejazd</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zawody</button>
+        <div class="col-4"><h2>Zawody</h2>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Modyfikowanie Zawodów</button>
+        </div>
+        <div class="col"><h2>Dodawanie</h2>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>
         </div>
-        <div class="col"><h2>Dodawanie</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zawody</button>
+        <div class="col-5"><h2>Modyfikacja</h2>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zawodnik</button>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Przejazd</button>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>
         </div>
@@ -40,7 +41,7 @@
                 <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
             </form>
         </div>
-    </div> -->
+    </div>-->
 
     <!-- Formularz Modyfikacji Przejazdu
     <div class="row m-3" id="competitor_form">
@@ -71,6 +72,86 @@
             </form>
         </div>
     </div>-->
+
+    <!-- Formularz Modyfikacji Szkoły
+   <div class="row m-3" id="school_form">
+       <div class="col"><h2>Wybierz Szkołe</h2>
+           <select id="school_picker" class="custom-select custom-select-lg mb-4 w-50">
+               <option value="0">Akronim Szkoły(Z BAZY)</option>
+           </select>
+           <hr>
+           <form action="*" method="POST">
+               <label for="school_name"><h4>Nazwa</h4></label>
+               <input id="school_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+               <label for="school_town"><h4>Miasto</h4></label><br>
+               <select id="school_town" class="custom-select custom-select-lg mb-4 w-50">
+                   <option value="0">Limanowa (Z BAZY)</option>
+               </select><br>
+               <label for="school_acronym"><h4>Akronim</h4></label>
+               <input id="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
+               <input type="submit" value="USUŃ" class="btn btn-danger" />
+               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+           </form>
+       </div>
+   </div>-->
+
+    <!-- Formularz Modyfikacji Gokartów
+   <div class="row m-3" id="school_form">
+       <div class="col"><h2>Wybierz Gokart</h2>
+           <select id="gokart_picker" class="custom-select custom-select-lg mb-4 w-50">
+               <option value="0">Pomarańczowy Gokart(Z BAZY)</option>
+           </select>
+           <hr>
+           <form action="*" method="POST">
+               <label for="gokart_name"><h4>Nazwa</h4></label>
+               <input id="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+
+               <input type="submit" value="USUŃ" class="btn btn-danger" />
+               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+           </form>
+       </div>
+   </div>-->
+
+    <!-- Formularz Dodawania Szkoły
+   <div class="row m-3" id="school_form">
+       <div class="col"><h2>Dodawanie Szkoły</h2>
+           <form action="*" method="POST">
+               <label for="school_name"><h4>Nazwa</h4></label>
+               <input id="school_name" class="form-control form-control-lg w-50" type="text" placeholder="Nazwa">
+               <label for="school_town"><h4>Miasto</h4></label><br>
+               <select id="school_town" class="custom-select custom-select-lg mb-1 w-50">
+                   <option value="0">Limanowa (Z BAZY)</option>
+               </select><br>
+               <input type="submit" value="DODAJ MIASTO" class="btn btn-outline-secondary mb-4" /><br>
+               <label for="school_acronym"><h4>Akronim</h4></label>
+               <input id="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
+               <input type="submit" value="DODAJ" class="btn btn-secondary" />
+           </form>
+       </div>
+   </div> -->
+
+    <!-- Formularz Dodawania Miasta
+    <div class="row m-3" id="town_form">
+        <div class="col"><h2>Dodawanie Miasta</h2>
+            <form action="*" method="POST">
+                <label for="town_name"><h4>Nazwa</h4></label>
+                <input id="town_name" class="form-control form-control-lg w-50 mb-4" type="text" placeholder="Nazwa">
+                <input type="submit" value="DODAJ" class="btn btn-secondary" />
+            </form>
+        </div>
+    </div>-->
+
+    <!-- Modyfikowanie Zawodów 
+    <div class="row m-3" id="town_form">
+        <div class="col"><h2>Modyfikowanie Zawodów</h2>
+            <form action="*" method="POST">
+                <label for="town_name"><h4>Nazwa</h4></label>
+                <input id="town_name" class="form-control form-control-lg w-50 mb-4" type="text" placeholder="Nazwa">
+                <input type="submit" value="DODAJ" class="btn btn-secondary" />
+            </form>
+        </div>
+    </div>-->
+
 
 </div>
 

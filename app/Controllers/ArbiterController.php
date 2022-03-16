@@ -28,4 +28,12 @@ class ArbiterController extends BaseController
         return view('arbiter', $data);
 
     }
+
+    function disqualify()
+    {
+        $db = db_connect();
+        $model = new ArbiterModel($db);
+        $model->disqualify();
+        return redirect()->to( 'main/judge' ); 
+    }
 }

@@ -143,6 +143,23 @@
         </div>
     </div>-->
 
+<<<<<<< Updated upstream
+=======
+    <!-- Dodawanie Zawodów
+    <div class="row m-3" id="competition_form">
+        <div class="col"><h2>Dodawanie Zawodów</h2>
+            <form action="*" method="POST">
+                <label for="competition_name"><h4>Nazwa</h4></label>
+                <input id="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+                <label for="competition_date_start"><h4>Data Rozpoczęcia</h4></label>
+                <input id="competition_date_start" class="form-control form-control-lg mb-4 w-50" type="date" >
+                <label for="competition_date_end"><h4>Data Zakończenia</h4></label>
+                <input id="competition_date_end" class="form-control form-control-lg mb-4 w-50" type="date" >
+                <input type="submit" value="DODAJ" class="btn btn-secondary" />
+            </form>
+        </div>
+    </div>-->
+>>>>>>> Stashed changes
 
 
 </div>

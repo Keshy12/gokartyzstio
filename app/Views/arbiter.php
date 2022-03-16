@@ -48,8 +48,13 @@
                 <button type="button" class="btn btn-outline-success" data-dismiss="modal">Nie</button>
             </div>
         </div>
+<<<<<<< Updated upstream
     </div> 
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+=======
+    </div>
+    <!--<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+>>>>>>> Stashed changes
         <div class="modal-dialog modal-sm">
             <div class="modal-content p-3 border-success">
                 <label for="ride_time"><h4>Dodaj Czas</h4></label>

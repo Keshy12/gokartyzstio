@@ -5,7 +5,7 @@ use App\Models\ModificationModel;
 
 class ModificationController extends BaseController
 {
-    public function index($id=1)
+    public function index($idcompetitor=1,$idride=1,$idschool=1,$idgokart=1)
     {
         $session = \Config\Services::session();
         if(!isset($_SESSION["zalogowany"]))
@@ -24,12 +24,12 @@ class ModificationController extends BaseController
             $data['gokartdata']=$model->getgokart();
             $data['statusdata']=$model->getstatus();
             $data['citydata']=$model->getcity();
-            $data['chosenschooldata']=$model->getchosenschool((int)$id);
-            $data['chosenridedata']=$model->getchosenride((int)$id);
-            $data['chosengokartdata']=$model->getchosengokart((int)$id);
+            $data['chosenschooldata']=$model->getchosenschool((int)$idschool);
+            $data['chosenridedata']=$model->getchosenride((int)$idride);
+            $data['chosengokartdata']=$model->getchosengokart((int)$idgokart);
 
             $data['ridedata']=$model->getride();
-            $data['chosencompetitordata']=$model->getchosencompetitor((int)$id);
+            $data['chosencompetitordata']=$model->getchosencompetitor((int)$idcompetitor);
             
             
 

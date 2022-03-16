@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\LoginModel;
+use App\Models\BaseModel;
 
 class LoginController extends BaseController
 {

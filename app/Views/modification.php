@@ -25,7 +25,7 @@
         <div class="col"><h2>Wybierz zawodnika</h2>          
             <select value="Wybierz"name="chosencompetitor" id="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
                 <?php foreach($competitordata as $row) :?>
-                    <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="../../ModificationController/index/<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> </option>
+                    <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="../../../../../../ModificationController/index/<?= $row->tm_zawodnik_id?>/1/1/1"><?= $row->imie?> <?= $row->nazwisko?> </option>
                 <?php endforeach; ?>
             </select>
             <hr>
@@ -57,7 +57,7 @@ Formularz Modyfikacji Przejazdu
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($ridedata as $row) :?>
-                   <option <?php if($row->tm_przejazd_id==$chosenridedata[0]->tm_przejazd_id){echo("selected");}  ?> value="../../ModificationController/index/<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> (<?= $row->nazwa?>) </option>
+                   <option <?php if($row->tm_przejazd_id==$chosenridedata[0]->tm_przejazd_id){echo("selected");}  ?> value="../../../../../../ModificationController/index/1/<?= $row->tm_przejazd_id?>/1/1"><?= $row->imie?> <?= $row->nazwisko?> (<?= $row->nazwa?>) </option>
                 <?php endforeach; ?>
             </select>
             <hr>
@@ -105,7 +105,7 @@ Formularz Modyfikacji Przejazdu
        <div class="col"><h2>Wybierz Szkołe</h2>
            <select id="school_picker" class="  select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($schooldata as $row) :?>
-                    <option <?php if($row->szkola_id==$chosencompetitordata[0]->szkola_id){echo("selected");}  ?> value="../../ModificationController/index/<?= $row->szkola_id?>"><?= $row->nazwa?> </option>
+                    <option <?php if($row->szkola_id==$chosencompetitordata[0]->szkola_id){echo("selected");}  ?> value="../../../../../../ModificationController/index/1/1/<?= $row->szkola_id?>/1"><?= $row->nazwa?> </option>
                 <?php endforeach;?>
            </select>
            <hr>
@@ -135,7 +135,7 @@ Formularz Modyfikacji Przejazdu
        <div class="col"><h2>Wybierz Gokart</h2>
            <select id="gokart_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($gokartdata as $row) :?>
-                    <option <?php if($row->gokart_id==$chosengokartdata[0]->gokart_id){echo("selected");}  ?> value="../../ModificationController/index/<?= $row->gokart_id?>"><?= $row->nazwa?> </option>
+                    <option <?php if($row->gokart_id==$chosengokartdata[0]->gokart_id){echo("selected");}  ?> value="../../../../../../ModificationController/index/1/1/1/<?= $row->gokart_id?>"><?= $row->nazwa?> </option>
                 <?php endforeach; ?>
            </select>
            <hr>
@@ -196,8 +196,22 @@ Formularz Modyfikacji Przejazdu
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
-    </div>
- -->
+    </div>-->
+
+    <!-- Dodawanie Zawodów
+    <div class="row m-3" id="competition_form">
+        <div class="col"><h2>Dodawanie Zawodów</h2>
+            <form action="*" method="POST">
+                <label for="competition_name"><h4>Nazwa</h4></label>
+                <input id="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+                <label for="competition_date_start"><h4>Data Rozpoczęcia</h4></label>
+                <input id="competition_date_start" class="form-control form-control-lg mb-4 w-50" type="date" >
+                <label for="competition_date_end"><h4>Data Zakończenia</h4></label>
+                <input id="competition_date_end" class="form-control form-control-lg mb-4 w-50" type="date" >
+                <input type="submit" value="DODAJ" class="btn btn-secondary" />
+            </form>
+        </div>
+    </div>-->
 
 
 </div>

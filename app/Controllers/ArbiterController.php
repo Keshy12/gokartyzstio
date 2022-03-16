@@ -12,7 +12,7 @@ class ArbiterController extends BaseController
         BaseModel::setSession();
         $data = BaseModel::setTitle('Strona Sędziowska');
 
-        if($_SESSION["zalogowany"] != "")
+        if(!$_SESSION["zalogowany"] == "pełny" && !$_SESSION["zalogowany"] == "limitowany" )
         {
             return view('gokartsMain',$data);
         }

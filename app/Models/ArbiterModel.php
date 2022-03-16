@@ -3,8 +3,7 @@
 
 use CodeIgniter\Database\ConnectionInterface;
 
-
-class ArbiterModel{
+class ArbiterModel extends CompetitionModel{
 
     function index()
     {

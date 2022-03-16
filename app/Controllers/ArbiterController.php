@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\BaseModel;
+use App\Models\ArbiterModel;
 
 class ArbiterController extends BaseController
 {
@@ -11,14 +12,20 @@ class ArbiterController extends BaseController
         BaseModel::setSession();
         $data = BaseModel::setTitle('Strona Sędziowska');
 
-        if($_SESSION["zalogowany"] == "user1")
-        {
-            return view('arbiter',$data);
-        }
-        else
+        if($_SESSION["zalogowany"] != "user1")
         {
             return view('gokartsMain',$data);
         }
+
+        $db = db_connect();
+        $model = new ArbiterModel($db);
         
+        $result = $model->comp_now();
+        $result = array_merge($result, $model->comp_after());
+
+        $data['result'] = $result;
+
+        return view('arbiter', $data);
+
     }
 }

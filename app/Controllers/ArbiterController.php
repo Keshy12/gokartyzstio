@@ -41,7 +41,11 @@ class ArbiterController extends BaseController
     {
         $db = db_connect();
         $model = new ArbiterModel($db);
-        $model->addTime();
-        return redirect()->to( 'main/judge' ); 
+
+        $time = $model->convertTimeToInt($_POST['minutes'], $_POST['seconds'], $_POST['milliseconds']);
+
+        $model->setTime($time);
+        echo $time;
+        //return redirect()->to( 'main/judge' ); 
     }
 }

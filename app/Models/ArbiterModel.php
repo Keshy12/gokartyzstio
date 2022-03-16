@@ -3,11 +3,17 @@
 
 use CodeIgniter\Database\ConnectionInterface;
 
+class ArbiterModel extends CompetitionModel{
 
-class ArbiterModel{
-
-    function index()
+    function disqualify()
     {
-        
+        $this->db->query('UPDATE tm_przejazd SET status_przejazdu_id = 1, czas = null WHERE status_przejazdu_id = 2');
+        $this->db->query('UPDATE tm_przejazd SET status_przejazdu_id = 2 WHERE status_przejazdu_id = 3 LIMIT 1');
+    }
+
+    function addTime($time)
+    { 
+        $this->db->query(`UPDATE tm_przejazd SET status_przejazdu_id = 1, czas = {$time} WHERE status_przejazdu_id = 2`);
+        $this->db->query('UPDATE tm_przejazd SET status_przejazdu_id = 2 WHERE status_przejazdu_id = 3 LIMIT 1');
     }
 }

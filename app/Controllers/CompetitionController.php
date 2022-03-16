@@ -3,34 +3,27 @@
 namespace App\Controllers;
 
 use App\Models\CompetitionModel;
+use App\Models\BaseModel;
 
 class CompetitionController extends BaseController
 {
     function index()
     {
-        $session = \Config\Services::session();
-        if(!isset($_SESSION["zalogowany"]))
-        {
-            $_SESSION["zalogowany"] = "";
-        };
+        BaseModel::setSession();
+        $data = BaseModel::setTitle('Zawody');
 
-        $data = [
-            'meta_title' => 'Zawody',
-        ];
         ///////
         $db = db_connect();
         $model = new CompetitionModel($db);
 
-        $result_id = $model->comp_now();
-        if(!$result_id)
-            return redirect()->to('gokarts');
+        $result_now = $model->comp_now();
+        if(!$result_now)
+            return redirect()->to('main/score');
 
-        $id = $result_id[0]->tm_przejazd_id;
-
-        $result = $model->comp_before($id);
+        $result = $model->comp_before();
         foreach($result as $row)
-            $row->czas = $model->formatMilliseconds($row->czas);
-        $result = array_merge($result, $result_id);
+            $row->czas = BaseModel::formatMilliseconds($row->czas);
+        $result = array_merge($result, $result_now);
         $result = array_merge($result, $model->comp_after());
 
         $data['result'] = $result;
@@ -39,10 +32,9 @@ class CompetitionController extends BaseController
         //////
         $resultleaderboard=$model->leaderboard(8);
         foreach($resultleaderboard as $row)
-        {
-            $row->czas = $model->formatMilliseconds($row->czas);
-        }
-        $data['resultleaderboard']= $resultleaderboard;
+            $row->czas = BaseModel::formatMilliseconds($row->czas);
+
+        $data['resultleaderboard'] = $resultleaderboard;
         $data['i']=1;
 
         //////
@@ -52,18 +44,15 @@ class CompetitionController extends BaseController
 
     function scoreboard()
     {
-        $session = \Config\Services::session();
-
-        $data = [
-            'meta_title' => 'Wyniki',
-        ];
+        BaseModel::setSession();
+        $data = BaseModel::setTitle('Wyniki');
 
         $db = db_connect();
         $model = new CompetitionModel($db);
 
         $result = $model->leaderboard(-1);
         foreach($result as $row)
-            $row->czas = $model->formatMilliseconds($row->czas);
+            $row->czas = BaseModel::formatMilliseconds($row->czas);
 
         $data['resultleaderboard'] = $result;
         $data['i'] = 1;

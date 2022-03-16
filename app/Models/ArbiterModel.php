@@ -13,7 +13,7 @@ class ArbiterModel extends CompetitionModel{
 
     function setTime($time)
     { 
-        $this->db->query('UPDATE tm_przejazd SET status_przejazdu_id = 1, czas = {$time} WHERE status_przejazdu_id = 2');
+        $this->db->query("UPDATE tm_przejazd SET status_przejazdu_id = 1, czas = ".$time." WHERE status_przejazdu_id = 2");
         $this->db->query('UPDATE tm_przejazd SET status_przejazdu_id = 2 WHERE status_przejazdu_id = 3 LIMIT 1');
     }
 

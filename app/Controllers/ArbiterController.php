@@ -36,4 +36,12 @@ class ArbiterController extends BaseController
         $model->disqualify();
         return redirect()->to( 'main/judge' ); 
     }
+
+    function addTime()
+    {
+        $db = db_connect();
+        $model = new ArbiterModel($db);
+        $model->addTime();
+        return redirect()->to( 'main/judge' ); 
+    }
 }

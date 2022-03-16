@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row m-3">
         <div class="col-4"><h2>Zawody</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Modyfikowanie Zawodów</button>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynanie Zawodów</button>
         </div>
         <div class="col"><h2>Dodawanie</h2>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
@@ -44,7 +44,7 @@
     </div>-->
 
     <!-- Formularz Modyfikacji Przejazdu
-    <div class="row m-3" id="competitor_form">
+    <div class="row m-3" id="ride_form">
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" class="custom-select custom-select-lg mb-4 w-50">
                 <option value="0">Imie Nazwisko Gokart(Z BAZY)</option>
@@ -141,7 +141,7 @@
         </div>
     </div>-->
 
-    <!-- Modyfikowanie Zawodów 
+    <!-- Modyfikowanie Zawodów
     <div class="row m-3" id="town_form">
         <div class="col"><h2>Modyfikowanie Zawodów</h2>
             <form action="*" method="POST">

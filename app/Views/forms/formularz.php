@@ -1,26 +1,6 @@
-<?= $this->extend('layouts/main')?>
-<?= $this->section('content')?>
-<div class="container-fluid">
-    <div class="row m-3">
-        <div class="col-3"><h2>Zawody</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij Nowe</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Edytuj</button>
-        </div>
-        <div class="col-3"><h2>Dodawanie</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>
-        </div>
-        <div class="col-5"><h2>Modyfikacja</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zawodnik</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Przejazd</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>
-        </div>
-    </div>
-    <hr>
-    
-    <?= view('forms/formularz', $data = ['formularz' => 0]) ?>
-    <!-- Formularz Modyfikacji Zawodnika
+<div>
+<?php switch($formularz): 
+case 0: ?>
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz zawodnika</h2>
             <select id="competitor_picker" class="custom-select custom-select-lg mb-4 w-50">
@@ -43,7 +23,16 @@
                 <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
             </form>
         </div>
-    </div>-->
+    </div>
+<?php break; ?>
+<?php case 2: ?>
+    </div>
+    Forum
+    <div>
+<?php break; ?>
+<?php endswitch; ?>
+</div>
+
 
     <!-- Formularz Modyfikacji Przejazdu
     <div class="row m-3" id="ride_form">
@@ -142,11 +131,3 @@
             </form>
         </div>
     </div>-->
-
-
-
-</div>
-
-
-
-<?= $this->endSection() ?>

@@ -12,12 +12,8 @@ class ModificationController extends BaseController
         $data = BaseModel::setTitle('Modyfikacja');
 
         if($_SESSION["zalogowany"] == "pełny")
-        {
             return view('modification',$data);
-        }
-        else
-        {
-            return view('gokartsMain',$data);
-        }
+            
+        return view('gokartsMain',$data);
     }
 }

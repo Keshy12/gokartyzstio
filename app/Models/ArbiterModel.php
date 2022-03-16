@@ -25,7 +25,8 @@ class ArbiterModel extends CompetitionModel{
         return $result;
     }
 
-    function getStatus(){
+    function getStatus()
+    {
         $builder = $this->db->table('zawody');
         return $builder->get()->getResult();
     }

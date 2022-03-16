@@ -32,7 +32,6 @@ class ArbiterController extends BaseController
             if($stat->status_zawodow_id == 2)
                 return view('arbiter',$data);
         }
-
     }
 
     function disqualify()

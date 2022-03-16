@@ -1,5 +1,6 @@
 <?= $this->extend('layouts/main')?>
 <?= $this->section('content')?>
+
 <div class="container-fluid">
     <div class="row m-3">
         <div class="col-4"><h2>Zawody</h2>
@@ -17,33 +18,38 @@
         </div>
     </div>
     <hr>
-
-    <!-- Formularz Modyfikacji Zawodnika
+    Formularz Modyfikacji Zawodnika
     <div class="row m-3" id="competitor_form">
-        <div class="col"><h2>Wybierz zawodnika</h2>
-            <select id="competitor_picker" class="custom-select custom-select-lg mb-4 w-50">
-                <option value="0">Imie Nazwisko 1(Z BAZY)</option>
+        <div class="col"><h2>Wybierz zawodnika</h2>          
+            <select value="Wybierz"name="chosencompetitor" id="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
+
+                <?php foreach($competitordata as $row) :?>
+                    <option <?php if($row->tm_zawodnik_id==$chosendata[0]->tm_zawodnik_id){echo("selected");}  ?> value="../../ModificationController/index/<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> </option>
+                <?php endforeach; ?>
             </select>
             <hr>
             <form action="*" method="POST">
+            <?php foreach($chosendata as $row) :?>
                 <label for="competitor_name"><h4>Imie</h4></label>
-                <input id="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Imie">
+                <input id="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie ?>">
                 <label for="competitor_surname"><h4>Nazwisko</h4></label>
-                <input id="competitor_surname" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwisko">
+                <input id="competitor_surname" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwisko ?>">
                 <label for="competitor_date"><h4>Data Urodzenia</h4></label>
-                <input id="competitor_date" class="form-control form-control-lg mb-4 w-50" type="date" >
+                <input id="competitor_date" class="form-control form-control-lg mb-4 w-50" type="date" value="<?= $row->data_urodzenia?>" >
                 <label for="competitor_school"><h4>Szkoła</h4></label><br>
                 <select id="competitor_school" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">ZSTIO (Z BAZY)</option>
-                    <option value="1">Kraków</option>
+                    <?php foreach($schooldata as $row) :?>
+                        <option <?php if($row->szkola_id==$chosendata[0]->szkola_id){echo("selected");}?> value="<?= $row->szkola_id?>"> <?= $row->nazwa?> </option>
+                    <?php endforeach; ?>
                 </select><br>
                 <input type="submit" value="USUŃ" class="btn btn-danger" />
                 <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+            <?php endforeach; ?>
             </form>
         </div>
-    </div>-->
-
-    <!-- Formularz Modyfikacji Przejazdu
+    </div>
+<!-- 
+     Formularz Modyfikacji Przejazdu
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" class="custom-select custom-select-lg mb-4 w-50">
@@ -71,9 +77,9 @@
                 <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
             </form>
         </div>
-    </div>-->
+    </div>
 
-    <!-- Formularz Modyfikacji Szkoły
+    Formularz Modyfikacji Szkoły
    <div class="row m-3" id="school_form">
        <div class="col"><h2>Wybierz Szkołe</h2>
            <select id="school_picker" class="custom-select custom-select-lg mb-4 w-50">
@@ -93,9 +99,9 @@
                <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
            </form>
        </div>
-   </div>-->
+   </div>
 
-    <!-- Formularz Modyfikacji Gokartów
+    Formularz Modyfikacji Gokartów
    <div class="row m-3" id="school_form">
        <div class="col"><h2>Wybierz Gokart</h2>
            <select id="gokart_picker" class="custom-select custom-select-lg mb-4 w-50">
@@ -110,9 +116,9 @@
                <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
            </form>
        </div>
-   </div>-->
+   </div>
 
-    <!-- Formularz Dodawania Szkoły
+    Formularz Dodawania Szkoły
    <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
            <form action="*" method="POST">
@@ -128,9 +134,9 @@
                <input type="submit" value="DODAJ" class="btn btn-secondary" />
            </form>
        </div>
-   </div> -->
+   </div>
 
-    <!-- Formularz Dodawania Miasta
+    Formularz Dodawania Miasta
     <div class="row m-3" id="town_form">
         <div class="col"><h2>Dodawanie Miasta</h2>
             <form action="*" method="POST">
@@ -139,9 +145,9 @@
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
-    </div>-->
+    </div>
 
-    <!-- Modyfikowanie Zawodów 
+     Modyfikowanie Zawodów 
     <div class="row m-3" id="town_form">
         <div class="col"><h2>Modyfikowanie Zawodów</h2>
             <form action="*" method="POST">
@@ -150,7 +156,7 @@
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
-    </div>-->
+    </div> -->
 
 
 </div>

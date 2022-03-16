@@ -105,7 +105,7 @@ Formularz Modyfikacji Przejazdu
        <div class="col"><h2>Wybierz Szkołe</h2>
            <select id="school_picker" class="  select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($schooldata as $row) :?>
-                    <option <?php if($row->szkola_id==$chosencompetitordata[0]->szkola_id){echo("selected");}  ?> value="../../../../../../ModificationController/index/1/1/<?= $row->szkola_id?>/1"><?= $row->nazwa?> </option>
+                    <option <?php if($row->szkola_id==$chosenschooldata[0]->szkola_id){echo("selected");}  ?> value="../../../../../../ModificationController/index/1/1/<?= $row->szkola_id?>/1"><?= $row->nazwa?> </option>
                 <?php endforeach;?>
            </select>
            <hr>

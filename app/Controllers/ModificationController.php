@@ -2,16 +2,19 @@
 
 namespace App\Controllers;
 
-use App\Models\BaseModel;
-
 class ModificationController extends BaseController
 {
     function index()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Modyfikacja');
-
-        if($_SESSION["zalogowany"] == "user1")
+        $session = \Config\Services::session();
+        if(!isset($_SESSION["zalogowany"]))
+        {
+            $_SESSION["zalogowany"] = "";
+        };
+        $data = [
+            'meta_title' => 'Modyfikacja',
+        ];
+        if($_SESSION["zalogowany"] == "pełny")
         {
             return view('modification',$data);
         }

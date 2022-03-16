@@ -143,8 +143,6 @@
         </div>
     </div>-->
 
-<<<<<<< Updated upstream
-=======
     <!-- Dodawanie Zawodów
     <div class="row m-3" id="competition_form">
         <div class="col"><h2>Dodawanie Zawodów</h2>
@@ -159,7 +157,6 @@
             </form>
         </div>
     </div>-->
->>>>>>> Stashed changes
 
 
 </div>

@@ -8,9 +8,7 @@ class ModificationController extends BaseController
 {
     function index()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Modyfikacja');
-
+        $data = BaseModel::setTitle('Archiwum');
         if($_SESSION["zalogowany"] == "pełny")
             return view('modification',$data);
             

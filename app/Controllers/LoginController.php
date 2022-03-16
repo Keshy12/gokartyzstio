@@ -9,9 +9,7 @@ class LoginController extends BaseController
 {
     public function login()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Logowanie');
-        
+        $data = BaseModel::setTitle('Archiwum');
         $db = db_connect();
         $model = new LoginModel($db);
         

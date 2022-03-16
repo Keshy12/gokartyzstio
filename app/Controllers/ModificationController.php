@@ -21,10 +21,17 @@ class ModificationController extends BaseController
             $model = new ModificationModel($db);
             $data['competitordata']=$model->getcompetitor();
             $data['schooldata']=$model->getschool();
-            if($id!=0)
-            {
-                $data['chosendata']=$model->getchosen((int)$id);
-            }
+            $data['gokartdata']=$model->getgokart();
+            $data['statusdata']=$model->getstatus();
+            $data['citydata']=$model->getcity();
+            $data['chosenschooldata']=$model->getchosenschool((int)$id);
+            $data['chosenridedata']=$model->getchosenride((int)$id);
+            $data['chosengokartdata']=$model->getchosengokart((int)$id);
+
+            $data['ridedata']=$model->getride();
+            $data['chosencompetitordata']=$model->getchosencompetitor((int)$id);
+            
+            
 
             return view('modification',$data);
         

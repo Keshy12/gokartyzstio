@@ -20,16 +20,28 @@ class LoginController extends BaseController
         $data = [
             'meta_title' => 'Logowanie',
         ];
+        
+        
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
-            $pass = $model->getPass($_POST['userName']);
             $login = $model->getLogin();
-            if($_POST["userName"] == $login[0]->login && hash('sha256',$_POST['userPassword']) == $pass[0]->haslo) {
-                $_SESSION["zalogowany"] = "user1";
-                return view('gokartsMain',$data);
-            } 
-            else {
-                $_SESSION["info"] = "Dane nieprwidłowe. Spróbuj ponownie.";
+            foreach($login as $log)
+            {
+                if($_POST["userName"] == $log->login && hash('sha256',$_POST['userPassword']) == $log->haslo) {
+                    $_SESSION["zalogowany"] = $log->permisje;
+                    return view('gokartsMain',$data);
+                } 
+                else {
+                    $_SESSION["info"] = "Dane nieprwidłowe. Spróbuj ponownie.";
+                }
             }
+
+            // if($_POST["userName"] == $login[0]->login && hash('sha256',$_POST['userPassword']) == $pass[0]->haslo) {
+            //     $_SESSION["zalogowany"] = "user1";
+            //     return view('gokartsMain',$data);
+            // } 
+            // else {
+            //     $_SESSION["info"] = "Dane nieprwidłowe. Spróbuj ponownie.";
+            // }
         }
         return view('login',$data);
     }

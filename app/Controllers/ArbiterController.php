@@ -15,7 +15,7 @@ class ArbiterController extends BaseController
             'meta_title' => 'Strona Sędziowska',
         ];
 
-        if($_SESSION["zalogowany"] == "user1")
+        if($_SESSION["zalogowany"] == "pełny" || $_SESSION["zalogowany"] == "limitowany" )
         {
             return view('arbiter',$data);
         }

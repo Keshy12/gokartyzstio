@@ -12,7 +12,7 @@ class ArbiterController extends BaseController
         BaseModel::setSession();
         $data = BaseModel::setTitle('Strona Sędziowska');
 
-        if(!$_SESSION["zalogowany"] == "pełny" && !$_SESSION["zalogowany"] == "limitowany" )
+        if(!$_SESSION["zalogowany"] == "pełny" XOR !$_SESSION["zalogowany"] == "limitowany" )
         {
             return view('gokartsMain',$data);
         }
@@ -25,7 +25,13 @@ class ArbiterController extends BaseController
 
         $data['result'] = $result;
 
-        return view('arbiter', $data);
+        $status = $model->getStatus();
+
+        foreach($status as $stat)
+        {
+            if($stat->status_zawodow_id == 2)
+                return view('arbiter',$data);
+        }
 
     }
 
@@ -46,6 +52,6 @@ class ArbiterController extends BaseController
 
         $model->setTime($time);
         echo $time;
-        //return redirect()->to( 'main/judge' ); 
+        return redirect()->to( 'main/judge' ); 
     }
 }

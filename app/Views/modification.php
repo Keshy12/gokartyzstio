@@ -2,10 +2,11 @@
 <?= $this->section('content')?>
 <div class="container-fluid">
     <div class="row m-3">
-        <div class="col-4"><h2>Zawody</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynanie Zawodów</button>
+        <div class="col-3"><h2>Zawody</h2>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij Nowe</button>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Edytuj</button>
         </div>
-        <div class="col"><h2>Dodawanie</h2>
+        <div class="col-3"><h2>Dodawanie</h2>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
             <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>
         </div>
@@ -96,7 +97,7 @@
    </div>-->
 
     <!-- Formularz Modyfikacji Gokartów
-   <div class="row m-3" id="school_form">
+   <div class="row m-3" id="gokart_form">
        <div class="col"><h2>Wybierz Gokart</h2>
            <select id="gokart_picker" class="custom-select custom-select-lg mb-4 w-50">
                <option value="0">Pomarańczowy Gokart(Z BAZY)</option>
@@ -141,8 +142,8 @@
         </div>
     </div>-->
 
-    <!-- Modyfikowanie Zawodów
-    <div class="row m-3" id="town_form">
+    <!-- Dodawanie Zawodów-->
+    <div class="row m-3" id="competition_form">
         <div class="col"><h2>Modyfikowanie Zawodów</h2>
             <form action="*" method="POST">
                 <label for="town_name"><h4>Nazwa</h4></label>
@@ -150,7 +151,7 @@
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
-    </div>-->
+    </div>
 
 
 </div>

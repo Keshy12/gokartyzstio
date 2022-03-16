@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content p-3 border-danger">
                 <h4>Potwierdzenie</h4>
@@ -43,5 +43,19 @@
                 <button type="button" class="btn btn-outline-success" data-dismiss="modal">Nie</button>
             </div>
         </div>
+    </div> 
+    <!--<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content p-3 border-success">
+                <label for="ride_time"><h4>Dodaj Czas</h4></label>
+                <div id="ride_time" class="w-100">
+                    <input id="ride_time_minutes" class="form-control form-control-lg mb-4 w-25 float-left" min="1" type="number" maxlength="2" placeholder="M">
+                    <input id="ride_time_seconds" class="form-control form-control-lg mb-4 w-25 float-left" min="1" type="number" maxlength="2" placeholder="S">
+                    <input id="ride_time_milliseconds" class="form-control form-control-lg mb-4 w-50" min="1" type="number" maxlength="3" placeholder="MS">
+                    <button type="button" class="btn btn-outline-success" >Zatwierdź</button>
+                    <button type="button" class="btn btn-outline-danger" >Anuluj</button>
+                </div>
+            </div>
+        </div>-->
     </div>
 <?= $this->endSection() ?>

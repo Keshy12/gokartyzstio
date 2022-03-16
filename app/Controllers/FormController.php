@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\ArbiterModel;
 
-class ArbiterController extends BaseController
+class FormController extends BaseController
 {
     function index()
     {
@@ -18,15 +19,21 @@ class ArbiterController extends BaseController
         $data = [
             'meta_title' => 'Strona Sędziowska',
         ];
+        $db = db_connect();
+        $model = new ArbiterModel($db);
 
-        if($_SESSION["zalogowany"] == "pełny" || $_SESSION["zalogowany"] == "limitowany" )
+        $status = $model->getStatus();
+
+        foreach($status as $stat)
         {
-            return view('arbiter',$data);
+            if($stat->status_zawodow_id == 1)
+                $_SESSION["status"] == "zaplanowane";
         }
-        else
-        {
-            return view('gokartsMain',$data);
-        }
+
+        
+        
+        return view('gokartsMain',$data);
+        
         
     }
 }

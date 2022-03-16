@@ -13,6 +13,10 @@ class LoginController extends BaseController
         {
             $_SESSION["zalogowany"] = "";
         };
+        if(!isset($_SESSION["status"]))
+        {
+            $_SESSION["status"] = "";
+        };
         $db = db_connect();
         $model = new LoginModel($db);
 

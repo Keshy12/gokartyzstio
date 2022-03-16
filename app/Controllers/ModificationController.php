@@ -11,6 +11,10 @@ class ModificationController extends BaseController
         {
             $_SESSION["zalogowany"] = "";
         };
+        if(!isset($_SESSION["status"]))
+        {
+            $_SESSION["status"] = "";
+        };
         $data = [
             'meta_title' => 'Modyfikacja',
         ];

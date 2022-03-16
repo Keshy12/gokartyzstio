@@ -1,5 +1,6 @@
 <?php namespace App\Models;
 
+
 use CodeIgniter\Database\ConnectionInterface;
 
 class ArbiterModel extends CompetitionModel{
@@ -11,7 +12,7 @@ class ArbiterModel extends CompetitionModel{
     }
 
     function addTime($time)
-    {
+    { 
         $this->db->query(`UPDATE tm_przejazd SET status_przejazdu_id = 1, czas = {$time} WHERE status_przejazdu_id = 2`);
         $this->db->query('UPDATE tm_przejazd SET status_przejazdu_id = 2 WHERE status_przejazdu_id = 3 LIMIT 1');
     }

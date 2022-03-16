@@ -28,10 +28,14 @@
                     <a class="nav-link" href="/main/arch">Archiwum</a>
                 </li>
                 <?php if(isset($_SESSION['zalogowany'])) :?>
-                    <?php if($_SESSION["zalogowany"] == "user1"): ?>
+                    <?php if($_SESSION["zalogowany"] == "pełny"): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="/main/mod">Modyfikacja</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/main/judge">Sędzia</a>
+                    </li>
+                    <?php elseif($_SESSION["zalogowany"] == "limitowany"): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="/main/judge">Sędzia</a>
                     </li>
@@ -42,7 +46,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                     <?php if(isset($_SESSION['zalogowany'])) :?>
-                        <?php if($_SESSION["zalogowany"] == "user1"): ?>
+                        <?php if($_SESSION["zalogowany"] == "pełny" || $_SESSION["zalogowany"] == "limitowany"): ?>
                             <a class="nav-link" href="/main/logout">Wyloguj</a>
                         <?php else: ?>
                             <a class="nav-link" href="/main/login">Logowanie</a>

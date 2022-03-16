@@ -14,7 +14,7 @@ class ModificationController extends BaseController
         $data = [
             'meta_title' => 'Modyfikacja',
         ];
-        if($_SESSION["zalogowany"] == "user1")
+        if($_SESSION["zalogowany"] == "pełny")
         {
             return view('modification',$data);
         }

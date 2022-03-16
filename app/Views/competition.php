@@ -10,9 +10,15 @@
                         {
                             case 1:
                                 ?>
-                                <div class="card border-secondary mb-2">
-                                    <div class="card-body">
-                                        <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?> <r class="float-right">Czas: <?= $row->czas ?></r></h4>
+                                <?php if(is_null($row->czas)) : ?>
+                                    <div class="card border-danger mb-2">
+                                        <div class="card-body">
+                                            <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?> <r class="float-right">DYSKWALIFIKACJA</r></h4>
+                                <?php else : ?>
+                                    <div class="card border-secondary mb-2">
+                                        <div class="card-body">
+                                            <h4 class="mt-2"><?= $row->imie ?> <?= $row->nazwisko ?> <?= $row->akronim ?> <r class="float-right">Czas: <?= $row->czas ?></r></h4>
+                                <?php endif; ?>
                                 <?php
                                 break;
                             case 2:

@@ -25,6 +25,7 @@ class ArchiveModel{
         ->join('szkola', 'szkola_id')
         ->join('gokart', 'gokart_id')
         ->where('zawody_id', $id)
+        ->where('czas IS NOT', NULL)
         ->get()->getResult();
         return $result;
     }

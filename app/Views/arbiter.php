@@ -44,7 +44,7 @@
             </div>
         </div>
     </div> 
-    <!--<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content p-3 border-success">
                 <label for="ride_time"><h4>Dodaj Czas</h4></label>
@@ -56,6 +56,6 @@
                     <button type="button" class="btn btn-outline-danger" >Anuluj</button>
                 </div>
             </div>
-        </div>-->
+        </div>
     </div>
 <?= $this->endSection() ?>

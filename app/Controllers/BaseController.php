@@ -21,7 +21,7 @@ use App\Models\ArbiterModel;
  * For security be sure to declare any new methods as protected or private.
  */
 class BaseController extends Controller
-{
+{  
     /**
      * Instance of the main Request object.
      *
@@ -86,5 +86,30 @@ class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $session = \Config\Services::session();
+        if(!isset($_SESSION["zalogowany"]))
+        {
+            $_SESSION["zalogowany"] = "";
+        };  
+
+        $db = db_connect();
+        $model = new ArbiterModel($db);
+        $status = $model->getStatus();
+        $_COOKIE["status"] = "";
+        foreach($status as $stat)
+        {
+            if($stat->status_zawodow_id == 1)
+            {
+                $_COOKIE["status"] = "zaplanowane";
+            }
+            if($stat->status_zawodow_id == 2)
+            {
+                $_COOKIE["status"] = "w_trakcie";
+            }
+            if($stat->status_zawodow_id == 1 || $stat->status_zawodow_id == 2)
+            {
+                $_COOKIE["status"] = "oba";
+            }
+        }
     }
 }

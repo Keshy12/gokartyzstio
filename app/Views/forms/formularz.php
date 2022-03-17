@@ -5,11 +5,11 @@ case 0: ?>
         <div class="col"><h2>Wybierz zawodnika</h2>          
             <select value="Wybierz"name="chosencompetitor" id="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
                 <?php foreach($competitordata as $row) :?>
-                    <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="../../../../../main/mod/<?= $row->tm_zawodnik_id?>/1/1/1"><?= $row->imie?> <?= $row->nazwisko?> </option>
+                    <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="/main/mod/<?= $row->tm_zawodnik_id?>/1/1/1"><?= $row->imie?> <?= $row->nazwisko?> </option>
                 <?php endforeach; ?>
             </select>
             <hr>
-            <form action="*" method="POST">
+            <form action="main/mod/modcomp" method="POST">
             <?php foreach($chosencompetitordata as $row) :?>
                 <select id="competitor_competition" class="custom-select custom-select-lg mb-1 w-50">
                     <option value="0">Nazwa Zawodów STATUS (ze statusem zaplanowane/w trakcie) (Z BAZY)</option>
@@ -38,11 +38,11 @@ case 0: ?>
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($ridedata as $row) :?>
-                   <option <?php if($row->tm_przejazd_id==$chosenridedata[0]->tm_przejazd_id){echo("selected");}  ?> value="../../../../../main/mod/1/<?= $row->tm_przejazd_id?>/1/1"><?= $row->imie?> <?= $row->nazwisko?> (<?= $row->nazwa?>) </option>
+                   <option <?php if($row->tm_przejazd_id==$chosenridedata[0]->tm_przejazd_id){echo("selected");}  ?> value="/main/mod/1/<?= $row->tm_przejazd_id?>/1/1"><?= $row->imie?> <?= $row->nazwisko?> (<?= $row->nazwa?>) </option>
                 <?php endforeach; ?>
             </select>
             <hr>
-            <form action="*" method="POST">
+            <form action="/main/mod/modride" method="POST">
             <?php foreach($chosenridedata as $row) :?>
                 <?php 
                     $time=$row->czas; 
@@ -84,7 +84,7 @@ case 0: ?>
        <div class="col"><h2>Wybierz Szkołe</h2>
            <select id="school_picker" class="  select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($schooldata as $row) :?>
-                    <option <?php if($row->szkola_id==$chosenschooldata[0]->szkola_id){echo("selected");}  ?> value="../../../../../main/mod/1/1/<?= $row->szkola_id?>/1"><?= $row->nazwa?> </option>
+                    <option <?php if($row->szkola_id==$chosenschooldata[0]->szkola_id){echo("selected");}  ?> value="/main/mod/1/1/<?= $row->szkola_id?>/1"><?= $row->nazwa?> </option>
                 <?php endforeach;?>
            </select>
            <hr>
@@ -114,11 +114,11 @@ case 0: ?>
        <div class="col"><h2>Wybierz Gokart</h2>
            <select id="gokart_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($gokartdata as $row) :?>
-                    <option <?php if($row->gokart_id==$chosengokartdata[0]->gokart_id){echo("selected");}  ?> value="../../../../../main/mod/1/1/1/<?= $row->gokart_id?>"><?= $row->nazwa?> </option>
+                    <option <?php if($row->gokart_id==$chosengokartdata[0]->gokart_id){echo("selected");}  ?> value="/main/mod/1/1/1/<?= $row->gokart_id?>"><?= $row->nazwa?> </option>
                 <?php endforeach; ?>
            </select>
            <hr>
-           <form action="*" method="POST">
+           <form action="/main/mod/modgokart" method="POST">
            <?php foreach($chosengokartdata as $row) :?>
                <label for="gokart_name"><h4>Nazwa</h4></label>
                <input id="gokart_name" name="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwa ?>">
@@ -134,7 +134,7 @@ case 0: ?>
 <?php case 4: ?>
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
-           <form action="/main/add/school" method="POST">
+           <form action="/main/mod/modschool" method="POST">
                <label for="school_name"><h4>Nazwa</h4></label>
                <input id="school_name" name="school_name" class="form-control form-control-lg w-50" type="text" placeholder="Nazwa">
                <label for="school_town"><h4>Miasto</h4></label><br>

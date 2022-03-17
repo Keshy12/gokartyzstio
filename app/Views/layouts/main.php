@@ -10,13 +10,16 @@
 
     <script>
         $(document).ready(function(){
+            function GetSelectedIndex() {
+            var i = $('#ddlRole option:selected').index();
+            return i;}
             // !function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?a(require("jquery")):a(jQuery)}(function(a){function b(a){return h.raw?a:encodeURIComponent(a)}function c(a){return h.raw?a:decodeURIComponent(a)}function d(a){return b(h.json?JSON.stringify(a):String(a))}function e(a){0===a.indexOf('"')&&(a=a.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,"\\"));try{return a=decodeURIComponent(a.replace(g," ")),h.json?JSON.parse(a):a}catch(b){}}function f(b,c){var d=h.raw?b:e(b);return a.isFunction(c)?c(d):d}var g=/\+/g,h=a.cookie=function(e,g,i){if(void 0!==g&&!a.isFunction(g)){if(i=a.extend({},h.defaults,i),"number"==typeof i.expires){var j=i.expires,k=i.expires=new Date;k.setTime(+k+864e5*j)}return document.cookie=[b(e),"=",d(g),i.expires?"; expires="+i.expires.toUTCString():"",i.path?"; path="+i.path:"",i.domain?"; domain="+i.domain:"",i.secure?"; secure":""].join("")}for(var l=e?void 0:{},m=document.cookie?document.cookie.split("; "):[],n=0,o=m.length;o>n;n++){var p=m[n].split("="),q=c(p.shift()),r=p.join("=");if(e&&e===q){l=f(r,g);break}e||void 0===(r=f(r))||(l[q]=r)}return l};h.defaults={},a.removeCookie=function(b,c){return void 0===a.cookie(b)?!1:(a.cookie(b,"",a.extend({},c,{expires:-1})),!a.cookie(b))}});
             $('.select_location').on('change', function(){
-                window.location = $(this).val();
+                let i = $(this)[0].selectedIndex
+                window.location = $(this).children().eq(i).attr('id');
             });
             
         })
-        
     </script>
     <style>
         input[type="number"]::-webkit-outer-spin-button,
@@ -24,8 +27,8 @@
             -webkit-appearance: none;
             margin: 0;
         }
-        input[type="number"] {
-            -moz-appearance: textfield;
+        body,html{
+            height:100%;
         }
     </style>
 </head>
@@ -114,13 +117,16 @@
     </nav>
 </header>
 <body>
+    <div style="min-height: 90%">
     <?= $this->renderSection('content')?>
+    </div>
 </body>
-<footer class="static-bottom">
-  <div class="text-center p-3 bg-dark">
-      <a class="text-white">© 2022 Copyright:</a>
-      <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
-  </div>
-<!-- Copyright -->
+<footer>
+    <div class="text-center p-3 bg-dark">
+        <a class="text-white">© 2022 Copyright:</a>
+        <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
+    </div>
+    <!-- Copyright: Mateusz Potoniec, Marcin Stożek, Marcin Tomaszek, Michał Wiewiórka, Kacper Zięba-->
 </footer>
+
 </html>

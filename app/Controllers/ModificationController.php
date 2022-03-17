@@ -24,25 +24,66 @@ class ModificationController extends BaseController
         $data['competitordata']=$model->get('tm_zawodnik');
         $data['schooldata']=$model->get('szkola');
         $data['gokartdata']=$model->get('gokart');
+        $data['competitiondata']=$model->get('zawody');
         $data['statusdata']=$model->get('status_przejazdu');
         $data['citydata']=$model->get('miasto');
         $data['ridedata']=$model->getride();
 
         $data['chosenschooldata']=$model->getchosen('szkola', 'szkola_id', (int)$idschool);
         $data['chosenridedata']=$model->getchosenride((int)$idride);
-        $data['chosengokartdata']=$model->getchosen('gokart', 'gokart_id', (int)$idgokart);
-        $data['chosencompetitordata']=$model->getchosen('tm_zawodnik', 'tm_zawodnik_id', (int)$idcompetitor);    
-
-
-        $data['chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
-        $data['numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
-        $data['chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');
-
-        // echo "<pre>";
-        // print_r();
-        // echo "</pre>";
+        $data['chosengokartdata']=$model->getchosen((int)$idgokart,'gokart');
+        $data['chosencompetitordata']=$model->getchosen((int)$idcompetitor,'tm_zawodnik');              
+    
         return view('modification',$data);   
     }
 
+    public function modifycompetitor()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
 
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $model->modifycompetitor($_POST['competitor_picker'],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school'],$_POST['competitor_competition']);
+        
+        return redirect()->to( base_url().'/main/mod' );
+    }
+
+    public function modifyride()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $time=(int)$_POST['minutes']*60000+(int)$_POST['seconds']*1000+(int)$_POST['miliseconds'];
+        $model->modifyride($_POST['ride_picker'],$_POST['ride_status'],$_POST['ride_gokart'],$time);
+        
+        return redirect()->to( base_url().'/main/mod' );
+    }
+
+    public function modifyschool()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $model->modifyschool($_POST['school_picker'],$_POST['school_name'],$_POST['school_town'],$_POST['school_acronym']);
+        
+        return redirect()->to( base_url().'/main/mod' );
+    }
+
+    public function modifygokart()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $model->modifygokart($_POST['gokart_picker'],$_POST['gokart_name']);
+        
+        return redirect()->to( base_url().'/main/mod' );
+        
+    }
 }

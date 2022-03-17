@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col">
-            <h2>Tablica Wyników <button type="button" class="btn btn-outline-dark float-right" data-mdb-ripple-color="dark">Wszystkie Wyniki</button></h2>
+            <h2>Tablica Wyników</h2>
             <div class="row">
                 <div class="col-lg-12">
                     <table class="table border text-center">
@@ -25,7 +25,11 @@
                                 <td><?= $row->imie ?></td>
                                 <td><?= $row->nazwisko ?></td>
                                 <td><?= $row->akronim ?></td>
-                                <td><?= $row->czas ?></td>
+                                <?php if(is_null($row->czas)) : ?>
+                                    <td class="text-danger">DSQ</td>
+                                <?php else : ?>
+                                    <td><?= $row->czas ?></td>
+                                <?php endif; ?>
                                 <td><?= $row->nazwa ?></td>
                             </tr>
                         <?php endforeach; ?>

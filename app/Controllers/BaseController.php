@@ -21,7 +21,7 @@ use App\Models\ArbiterModel;
  * For security be sure to declare any new methods as protected or private.
  */
 class BaseController extends Controller
-{
+{  
     /**
      * Instance of the main Request object.
      *
@@ -46,17 +46,22 @@ class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
+        // Preload any models, libraries, etc, here.
+
+        // E.g.: $this->session = \Config\Services::session();
         $session = \Config\Services::session();
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
-        };
-
+        };  
+        if(!isset($_COOKIE["button"]))
+        {
+            $_COOKIE["button"] = 99;
+        }; 
         $db = db_connect();
         $model = new ArbiterModel($db);
         $status = $model->getStatus();
         $_COOKIE["status"] = "";
-        // if(!isset($_COOKIE["button_id"]))$_COOKIE["button_id"] = "";
         $zaplanowane = false;
         $w_trakcie = false;
         foreach($status as $stat)
@@ -82,9 +87,7 @@ class BaseController extends Controller
         {
             $_COOKIE["status"] = "w_trakcie"; 
         }
-
-        // Preload any models, libraries, etc, here.
-
-        // E.g.: $this->session = \Config\Services::session();
+        
+        
     }
 }

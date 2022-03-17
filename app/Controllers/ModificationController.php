@@ -31,8 +31,57 @@ class ModificationController extends BaseController
         $data['chosenschooldata']=$model->getchosen((int)$idschool,'szkola');
         $data['chosenridedata']=$model->getchosenride((int)$idride);
         $data['chosengokartdata']=$model->getchosen((int)$idgokart,'gokart');
-        $data['chosencompetitordata']=$model->getchosen((int)$idcompetitor,'tm_zawodnik');        
+        $data['chosencompetitordata']=$model->getchosen((int)$idcompetitor,'tm_zawodnik');              
     
         return view('modification',$data);   
+    }
+
+    public function modifycompetitor()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $model->modifycompetitor($_POST[''],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school']);
+        
+        return redirect()->to( base_url().'/main/mod' );
+    }
+
+    public function modifyride()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $time=(int)$_POST['minutes']*60000+(int)$_POST['seconds']*1000+(int)$_POST['miliseconds'];
+        $model->modifyride($_POST[''],$_POST['ride_status'],$_POST['ride_gokart'],$time);
+        
+        return redirect()->to( base_url().'/main/mod' );
+    }
+
+    public function modifyschool()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $model->modifyschool($_POST[''],$_POST['school_name'],$_POST['school_town'],$_POST['school_acronym']);
+        
+        return redirect()->to( base_url().'/main/mod' );
+    }
+
+    public function modifygokart()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $model->modifygokart($_POST[''],$_POST['gokart_name']);
+        
+        return redirect()->to( base_url().'/main/mod' );
     }
 }

@@ -16,7 +16,7 @@ class CompetitionController extends BaseController
 
         $result_now = $model->comp_now();
         if(!$result_now)
-            return redirect()->to('main/score');
+            return redirect()->to( base_url().'/main/score' );
 
         $result = $model->comp_before();
         foreach($result as $row)

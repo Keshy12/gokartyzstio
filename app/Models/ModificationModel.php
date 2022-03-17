@@ -43,6 +43,14 @@ class ModificationModel{
         ->where('tm_przejazd_id', $id);
         return $resultride->get()->getResult();
     }
+    
+    function getNumberOfRows($table, $column, $value)
+    {
+        $result = $this->db->table($table)
+        ->selectCount($table.'_id', 'numberOfRows')
+        ->where($column, $value);
+        return $result->get()->getResult();
+    }
 
     function modifycompetitor($to_modify_id,$name,$surname,$bdate,$schol_id,$competition_id)
     {

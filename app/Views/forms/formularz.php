@@ -11,9 +11,6 @@ case 0: ?>
             <hr>
             <form action="*" method="POST">
             <?php foreach($chosencompetitordata as $row) :?>
-                <select id="competitor_competition" class="custom-select custom-select-lg mb-1 w-50">
-                    <option value="0">Nazwa Zawodów STATUS (ze statusem zaplanowane/w trakcie) (Z BAZY)</option>
-                </select><br>
                 <label for="competitor_name"><h4>Imie</h4></label>
                 <input id="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie ?>">
                 <label for="competitor_surname"><h4>Nazwisko</h4></label>
@@ -25,6 +22,10 @@ case 0: ?>
                     <?php foreach($schooldata as $innerrow) :?>
                         <option <?php if($innerrow->szkola_id==$chosencompetitordata[0]->szkola_id){echo("selected");}?> value="<?= $innerrow->szkola_id?>"> <?= $innerrow->nazwa?> </option>
                     <?php endforeach; ?>
+                </select><br>
+                <label for="competitor_competition"><h4>Zawody</h4></label><br>
+                <select id="competitor_competition" class="custom-select custom-select-lg mb-4 w-50">
+                    <option value="0">Nazwa Zawodów STATUS (ze statusem zaplanowane/w trakcie) (Z BAZY)</option>
                 </select><br>
                 <input type="submit" value="USUŃ" class="btn btn-danger" />
                 <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />

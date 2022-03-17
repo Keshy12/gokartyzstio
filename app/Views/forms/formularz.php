@@ -131,7 +131,7 @@ case 0: ?>
 <?php case 4: ?>
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
-           <form action="../AppendController/addSchool" method="POST">
+           <form action="/main/add/school" method="POST">
                <label for="school_name"><h4>Nazwa</h4></label>
                <input id="school_name" name="school_name" class="form-control form-control-lg w-50" type="text" placeholder="Nazwa">
                <label for="school_town"><h4>Miasto</h4></label><br>
@@ -151,7 +151,7 @@ case 0: ?>
 <?php case 5: ?>
     <div class="row m-3" id="town_form">
         <div class="col"><h2>Dodawanie Miasta</h2>
-            <form action="../AppendController/addTown" method="POST">
+            <form action="/main/add/town" method="POST">
                 <label for="town_name"><h4>Nazwa</h4></label>
                 <input id="town_name" name="town_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
@@ -233,7 +233,7 @@ case 0: ?>
 <?php case 10: ?>
     <div class="row m-3" id="gokart_form">
         <div class="col"><h2>Dodawanie Gokarta</h2>
-            <form action="../AppendController/addGokart" method="POST">
+            <form action="/main/add/gokart" method="POST">
                 <label for="gokart_name"><h4>Nazwa</h4></label>
                 <input id="gokart_name" name="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />

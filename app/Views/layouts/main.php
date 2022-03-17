@@ -63,6 +63,9 @@
                         </li>
                         <?php elseif($_COOKIE["status"] == "zaplanowane"): ?>
                         <li class="nav-item">
+                            <a class="nav-link disabled" href="/main/judge">Sędzia</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/main/compform">Zgłoszenia</a>
                         </li>
                         <?php elseif($_COOKIE["status"] == "oba"): ?>

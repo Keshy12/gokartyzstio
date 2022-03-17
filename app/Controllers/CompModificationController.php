@@ -40,9 +40,15 @@ class CompModificationController extends BaseController
         
         $db = db_connect();
         $model = new CompModificationModel($db);
-        
-        $model->changeState($_POST['competition_id'], '3');
 
+        $result = $model->getWithJoin('tm_przejazd', 'tm_zawodnik', 'tm_zawodnik_id');
+        foreach($result as $row)
+        {
+            $model->add('archiwum', ['imie' => $row->imie, 'nazwisko' => $row->nazwisko, 'gokart_id' => $row->gokart_id, 'czas' => $row->czas, 'szkola_id' => $row->szkola_id, 'zawody_id' => $row->zawody_id]);
+            $model->remove('tm_przejazd', $row->tm_przejazd_id);
+        }
+
+        $model->changeState($_POST['competition_id'], '3');
         return redirect()->to( base_url().'/main/mod' ); 
     }
 }

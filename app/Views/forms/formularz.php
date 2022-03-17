@@ -101,7 +101,6 @@ case 0: ?>
                </select><br>
                <label for="school_acronym"><h4>Akronim</h4></label>
                <input id="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->akronim ?>">
-               <input type="submit" value="Usuń" class="btn btn-danger" />
                <input type="submit" value="Zatwierdź" class="btn btn-success"" />
             <?php endforeach;?>
            </form>
@@ -124,7 +123,6 @@ case 0: ?>
                <label for="gokart_name"><h4>Nazwa</h4></label>
                <input id="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwa ?>">
 
-               <input type="submit" value="Usuń" class="btn btn-danger" />
                <input type="submit" value="Zatwierdź" class="btn btn-success"" />
             <?php endforeach; ?>
            </form>

@@ -40,7 +40,11 @@
                     <a class="nav-link" href="/main">Strona Główna</a>
                 </li>
                 <li class="nav-item">
+                <?php if($_COOKIE["status"] == "w_trakcie" || $_COOKIE["status"] == "oba"): ?>
                     <a class="nav-link" href="/main/comp">Zawody</a>
+                <?php else: ?>
+                    <a class="nav-link disabled" href="/main/comp">Zawody</a>
+                <?php endif; ?>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/main/arch">Archiwum</a>
@@ -55,6 +59,9 @@
                             <a class="nav-link" href="/main/judge">Sędzia</a>
                         </li>
                         <?php elseif($_COOKIE["status"] == "zaplanowane"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/main/judge">Sędzia</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/main/compform">Zgłoszenia</a>
                         </li>

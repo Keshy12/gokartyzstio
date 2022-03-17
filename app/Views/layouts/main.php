@@ -59,14 +59,14 @@
                         </li>
                         <?php elseif($_COOKIE["status"] == "zaplanowane"): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
+                            <a class="nav-link" href="/main/compform">Zgłoszenia</a>
                         </li>
                         <?php elseif($_COOKIE["status"] == "oba"): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/main/judge">Sędzia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
+                            <a class="nav-link" href="/main/compform">Zgłoszenia</a>
                         </li>
                         <?php endif; ?>
                     <?php endif; ?>
@@ -77,14 +77,14 @@
                         </li>
                         <?php elseif($_COOKIE["status"] == "zaplanowane"): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
+                            <a class="nav-link" href="/main/compform">Zgłoszenia</a>
                         </li>
                         <?php elseif($_COOKIE["status"] == "oba"): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/main/judge">Sędzia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
+                            <a class="nav-link" href="/main/compform">Zgłoszenia</a>
                         </li>
                         <?php endif; ?> 
                     <?php endif; ?>

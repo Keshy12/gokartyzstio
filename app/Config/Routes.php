@@ -41,6 +41,11 @@ $routes->add('main/arch', 'ArchiveController');
 $routes->add('main/mod', 'ModificationController');
 $routes->add('main/judge', 'ArbiterController');
 $routes->add('main/score', 'CompetitionController::scoreboard');
+<<<<<<< Updated upstream
+=======
+$routes->add('main/compform', 'FormController');
+$routes->add('main/compform/add', 'FormController::add');
+>>>>>>> Stashed changes
 
 /*
  * --------------------------------------------------------------------

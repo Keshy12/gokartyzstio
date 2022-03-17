@@ -140,7 +140,6 @@ case 0: ?>
                         <option <?php if($innerrow->miasto_id==$chosenschooldata[0]->miasto_id){echo("selected");}?> value="<?= $innerrow->miasto_id?>"> <?= $innerrow->nazwa ?> </option>
                     <?php endforeach; ?>
                </select><br>
-               <input type="submit" value="DODAJ MIASTO" class="btn btn-outline-secondary mb-4" /><br>
                <label for="school_acronym"><h4>Akronim</h4></label>
                <input id="school_acronym" name="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
                <input type="submit" value="DODAJ" class="btn btn-secondary" />

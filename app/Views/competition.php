@@ -65,7 +65,7 @@
                                 <td><?= $row->nazwisko ?></td>
                                 <td><?= $row->akronim ?></td>
                                 <?php if(is_null($row->czas)) : ?>
-                                    <td>DSQ</td>
+                                    <td class="text-danger">DSQ</td>
                                 <?php else : ?>
                                     <td><?= $row->czas ?></td>
                                 <?php endif; ?>

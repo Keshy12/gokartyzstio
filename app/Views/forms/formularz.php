@@ -124,8 +124,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 6: ?>
+    <!-- Zacznij -->
+    <p>Zacznij</p>
 <?php break; ?>
 <?php case 7: ?>
+    <!-- Zaplanuj -->
+    <p>Zaplanuj</p>
 <?php break; ?>
 <?php endswitch; ?>
 </div>

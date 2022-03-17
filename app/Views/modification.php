@@ -31,9 +31,10 @@
 
 <div class="container-fluid">
     <div class="row m-3">
-        <div class="col-3"><h2>Zawody</h2>
-            <button type="button" value="6" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij Nowe</button>
-            <button type="button" value="7" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Edytuj</button>
+        <div class="col-4"><h2>Zawody</h2>
+            <button type="button" value="6" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij</button>
+            <button type="button" value="7" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaplanuj</button>
+            <button type="button" value="8" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Edytuj</button>
         </div>
         <div class="col-3"><h2>Dodawanie</h2>
             <button type="button" value="4" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>

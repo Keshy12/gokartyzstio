@@ -10,9 +10,8 @@ class FormController extends BaseController
     {
         $data = BaseModel::setTitle('Archiwum');
         if(!($_SESSION["zalogowany"] == "pełny" XOR $_SESSION["zalogowany"] == "limitowany"))
-        {
-            return view('competitor_form',$data);
-        }
+            return redirect()->to( base_url().'/main');
+        return view('competitorform',$data);
         //asdfasdf
     }
 }

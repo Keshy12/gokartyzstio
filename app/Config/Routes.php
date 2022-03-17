@@ -47,6 +47,7 @@ $routes->add('main/add/town', 'AppendController::addTown');
 $routes->add('main/add/gokart', 'AppendController::addGokart');
 $routes->add('main/compmod', 'CompModificationController');
 $routes->add('main/compmod/add', 'CompModificationController::addComp');
+$routes->add('main/compmod/begin', 'CompModificationController::beginComp');
 $routes->add('main/judge', 'ArbiterController');
 $routes->add('main/judge/disqualify', 'ArbiterController::disqualify');
 $routes->add('main/judge/addTime', 'ArbiterController::addTime');

@@ -8,9 +8,8 @@ class CompModificationModel extends AppendModel{
         $this->db =& $db;
     }
 
-    public function begin()
+    public function begin($id)
     {
-        $this->db->query('UPDATE tm_przejazd SET status_przejazdu_id = 1, czas = null WHERE status_przejazdu_id = 2');
-        $this->db->query('UPDATE tm_przejazd SET status_przejazdu_id = 2 WHERE status_przejazdu_id = 3 LIMIT 1');
+        $this->db->query('UPDATE zawody SET status_zawodow_id = 2 WHERE zawody_id = '.$id);
     }
 }

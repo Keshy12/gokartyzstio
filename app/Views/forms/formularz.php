@@ -174,7 +174,7 @@ case 0: ?>
 <?php case 7: ?>
     <div class="row m-3" id="school_form">
         <div class="col">
-            <form action="*" method="POST">
+            <form action="/main/compmod/begin" method="POST">
                 <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
                 <select id="competition_name" name="competion_id" class="custom-select custom-select-lg mb-1 w-50">
                     <?php foreach($chosencompetitiondata as $innerrow) :?>

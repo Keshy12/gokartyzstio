@@ -12,59 +12,20 @@ class ModificationModel{
         $this->db =& $db;
     }
 
-    function getcompetitor()
+    function get($subject)
     {
-        $resultcompetitor = $this->db->table('tm_zawodnik');
+        $resultcompetitor = $this->db->table($subject);
         return $resultcompetitor->get()->getResult();
     }
 
-    function getschool()
-    {
-        $resultcompetitor = $this->db->table('szkola');            
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getgokart()
-    {
-        $resultcompetitor = $this->db->table('gokart');             
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getcity()
-    {
-        $resultcompetitor = $this->db->table('miasto');             
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getstatus()
-    {
-        $resultcompetitor = $this->db->table('status_przejazdu');           
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getchosencompetitor($id)
+    function getchosen($id,$subject)
     {
         
-        $resultchosen = $this->db->table('tm_zawodnik')
-        ->where('tm_zawodnik_id', $id);
+        $resultchosen = $this->db->table($subject)
+        ->where($subject.'_id', $id);
         return $resultchosen->get()->getResult();
     }
 
-    function getchosenschool($id)
-    {
-        
-        $resultcompetitor = $this->db->table('szkola')
-        ->where('szkola_id', $id);         
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getchosengokart($id)
-    {
-        
-        $resultcompetitor = $this->db->table('gokart')
-        ->where('gokart_id', $id);         
-        return $resultcompetitor->get()->getResult();
-    }
     
     function getride()
     {

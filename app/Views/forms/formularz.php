@@ -24,8 +24,10 @@ case 0: ?>
                     <?php endforeach; ?>
                 </select><br>
                 <label for="competitor_competition"><h4>Zawody</h4></label><br>
-                <select id="competitor_competition" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">Nazwa Zawodów STATUS (ze statusem zaplanowane/w trakcie) (Z BAZY)</option>
+                <select id="competitor_competition" name="competitor_competition" class="custom-select custom-select-lg mb-4 w-50">
+                    <?php foreach($competitiondata as $innerrow) :?>
+                        <option <?php if($innerrow->zawody_id==$chosencompetitordata[0]->zawody_id){echo("selected");}?> value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
+                    <?php endforeach; ?>
                 </select><br>
                 <input type="submit" value="Usuń" class="btn btn-danger" />
                 <input type="submit" value="Zatwierdź" class="btn btn-success"" />

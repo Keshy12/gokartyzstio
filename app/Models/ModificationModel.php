@@ -47,9 +47,9 @@ class ModificationModel{
         return $resultride->get()->getResult();
     }
 
-    function modifycompetitor($to_modify_id,$name,$surname,$bdate,$schol_id)
+    function modifycompetitor($to_modify_id,$name,$surname,$bdate,$schol_id,$competition_id)
     {
-        $this->db->query("UPDATE `tm_zawodnik` SET `imie` = '$name', `nazwisko` = '$surname', `data_urodzenia` = '$bdate', `szkola_id` = '$schol_id' WHERE `tm_zawodnik`.`tm_zawodnik_id` = $to_modify_id ");
+        $this->db->query("UPDATE `tm_zawodnik` SET `imie` = '$name', `nazwisko` = '$surname', `data_urodzenia` = '$bdate', `szkola_id` = '$schol_id' , `zawody_id` = '$competition_id' WHERE `tm_zawodnik`.`tm_zawodnik_id` = $to_modify_id ");
     }
 
     function modifyride($to_modify_id,$ride_status_id,$gokart_id,$time)

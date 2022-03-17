@@ -24,6 +24,7 @@ class ModificationController extends BaseController
         $data['competitordata']=$model->get('tm_zawodnik');
         $data['schooldata']=$model->get('szkola');
         $data['gokartdata']=$model->get('gokart');
+        $data['competitiondata']=$model->get('zawody');
         $data['statusdata']=$model->get('status_przejazdu');
         $data['citydata']=$model->get('miasto');
         $data['ridedata']=$model->getride();
@@ -43,7 +44,7 @@ class ModificationController extends BaseController
 
         $db = db_connect();
         $model = new ModificationModel($db);
-        $model->modifycompetitor($_POST[''],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school']);
+        $model->modifycompetitor($_POST[''],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school'],$_POST['competitor_competition']);
         
         return redirect()->to( base_url().'/main/mod' );
     }

@@ -20,11 +20,11 @@ class BaseModel{
 
     public static function setSession()
     {
-        // $session = \Config\Services::session();
-        // if(!isset($_SESSION["zalogowany"]))
-        // {
-        //     $_SESSION["zalogowany"] = "";
-        // }; 
+        $session = \Config\Services::session();
+        if(!isset($_SESSION["zalogowany"]))
+        {
+            $_SESSION["zalogowany"] = "";
+        };
     }
 
     public static function setTitle($title)

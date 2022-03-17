@@ -54,7 +54,10 @@ class BaseController extends Controller
         {
             $_SESSION["zalogowany"] = "";
         };  
-
+        if(!isset($_COOKIE["button"]))
+        {
+            $_COOKIE["button"] = 99;
+        }; 
         $db = db_connect();
         $model = new ArbiterModel($db);
         $status = $model->getStatus();

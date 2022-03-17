@@ -51,6 +51,7 @@ $routes->add('main/judge', 'ArbiterController');
 $routes->add('main/judge/disqualify', 'ArbiterController::disqualify');
 $routes->add('main/judge/addTime', 'ArbiterController::addTime');
 $routes->add('main/score', 'CompetitionController::scoreboard');
+$routes->add('main/compform', 'FormController');
 
 /*
  * --------------------------------------------------------------------

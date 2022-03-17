@@ -28,8 +28,19 @@ class CompModificationController extends BaseController
         $db = db_connect();
         $model = new CompModificationModel($db);
         
-        $model->begin($_POST['competion_id']);
+        $model->begin($_POST['competition_id']);
         return redirect()->to( base_url().'/main/mod' ); 
     }
 
+    function finishConp()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+        
+        $db = db_connect();
+        $model = new CompModificationModel($db);
+        
+        $model->finish($_POST['competition_id']);
+        return redirect()->to( base_url().'/main/mod' ); 
+    }
 }

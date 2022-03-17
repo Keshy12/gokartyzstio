@@ -36,7 +36,11 @@ class ModificationController extends BaseController
 
         $data['chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
         $data['numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
+        $data['chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');
 
+        // echo "<pre>";
+        // print_r();
+        // echo "</pre>";
         return view('modification',$data);   
     }
 

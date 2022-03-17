@@ -12,4 +12,10 @@ class CompModificationModel extends AppendModel{
     {
         $this->db->query('UPDATE zawody SET status_zawodow_id = 2 WHERE zawody_id = '.$id);
     }
+
+    public function finish($id)
+    {
+        $this->db->query('UPDATE zawody SET status_zawodow_id = 3 WHERE zawody_id = '.$id);
+    }
+
 }

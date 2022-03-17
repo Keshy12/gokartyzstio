@@ -14,4 +14,5 @@ class FormController extends BaseController
         return view('competitorform',$data);
         //asdfasdf
     }
+
 }

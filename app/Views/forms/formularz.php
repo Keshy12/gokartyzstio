@@ -11,9 +11,6 @@ case 0: ?>
             <hr>
             <form action="main/mod/modcomp" method="POST">
             <?php foreach($chosencompetitordata as $row) :?>
-                <select id="competitor_competition" class="custom-select custom-select-lg mb-1 w-50">
-                    <option value="0">Nazwa Zawodów STATUS (ze statusem zaplanowane/w trakcie) (Z BAZY)</option>
-                </select><br>
                 <label for="competitor_name"><h4>Imie</h4></label>
                 <input id="competitor_name" name="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie ?>">
                 <label for="competitor_surname"><h4>Nazwisko</h4></label>
@@ -26,8 +23,12 @@ case 0: ?>
                         <option <?php if($innerrow->szkola_id==$chosencompetitordata[0]->szkola_id){echo("selected");}?> value="<?= $innerrow->szkola_id?>"> <?= $innerrow->nazwa?> </option>
                     <?php endforeach; ?>
                 </select><br>
-                <input type="submit" value="USUŃ" class="btn btn-danger" />
-                <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+                <label for="competitor_competition"><h4>Zawody</h4></label><br>
+                <select id="competitor_competition" class="custom-select custom-select-lg mb-4 w-50">
+                    <option value="0">Nazwa Zawodów STATUS (ze statusem zaplanowane/w trakcie) (Z BAZY)</option>
+                </select><br>
+                <input type="submit" value="Usuń" class="btn btn-danger" />
+                <input type="submit" value="Zatwierdź" class="btn btn-success"" />
             <?php endforeach; ?>
             </form>
         </div>
@@ -72,8 +73,8 @@ case 0: ?>
                     <input id="ride_time_seconds" name="seconds"  class="form-control form-control-lg mb-4 w-25 float-left" type="number" maxlength="2" placeholder="S" value="<?= $seconds ?>"><h4 class="float-left mt-3">.</h4>
                     <input id="ride_time_milliseconds" name="miliseconds" class="form-control form-control-lg mb-4 w-25" type="number" maxlength="3" placeholder="MS" value="<?= $miliseconds ?>">
                 </div>
-                <input type="submit" value="USUŃ" class="btn btn-danger" />
-                <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+                <input type="submit" value="Usuń" class="btn btn-danger" />
+                <input type="submit" value="Zatwierdź" class="btn btn-success"" />
             <?php endforeach; ?>
             </form>
         </div>
@@ -123,8 +124,8 @@ case 0: ?>
                <label for="gokart_name"><h4>Nazwa</h4></label>
                <input id="gokart_name" name="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwa ?>">
 
-               <input type="submit" value="USUŃ" class="btn btn-danger" />
-               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+               <input type="submit" value="Usuń" class="btn btn-danger" />
+               <input type="submit" value="Zatwierdź" class="btn btn-success"" />
             <?php endforeach; ?>
            </form>
        </div>
@@ -145,7 +146,7 @@ case 0: ?>
                </select><br>
                <label for="school_acronym"><h4>Akronim</h4></label>
                <input id="school_acronym" name="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
-               <input type="submit" value="DODAJ" class="btn btn-secondary" />
+               <input type="submit" value="Dodaj" class="btn btn-success"" />
            </form>
        </div>
    </div>
@@ -156,7 +157,7 @@ case 0: ?>
             <form action="/main/add/town" method="POST">
                 <label for="town_name"><h4>Nazwa</h4></label>
                 <input id="town_name" name="town_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
-                <input type="submit" value="DODAJ" class="btn btn-secondary" />
+                <input type="submit" value="Dodaj" class="btn btn-success"" />
             </form>
         </div>
     </div>
@@ -169,7 +170,7 @@ case 0: ?>
                 <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <label for="competition_start_date"><h4>Data Rozpoczęcia</h4></label>
                 <input id="competition_start_date" name="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
-                <input type="submit" value="ZAPLANUJ" class="btn btn-secondary" /><hr>
+                <input type="submit" value="Zaplanuj" class="btn btn-success" /><hr>
                 <p>Tworzy nowe zawody.
                     <br>Zostaje włączony dostęp do rejstracji zawodników.</p>
             </form>
@@ -181,10 +182,10 @@ case 0: ?>
         <div class="col">
             <form action="*" method="POST">
                 <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
-                <select id="competition_name" class="custom-select custom-select-lg mb-1 w-50">
+                <select id="competition_name" class="custom-select custom-select-lg mb-4 w-50">
                     <option value="0">Nazwa Zawodów (Ze statusem zaplanowane) (Z BAZY)</option>
                 </select><br>
-                <input type="submit" value="Zacznij" class="btn btn-secondary"/>
+                <input type="submit" value="Zacznij" class="btn btn-success"/>
             </form><hr>
             <p>Zmienia status zawodów z "ZAPLANOWANE" na "W TRAKCIE".
                 <br> Zostają wylosowane przejazdy dla zawodników.
@@ -200,7 +201,7 @@ case 0: ?>
             <form action="*" method="POST">
                 <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label>
                 <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" disabled>
-                <input type="submit" value="Zakończ" class="btn btn-danger"/>
+                <input type="submit" value="Zakończ" class="btn btn-info"/>
             </form><hr>
             <p>Zmienia status zawodów z "W TRAKCIE" na "ZAKOŃCZONE".
                 <br> Zawody zostają dodane do archiwum.</p>
@@ -223,8 +224,8 @@ case 0: ?>
                 <input id="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
                 <label for="competition_end_date"><h4>Data Zakończenia</h4></label>
                 <input id="competition_end_date" class="form-control form-control-lg mb-4 w-50" type="date" >
-                <input type="submit" value="USUŃ" class="btn btn-danger" />
-                <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+                <input type="submit" value="Usuń" class="btn btn-danger" />
+                <input type="submit" value="Zatwierdź" class="btn btn-success" />
             </form>
         </div>
     </div>
@@ -235,7 +236,7 @@ case 0: ?>
             <form action="/main/add/gokart" method="POST">
                 <label for="gokart_name"><h4>Nazwa</h4></label>
                 <input id="gokart_name" name="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
-                <input type="submit" value="DODAJ" class="btn btn-secondary" />
+                <input type="submit" value="Dodaj" class="btn btn-success" />
             </form>
         </div>
     </div>

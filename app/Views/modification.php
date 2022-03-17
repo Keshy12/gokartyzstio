@@ -17,8 +17,10 @@
         var id5 = $('#5').detach();
         var id6 = $('#6').detach();
         var id7 = $('#7').detach();
+        var id8 = $('#8').detach();
+        var id9 = $('#9').detach();
 
-        const id = [id0,id1,id2,id3,id4,id5,id6,id7];
+        const id = [id0,id1,id2,id3,id4,id5,id6,id7,id8,id9];
         $("button").click(function(){
             $('.form').detach();
             $(id[$(this).val()]).appendTo("#container");
@@ -32,9 +34,10 @@
 <div class="container-fluid">
     <div class="row m-3">
         <div class="col-4"><h2>Zawody</h2>
-            <button type="button" value="6" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij</button>
-            <button type="button" value="7" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaplanuj</button>
-            <button type="button" value="8" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Edytuj</button>
+            <button type="button" value="6" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaplanuj</button>
+            <button type="button" value="7" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij</button>
+            <button type="button" value="8" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zakończ</button>
+            <button type="button" value="9" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Edytuj</button>
         </div>
         <div class="col-3"><h2>Dodawanie</h2>
             <button type="button" value="4" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
@@ -59,6 +62,8 @@
     <div class="form" id="5"><?= view('forms/formularz', $data = ['formularz' => 5]) ?></div>
     <div class="form" id="6"><?= view('forms/formularz', $data = ['formularz' => 6]) ?></div>
     <div class="form" id="7"><?= view('forms/formularz', $data = ['formularz' => 7]) ?></div>
+    <div class="form" id="8"><?= view('forms/formularz', $data = ['formularz' => 8]) ?></div>
+    <div class="form" id="9"><?= view('forms/formularz', $data = ['formularz' => 9]) ?></div>
 </div>
 
 

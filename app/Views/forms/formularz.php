@@ -228,6 +228,17 @@ case 0: ?>
         </div>
     </div>
 <?php break; ?>
+<?php case 10: ?>
+    <div class="row m-3" id="gokart_form">
+        <div class="col"><h2>Dodawanie Gokarta</h2>
+            <form action="*" method="POST">
+                <label for="gokart_name"><h4>Nazwa</h4></label>
+                <input id="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+                <input type="submit" value="DODAJ" class="btn btn-secondary" />
+            </form>
+        </div>
+    </div>
+<?php break; ?>
 <?php endswitch; ?>
 </div>
 

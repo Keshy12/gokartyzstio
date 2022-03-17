@@ -13,10 +13,11 @@
         var id7 = $('#7').detach();
         var id8 = $('#8').detach();
         var id9 = $('#9').detach();
+        var id10 = $('#10').detach();
 
         // $(id[getcookieid]).appendTo("#container");
         // var getcookieid= $.cookie('button_id');
-        const id = [id0,id1,id2,id3,id4,id5,id6,id7,id8,id9];
+        const id = [id0,id1,id2,id3,id4,id5,id6,id7,id8,id9,id10];
         $("button").click(function(){
             // let cid=$(this).val()
             // document.cookie = `button_id=${cid}`
@@ -33,9 +34,10 @@
             <button type="button" value="7" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zaczynij</button>
             <button type="button" value="8" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zakończ</button>
         </div>
-        <div class="col-3"><h2>Dodawanie</h2>
+        <div class="col-4"><h2>Dodawanie</h2>
             <button type="button" value="4" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Szkoła</button>
             <button type="button" value="5" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Miasto</button>
+            <button type="button" value="10" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
         </div>
         <div class="col-4"><h2>Modyfikacja</h2>
             <button type="button" value="0"  class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zawodnik</button>
@@ -60,6 +62,7 @@
 <div class="form" id="7"><?= view('forms/formularz', $data = ['formularz' => 7]) ?></div>
 <div class="form" id="8"><?= view('forms/formularz', $data = ['formularz' => 8]) ?></div>
 <div class="form" id="9"><?= view('forms/formularz', $data = ['formularz' => 9]) ?></div>
+<div class="form" id="10"><?= view('forms/formularz', $data = ['formularz' => 10]) ?></div>
    
 
    

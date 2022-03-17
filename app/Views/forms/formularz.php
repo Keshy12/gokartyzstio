@@ -176,8 +176,10 @@ case 0: ?>
         <div class="col">
             <form action="*" method="POST">
                 <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
-                <select id="competition_name" class="custom-select custom-select-lg mb-1 w-50">
-                    <option value="0">Nazwa Zawodów (Z statusem zaplanowane) (Z BAZY)</option>
+                <select id="competition_name" name="competion_id" class="custom-select custom-select-lg mb-1 w-50">
+                    <?php foreach($chosencompetitiondata as $innerrow) :?>
+                        <option <?php if($innerrow->zawody_id==$chosencompetitiondata[0]->zawody_id){echo("selected");}?> value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa ?> </option>
+                    <?php endforeach; ?>
                 </select><br>
                 <input type="submit" value="Zacznij" class="btn btn-secondary"/>
             </form>

@@ -13,7 +13,6 @@ class AppendController extends BaseController
         $model = new AppendModel($db);
 
         $model->add('szkola', ['nazwa' => $_POST['school_name'], 'miasto_id' => $_POST['school_town'], 'akronim' => $_POST['school_acronym']]);
-        
         return redirect()->to( base_url().'/main/mod' ); 
     }
 

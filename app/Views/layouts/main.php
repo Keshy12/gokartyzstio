@@ -30,9 +30,6 @@
             -webkit-appearance: none;
             margin: 0;
         }
-        input[type="number"] {
-            -moz-appearance: textfield;
-        }
     </style>
 </head>
 <header>
@@ -121,12 +118,13 @@
 </header>
 <body>
     <?= $this->renderSection('content')?>
+    <footer>
+        <div class="text-center p-3 bg-dark">
+            <a class="text-white">© 2022 Copyright:</a>
+            <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 </body>
-<footer class="static-bottom">
-  <div class="text-center p-3 bg-dark">
-      <a class="text-white">© 2022 Copyright:</a>
-      <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
-  </div>
-<!-- Copyright -->
-</footer>
+
 </html>

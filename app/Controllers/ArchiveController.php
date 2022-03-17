@@ -9,7 +9,6 @@ class ArchiveController extends BaseController
 {
     function index()
     {
-        BaseModel::setSession();
         $data = BaseModel::setTitle('Archiwum');
 
         $db = db_connect();

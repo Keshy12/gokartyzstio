@@ -9,9 +9,7 @@ class CompetitionController extends BaseController
 {
     function index()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Zawody');
-
+        $data = BaseModel::setTitle('Archiwum');
         ///////
         $db = db_connect();
         $model = new CompetitionModel($db);

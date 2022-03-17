@@ -151,7 +151,7 @@ case 0: ?>
         <div class="col"><h2>Dodawanie Miasta</h2>
             <form action="*" method="POST">
                 <label for="town_name"><h4>Nazwa</h4></label>
-                <input id="town_name" class="form-control form-control-lg w-50 mb-4" type="text" placeholder="Nazwa">
+                <input id="town_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
@@ -224,6 +224,17 @@ case 0: ?>
                 <input id="competition_end_date" class="form-control form-control-lg mb-4 w-50" type="date" >
                 <input type="submit" value="USUŃ" class="btn btn-danger" />
                 <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+            </form>
+        </div>
+    </div>
+<?php break; ?>
+<?php case 10: ?>
+    <div class="row m-3" id="gokart_form">
+        <div class="col"><h2>Dodawanie Gokarta</h2>
+            <form action="*" method="POST">
+                <label for="gokart_name"><h4>Nazwa</h4></label>
+                <input id="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+                <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
     </div>

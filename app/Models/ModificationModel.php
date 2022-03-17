@@ -44,4 +44,12 @@ class ModificationModel{
         ->where('tm_przejazd_id', $id);
         return $resultride->get()->getResult();
     }
+
+    public function getNumberOfRows($table, $column, $value)
+    {
+        $result = $this->db->table($table)
+        ->selectCount($table.'_id', 'numberOfRows')
+        ->where($column, $value);
+        return $result->get()->getResult();
+    }
 }

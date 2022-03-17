@@ -27,7 +27,7 @@ class CompModificationController extends BaseController
 
         $db = db_connect();
         $model = new CompModificationModel($db);
-
+        
         $model->begin($_POST['competion_id']);
         return redirect()->to( base_url().'/main/mod' ); 
     }

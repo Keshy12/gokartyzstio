@@ -32,7 +32,10 @@ class ModificationController extends BaseController
         $data['chosenridedata']=$model->getchosenride((int)$idride);
         $data['chosengokartdata']=$model->getchosen('gokart', 'gokart_id', (int)$idgokart);
         $data['chosencompetitordata']=$model->getchosen('tm_zawodnik', 'tm_zawodnik_id', (int)$idcompetitor);    
+
+
         $data['chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
+        $data['numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
 
         return view('modification',$data);   
     }

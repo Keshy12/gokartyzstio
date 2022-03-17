@@ -151,7 +151,7 @@ case 0: ?>
         <div class="col"><h2>Dodawanie Miasta</h2>
             <form action="*" method="POST">
                 <label for="town_name"><h4>Nazwa</h4></label>
-                <input id="town_name" class="form-control form-control-lg w-50 mb-4" type="text" placeholder="Nazwa">
+                <input id="town_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>

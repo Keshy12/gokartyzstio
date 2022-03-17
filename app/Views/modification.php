@@ -27,7 +27,7 @@
     });  
 </script>
 <div class="container-fluid">
-<div class="row m-3">
+    <div class="row m-3">
         <div class="col-4"><h2>Zawody</h2>
             <button type="button" value="6" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaplanuj</button>
             <button type="button" value="7" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij</button>

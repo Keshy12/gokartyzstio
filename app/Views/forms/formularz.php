@@ -25,17 +25,8 @@ case 0: ?>
         </div>
     </div>
 <?php break; ?>
-<?php case 2: ?>
-    </div>
-    Forum
-    <div>
-<?php break; ?>
-<?php endswitch; ?>
-</div>
-
-
-    <!-- Formularz Modyfikacji Przejazdu
-    <div class="row m-3" id="ride_form">
+<?php case 1: ?>
+        <div class="row m-3" id="ride_form">
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" class="custom-select custom-select-lg mb-4 w-50">
                 <option value="0">Imie Nazwisko Gokart(Z BAZY)</option>
@@ -62,32 +53,32 @@ case 0: ?>
                 <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
             </form>
         </div>
-    </div>-->
-
-    <!-- Formularz Modyfikacji Szkoły
-   <div class="row m-3" id="school_form">
-       <div class="col"><h2>Wybierz Szkołe</h2>
-           <select id="school_picker" class="custom-select custom-select-lg mb-4 w-50">
-               <option value="0">Akronim Szkoły(Z BAZY)</option>
-           </select>
-           <hr>
-           <form action="*" method="POST">
-               <label for="school_name"><h4>Nazwa</h4></label>
-               <input id="school_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
-               <label for="school_town"><h4>Miasto</h4></label><br>
-               <select id="school_town" class="custom-select custom-select-lg mb-4 w-50">
-                   <option value="0">Limanowa (Z BAZY)</option>
-               </select><br>
-               <label for="school_acronym"><h4>Akronim</h4></label>
-               <input id="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
-               <input type="submit" value="USUŃ" class="btn btn-danger" />
-               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
-           </form>
-       </div>
-   </div>-->
-
-    <!-- Formularz Modyfikacji Gokartów
-   <div class="row m-3" id="gokart_form">
+    </div>
+<?php break; ?>
+<?php case 2: ?>
+<div class="row m-3" id="school_form">
+    <div class="col"><h2>Wybierz Szkołe</h2>
+        <select id="school_picker" class="custom-select custom-select-lg mb-4 w-50">
+            <option value="0">Akronim Szkoły(Z BAZY)</option>
+        </select>
+        <hr>
+        <form action="*" method="POST">
+            <label for="school_name"><h4>Nazwa</h4></label>
+            <input id="school_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+            <label for="school_town"><h4>Miasto</h4></label><br>
+            <select id="school_town" class="custom-select custom-select-lg mb-4 w-50">
+                <option value="0">Limanowa (Z BAZY)</option>
+            </select><br>
+            <label for="school_acronym"><h4>Akronim</h4></label>
+            <input id="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
+            <input type="submit" value="USUŃ" class="btn btn-danger" />
+            <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+        </form>
+    </div>
+</div>
+<?php break; ?>
+<?php case 3: ?>
+    <div class="row m-3" id="gokart_form">
        <div class="col"><h2>Wybierz Gokart</h2>
            <select id="gokart_picker" class="custom-select custom-select-lg mb-4 w-50">
                <option value="0">Pomarańczowy Gokart(Z BAZY)</option>
@@ -101,10 +92,10 @@ case 0: ?>
                <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
            </form>
        </div>
-   </div>-->
-
-    <!-- Formularz Dodawania Szkoły
-   <div class="row m-3" id="school_form">
+   </div>
+<?php break; ?>
+<?php case 4: ?>
+    <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
            <form action="*" method="POST">
                <label for="school_name"><h4>Nazwa</h4></label>
@@ -119,9 +110,9 @@ case 0: ?>
                <input type="submit" value="DODAJ" class="btn btn-secondary" />
            </form>
        </div>
-   </div> -->
-
-    <!-- Formularz Dodawania Miasta
+   </div>
+<?php break; ?>
+<?php case 5: ?>
     <div class="row m-3" id="town_form">
         <div class="col"><h2>Dodawanie Miasta</h2>
             <form action="*" method="POST">
@@ -130,4 +121,18 @@ case 0: ?>
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
-    </div>-->
+    </div>
+<?php break; ?>
+<?php case 6: ?>
+<?php break; ?>
+<?php case 7: ?>
+<?php break; ?>
+<?php endswitch; ?>
+</div>
+
+
+
+
+
+
+

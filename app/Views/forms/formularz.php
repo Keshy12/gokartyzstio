@@ -194,10 +194,8 @@ case 0: ?>
     <div class="row m-3" id="school_form">
         <div class="col">
             <form action="*" method="POST">
-                <label for="competition_name"><h4>Wybierz zawody do zakończenia</h4></label><br>
-                <select id="competition_name" class="custom-select custom-select-lg mb-1 w-50">
-                    <option value="0">Nazwa Zawodów (Z statusem w trakcie) (Z BAZY)</option>
-                </select><br>
+                <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label>
+                <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" disabled>
                 <input type="submit" value="Zakończ" class="btn btn-secondary"/>
             </form>
             <!-- DO usunięcia -->

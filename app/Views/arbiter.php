@@ -6,6 +6,9 @@
             <!-- PIERWSZY RZĄD -->
             <div class="col">
                 <!-- ELEMENT ZWYKLY -->
+                <?php if(count($result) <= 0) : ?>
+                    <h2>Przejazdy zakończone</h2>
+                <?php endif; ?>
                 <?php foreach($result as $row) : ?>
                     <?php 
                         switch($row->status_przejazdu_id)

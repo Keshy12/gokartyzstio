@@ -40,6 +40,7 @@ $routes->add('main/comp', 'CompetitionController');
 $routes->add('main/arch', 'ArchiveController');
 $routes->add('main/arch/archiveTable/(:any)', 'ArchiveController::archiveTable/$1');
 $routes->add('main/mod', 'ModificationController');
+$routes->add('main/mod/(:any)', 'ModificationController::index/$1,$2,$3,$4');
 $routes->add('main/judge', 'ArbiterController');
 $routes->add('main/judge/disqualify', 'ArbiterController::disqualify');
 $routes->add('main/judge/addTime', 'ArbiterController::addTime');

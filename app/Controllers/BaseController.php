@@ -46,6 +46,43 @@ class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
+        $session = \Config\Services::session();
+        if(!isset($_SESSION["zalogowany"]))
+        {
+            $_SESSION["zalogowany"] = "";
+        };
+
+        $db = db_connect();
+        $model = new ArbiterModel($db);
+        $status = $model->getStatus();
+        $_COOKIE["status"] = "";
+        // if(!isset($_COOKIE["button_id"]))$_COOKIE["button_id"] = "";
+        $zaplanowane = false;
+        $w_trakcie = false;
+        foreach($status as $stat)
+        {
+            if($stat->status_zawodow_id == 1)
+            {
+                $zaplanowane = true;
+            }
+            if($stat->status_zawodow_id == 2)
+            {
+                $w_trakcie = true;
+            }
+        }
+        if($zaplanowane && $w_trakcie)
+        {
+            $_COOKIE["status"] = "oba"; 
+        }
+        elseif($zaplanowane)
+        {
+            $_COOKIE["status"] = "zaplanowane"; 
+        }
+        elseif($w_trakcie)
+        {
+            $_COOKIE["status"] = "w_trakcie"; 
+        }
+
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();

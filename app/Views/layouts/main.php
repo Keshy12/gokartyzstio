@@ -53,13 +53,40 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/main/mod">Modyfikacja</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/main/judge">Sędzia</a>
-                    </li>
-                    <?php elseif($_SESSION["zalogowany"] == "limitowany"): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/main/judge">Sędzia</a>
-                    </li>
+                        <?php if($_COOKIE["status"] == "w_trakcie"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/judge">Sędzia</a>
+                        </li>
+                        <?php elseif($_COOKIE["status"] == "zaplanowane"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
+                        </li>
+                        <?php elseif($_COOKIE["status"] == "oba"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/judge">Sędzia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
+                        </li>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php if($_SESSION["zalogowany"] == "limitowany"): ?>
+                    <?php if($_COOKIE["status"] == "w_trakcie"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/judge">Sędzia</a>
+                        </li>
+                        <?php elseif($_COOKIE["status"] == "zaplanowane"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
+                        </li>
+                        <?php elseif($_COOKIE["status"] == "oba"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/judge">Sędzia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main/competitor_form">Zgłoszenia</a>
+                        </li>
+                        <?php endif; ?> 
                     <?php endif; ?>
                 <?php endif; ?>
             </ul>

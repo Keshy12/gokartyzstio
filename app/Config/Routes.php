@@ -43,6 +43,7 @@ $routes->add('main/mod', 'ModificationController');
 $routes->add('main/mod/modgokart', 'ModificationController::modifygokart');
 $routes->add('main/mod/modschool', 'ModificationController::modifyschool');
 $routes->add('main/mod/modcomp', 'ModificationController::modifycompetitor');
+$routes->add('main/mod/modcompetition', 'ModificationController::modifycompetition');
 $routes->add('main/mod/modride', 'ModificationController::modifyride');
 $routes->add('main/mod/(:any)', 'ModificationController::index/$1,$2,$3,$4');
 $routes->add('main/add', 'AppendController');

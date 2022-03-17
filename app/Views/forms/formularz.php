@@ -1,15 +1,15 @@
 <div>
 <?php switch($formularz): 
 case 0: ?>
+    <form action="/main/mod/modcomp" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz zawodnika</h2>          
-            <select value="Wybierz"name="chosencompetitor" id="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
+            <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
                 <?php foreach($competitordata as $row) :?>
-                    <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="/main/mod/<?= $row->tm_zawodnik_id?>/1/1/1"><?= $row->imie?> <?= $row->nazwisko?> </option>
+                    <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="<?= $row->tm_zawodnik_id?>" id="/main/mod/<?= $row->tm_zawodnik_id?>/1/1/1"><?= $row->imie?> <?= $row->nazwisko?> </option>
                 <?php endforeach; ?>
             </select>
-            <hr>
-            <form action="main/mod/modcomp" method="POST">
+            <hr>           
             <?php foreach($chosencompetitordata as $row) :?>
                 <label for="competitor_name"><h4>Imie</h4></label>
                 <input id="competitor_name" name="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie ?>">
@@ -32,20 +32,20 @@ case 0: ?>
                 <input type="submit" value="Usuń" class="btn btn-danger" />
                 <input type="submit" value="Zatwierdź" class="btn btn-success"" />
             <?php endforeach; ?>
-            </form>
         </div>
     </div>
+    </form>
 <?php break; ?>
 <?php case 1: ?>
+    <form action="/main/mod/modride" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz przejazd</h2>
-            <select id="ride_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
+            <select id="ride_picker" name="ride_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($ridedata as $row) :?>
-                   <option <?php if($row->tm_przejazd_id==$chosenridedata[0]->tm_przejazd_id){echo("selected");}  ?> value="/main/mod/1/<?= $row->tm_przejazd_id?>/1/1"><?= $row->imie?> <?= $row->nazwisko?> (<?= $row->nazwa?>) </option>
+                   <option <?php if($row->tm_przejazd_id==$chosenridedata[0]->tm_przejazd_id){echo("selected");}  ?> value="<?= $row->tm_przejazd_id?>" id="/main/mod/1/<?= $row->tm_przejazd_id?>/1/1"><?= $row->imie?> <?= $row->nazwisko?> (<?= $row->nazwa?>) </option>
                 <?php endforeach; ?>
             </select>
             <hr>
-            <form action="/main/mod/modride" method="POST">
             <?php foreach($chosenridedata as $row) :?>
                 <?php 
                     $time=$row->czas; 
@@ -78,20 +78,20 @@ case 0: ?>
                 <input type="submit" value="Usuń" class="btn btn-danger" />
                 <input type="submit" value="Zatwierdź" class="btn btn-success"" />
             <?php endforeach; ?>
-            </form>
         </div>
     </div>
+    </form>
 <?php break; ?>
 <?php case 2: ?>
+    <form action="/main/mod/modschool" method="POST">
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Wybierz Szkołe</h2>
-           <select id="school_picker" class="  select_location custom-select custom-select-lg mb-4 w-50">
+           <select id="school_picker"  name="school_picker" class="  select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($schooldata as $row) :?>
-                    <option <?php if($row->szkola_id==$chosenschooldata[0]->szkola_id){echo("selected");}  ?> value="/main/mod/1/1/<?= $row->szkola_id?>/1"><?= $row->nazwa?> </option>
+                    <option <?php if($row->szkola_id==$chosenschooldata[0]->szkola_id){echo("selected");}  ?> value="<?= $row->nazwa?>" id="/main/mod/1/1/<?= $row->szkola_id?>/1" ><?= $row->nazwa?> </option>
                 <?php endforeach;?>
            </select>
            <hr>
-           <form action="*" method="POST">
            <?php foreach($chosenschooldata as $row) :?>
                <label for="school_name"><h4>Nazwa</h4></label>
                <input id="school_name" name="school_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwa ?>">
@@ -104,34 +104,33 @@ case 0: ?>
                <label for="school_acronym"><h4>Akronim</h4></label>
                <input id="school_acronym" name="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->akronim ?>">
                <input type="submit" value="USUŃ" class="btn btn-danger" />
-               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+               <input type="submit" value="ZATWIERDŹ" class="btn btn-success" />
             <?php endforeach;?>
-           </form>
-           <script>$('#5').appendTo("#container");</script>
        </div>
    </div>
+   </form>
 
 <?php break; ?>
 <?php case 3: ?>
-    <div class="row m-3" id="school_form">
-       <div class="col"><h2>Wybierz Gokart</h2>
-           <select id="gokart_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
+    <form action="/main/mod/modgokart" method="POST">
+    <div class="row m-3" id="gokart_form">    
+        <div class="col"><h2>Wybierz Gokart</h2>
+           <select id="gokart_picker" name="gokart_picker"class=" select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($gokartdata as $row) :?>
-                    <option <?php if($row->gokart_id==$chosengokartdata[0]->gokart_id){echo("selected");}  ?> value="/main/mod/1/1/1/<?= $row->gokart_id?>"><?= $row->nazwa?> </option>
+                    <option <?php if($row->gokart_id==$chosengokartdata[0]->gokart_id){echo("selected");}  ?> value="<?= $row->nazwa?>"id="/main/mod/1/1/1/<?= $row->gokart_id?>"><?= $row->nazwa?> </option>
                 <?php endforeach; ?>
            </select>
            <hr>
-           <form action="/main/mod/modgokart" method="POST">
            <?php foreach($chosengokartdata as $row) :?>
                <label for="gokart_name"><h4>Nazwa</h4></label>
                <input id="gokart_name" name="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwa ?>">
 
                <input type="submit" value="Usuń" class="btn btn-danger" />
-               <input type="submit" value="Zatwierdź" class="btn btn-success"" />
+               <input type="submit" value="Zatwierdź" class="btn btn-success" />
             <?php endforeach; ?>
-           </form>
-       </div>
+        </div>
    </div>
+   
 
 <?php break; ?>
 <?php case 4: ?>
@@ -245,10 +244,3 @@ case 0: ?>
 <?php break; ?>
 <?php endswitch; ?>
 </div>
-
-
-
-
-
-
-

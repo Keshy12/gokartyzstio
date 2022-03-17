@@ -131,16 +131,18 @@ case 0: ?>
 <?php case 4: ?>
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
-           <form action="*" method="POST">
+           <form action="/main/add/school" method="POST">
                <label for="school_name"><h4>Nazwa</h4></label>
-               <input id="school_name" class="form-control form-control-lg w-50" type="text" placeholder="Nazwa">
+               <input id="school_name" name="school_name" class="form-control form-control-lg w-50" type="text" placeholder="Nazwa">
                <label for="school_town"><h4>Miasto</h4></label><br>
-               <select id="school_town" class="custom-select custom-select-lg mb-1 w-50">
-                   <option value="0">Limanowa (Z BAZY)</option>
+               <select id="school_town" name="school_town" class="custom-select custom-select-lg mb-1 w-50">
+                    <?php foreach($citydata as $innerrow) :?>
+                        <option <?php if($innerrow->miasto_id==$chosenschooldata[0]->miasto_id){echo("selected");}?> value="<?= $innerrow->miasto_id?>"> <?= $innerrow->nazwa ?> </option>
+                    <?php endforeach; ?>
                </select><br>
                <input type="submit" value="DODAJ MIASTO" class="btn btn-outline-secondary mb-4" /><br>
                <label for="school_acronym"><h4>Akronim</h4></label>
-               <input id="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
+               <input id="school_acronym" name="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
                <input type="submit" value="DODAJ" class="btn btn-secondary" />
            </form>
        </div>
@@ -149,9 +151,9 @@ case 0: ?>
 <?php case 5: ?>
     <div class="row m-3" id="town_form">
         <div class="col"><h2>Dodawanie Miasta</h2>
-            <form action="*" method="POST">
+            <form action="/main/add/town" method="POST">
                 <label for="town_name"><h4>Nazwa</h4></label>
-                <input id="town_name" class="form-control form-control-lg w-50 mb-4" type="text" placeholder="Nazwa">
+                <input id="town_name" name="town_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
@@ -160,11 +162,11 @@ case 0: ?>
 <?php case 6: ?>
     <div class="row m-3" id="competition_form">
         <div class="col"><h2>Dodawanie/Planowanie Zawodów</h2>
-            <form action="*" method="POST">
+            <form action="/main/compmod/add" method="POST">
                 <label for="competition_name"><h4>Nazwa</h4></label>
-                <input id="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+                <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <label for="competition_start_date"><h4>Data Rozpoczęcia</h4></label>
-                <input id="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
+                <input id="competition_start_date" name="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
                 <input type="submit" value="ZAPLANUJ" class="btn btn-secondary" />
             </form>
         </div>
@@ -224,6 +226,17 @@ case 0: ?>
                 <input id="competition_end_date" class="form-control form-control-lg mb-4 w-50" type="date" >
                 <input type="submit" value="USUŃ" class="btn btn-danger" />
                 <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+            </form>
+        </div>
+    </div>
+<?php break; ?>
+<?php case 10: ?>
+    <div class="row m-3" id="gokart_form">
+        <div class="col"><h2>Dodawanie Gokarta</h2>
+            <form action="/main/add/gokart" method="POST">
+                <label for="gokart_name"><h4>Nazwa</h4></label>
+                <input id="gokart_name" name="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+                <input type="submit" value="DODAJ" class="btn btn-secondary" />
             </form>
         </div>
     </div>

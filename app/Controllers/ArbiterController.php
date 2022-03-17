@@ -31,7 +31,7 @@ class ArbiterController extends BaseController
         $db = db_connect();
         $model = new ArbiterModel($db);
         $model->disqualify();
-        return redirect()->to( 'main/judge' ); 
+        return redirect()->to( base_url().'/main/judge' ); 
     }
 
     function addTime()
@@ -43,6 +43,6 @@ class ArbiterController extends BaseController
 
         $model->setTime($time);
         echo $time;
-        return redirect()->to( 'main/judge' ); 
+        return redirect()->to( base_url().'/main/judge' ); 
     }
 }

@@ -28,7 +28,8 @@ class CompModificationController extends BaseController
         $db = db_connect();
         $model = new CompModificationModel($db);
         
-        $model->begin($_POST['competition_id']);
+        $model->changeState($_POST['competition_id'], '2');
+
         return redirect()->to( base_url().'/main/mod' ); 
     }
 
@@ -40,7 +41,8 @@ class CompModificationController extends BaseController
         $db = db_connect();
         $model = new CompModificationModel($db);
         
-        $model->finish($_POST['competition_id']);
+        $model->changeState($_POST['competition_id'], '3');
+
         return redirect()->to( base_url().'/main/mod' ); 
     }
 }

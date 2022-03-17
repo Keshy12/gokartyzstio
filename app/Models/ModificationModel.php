@@ -25,7 +25,6 @@ class ModificationModel{
         return $resultchosen->get()->getResult();
     }
 
-    
     function getride()
     {
         $resultride = $this->db->table('tm_przejazd')

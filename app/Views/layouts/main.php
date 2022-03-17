@@ -30,6 +30,9 @@
             -webkit-appearance: none;
             margin: 0;
         }
+        body,html{
+            height:100%;
+        }
     </style>
 </head>
 <header>
@@ -117,14 +120,16 @@
     </nav>
 </header>
 <body>
+    <div style="min-height: 90%">
     <?= $this->renderSection('content')?>
-    <footer>
-        <div class="text-center p-3 bg-dark">
-            <a class="text-white">© 2022 Copyright:</a>
-            <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
+    </div>
 </body>
+<footer>
+    <div class="text-center p-3 bg-dark">
+        <a class="text-white">© 2022 Copyright:</a>
+        <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
+    </div>
+    <!-- Copyright: Mateusz Potoniec, Marcin Stożek, Marcin Tomaszek, Michał Wiewiórka, Kacper Zięba-->
+</footer>
 
 </html>

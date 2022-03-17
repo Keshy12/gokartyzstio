@@ -15,31 +15,24 @@ class ModificationController extends BaseController
         $data = [
             'meta_title' => 'Modyfikacja',
         ];
-        if($_SESSION["zalogowany"] == "pełny")
-        {
-            $db = db_connect();
-            $model = new ModificationModel($db);
-            $data['competitordata']=$model->getcompetitor();
-            $data['schooldata']=$model->getschool();
-            $data['gokartdata']=$model->getgokart();
-            $data['statusdata']=$model->getstatus();
-            $data['citydata']=$model->getcity();
-            $data['chosenschooldata']=$model->getchosenschool((int)$idschool);
-            $data['chosenridedata']=$model->getchosenride((int)$idride);
-            $data['chosengokartdata']=$model->getchosengokart((int)$idgokart);
-
-            $data['ridedata']=$model->getride();
-            $data['chosencompetitordata']=$model->getchosencompetitor((int)$idcompetitor);
-            
-            
-
-            return view('modification',$data);
-        
-        }
-        else
-        {
+        if($_SESSION["zalogowany"] != "pełny")
             return view('gokartsMain',$data);
-        }
-    }
 
+        $db = db_connect();
+        $model = new ModificationModel($db);
+
+        $data['competitordata']=$model->get('tm_zawodnik');
+        $data['schooldata']=$model->get('szkola');
+        $data['gokartdata']=$model->get('gokart');
+        $data['statusdata']=$model->get('status_przejazdu');
+        $data['citydata']=$model->get('miasto');
+        $data['ridedata']=$model->getride();
+
+        $data['chosenschooldata']=$model->getchosen((int)$idschool,'szkola');
+        $data['chosenridedata']=$model->getchosenride((int)$idride);
+        $data['chosengokartdata']=$model->getchosen((int)$idgokart,'gokart');
+        $data['chosencompetitordata']=$model->getchosen((int)$idcompetitor,'tm_zawodnik');        
+    
+        return view('modification',$data);   
+    }
 }

@@ -162,11 +162,11 @@ case 0: ?>
 <?php case 6: ?>
     <div class="row m-3" id="competition_form">
         <div class="col"><h2>Dodawanie/Planowanie Zawodów</h2>
-            <form action="*" method="POST">
+            <form action="/main/compmod/add" method="POST">
                 <label for="competition_name"><h4>Nazwa</h4></label>
-                <input id="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
+                <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <label for="competition_start_date"><h4>Data Rozpoczęcia</h4></label>
-                <input id="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
+                <input id="competition_start_date" name="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
                 <input type="submit" value="ZAPLANUJ" class="btn btn-secondary" />
             </form>
         </div>

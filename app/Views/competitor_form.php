@@ -7,6 +7,10 @@
            </select>
            <hr>
            <form action="*" method="POST">
+               <label for="competition_name"><h4>Wybierz zawody</h4></label><br>
+               <select id="competition_name" class="custom-select custom-select-lg mb-1 w-50">
+                   <option value="0">Nazwa Zawodów (Ze statusem zaplanowane) (Z BAZY)</option>
+               </select><br>
                <label for="competitor_name"><h4>Imie</h4></label>
                <input id="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Imie">
                <label for="competitor_surname"><h4>Nazwisko</h4></label>

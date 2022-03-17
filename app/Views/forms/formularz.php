@@ -11,6 +11,9 @@ case 0: ?>
             <hr>
             <form action="*" method="POST">
             <?php foreach($chosencompetitordata as $row) :?>
+                <select id="competitor_competition" class="custom-select custom-select-lg mb-1 w-50">
+                    <option value="0">Nazwa Zawodów STATUS (ze statusem zaplanowane/w trakcie) (Z BAZY)</option>
+                </select><br>
                 <label for="competitor_name"><h4>Imie</h4></label>
                 <input id="competitor_name" name="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie ?>">
                 <label for="competitor_surname"><h4>Nazwisko</h4></label>
@@ -166,7 +169,9 @@ case 0: ?>
                 <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <label for="competition_start_date"><h4>Data Rozpoczęcia</h4></label>
                 <input id="competition_start_date" name="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
-                <input type="submit" value="ZAPLANUJ" class="btn btn-secondary" />
+                <input type="submit" value="ZAPLANUJ" class="btn btn-secondary" /><hr>
+                <p>Tworzy nowe zawody.
+                    <br>Zostaje włączony dostęp do rejstracji zawodników.</p>
             </form>
         </div>
     </div>
@@ -177,14 +182,13 @@ case 0: ?>
             <form action="*" method="POST">
                 <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
                 <select id="competition_name" class="custom-select custom-select-lg mb-1 w-50">
-                    <option value="0">Nazwa Zawodów (Z statusem zaplanowane) (Z BAZY)</option>
+                    <option value="0">Nazwa Zawodów (Ze statusem zaplanowane) (Z BAZY)</option>
                 </select><br>
                 <input type="submit" value="Zacznij" class="btn btn-secondary"/>
-            </form>
-            <!-- DO usunięcia -->
-            <hr>
-            <p>Komentarz: ZMIENIA STATUS ZAWODÓW Z "ZAPLANOWANE" NA "W TRAKCIE"<br>
-                Jeśli już są jakieś zawody w trakcie nie wyświetlać formularza tylko tekst poniżej:</p>
+            </form><hr>
+            <p>Zmienia status zawodów z "ZAPLANOWANE" na "W TRAKCIE".
+                <br> Zostają wylosowane przejazdy dla zawodników.
+                <br> Zostaje włączony dostęp do strony sędziego.</p>
             <!--  -->
             <h2>Nie można zacząć zawodów kiedy inne są w trakcie.</h2>
         </div>
@@ -196,13 +200,11 @@ case 0: ?>
             <form action="*" method="POST">
                 <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label>
                 <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" disabled>
-                <input type="submit" value="Zakończ" class="btn btn-secondary"/>
-            </form>
-            <!-- DO usunięcia -->
-            <hr>
-            <p>Komentarz: ZMIENIA STATUS ZAWODÓW Z "W TRAKCIE" NA "Zakończone"<br>
-                Jeśli nie ma zawodów w trakcie wyświetlaj tylko tekst poniżej:</p>
-            <!--  -->
+                <input type="submit" value="Zakończ" class="btn btn-danger"/>
+            </form><hr>
+            <p>Zmienia status zawodów z "W TRAKCIE" na "ZAKOŃCZONE".
+                <br> Zawody zostają dodane do archiwum.</p>
+
             <h2>Nie ma żadnych zawodów które można zakończyć.</h2>
         </div>
     </div>

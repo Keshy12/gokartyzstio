@@ -34,15 +34,11 @@ class ModificationController extends BaseController
         
         $data['chosengokartdata']=$model->getchosen('gokart', 'gokart_id', (int)$idgokart);
         $data['chosencompetitordata']=$model->getchosen('tm_zawodnik', 'tm_zawodnik_id', (int)$idcompetitor);
+        $data['chosencompetitiondata']=$model->getchosen('zawody', 'zawody_id', (int)$idcompetition);
 
-        echo "<pre>";
-        // print_r($data['chosencompetitordata']);
-        echo $idcompetitor;
-        echo "</pre>";
-
-        $data['chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
-        $data['numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
-        $data['chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');
+        $data['comp_chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
+        $data['comp_numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
+        $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');
     
         return view('modification',$data);   
     }

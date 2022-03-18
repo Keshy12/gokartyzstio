@@ -13,10 +13,11 @@ class CompModificationModel extends AppendModel{
         $this->db->query('UPDATE zawody SET status_zawodow_id = '.$newState.' WHERE zawody_id = '.$id);
     }
 
-    public function getWithJoin($table, $joinTable, $value)
+    public function getWithJoin($table, ...$joins)
     {
-        $result = $this->db->table($table)
-        ->join($joinTable, $value);
+        $result = $this->db->table($table);
+        foreach($joins as $join)
+            $result->join($join[0], $join[1]);
         return $result->get()->getResult();
     }
 

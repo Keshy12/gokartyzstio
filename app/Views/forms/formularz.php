@@ -3,7 +3,11 @@
 case 0: ?>
     <form action="/main/mod/modcomp" method="POST">
     <div class="row m-3" id="competitor_form">
-        <div class="col"><h2>Wybierz zawodnika</h2>          
+        <?php if(count($chosencompetitordata)==0) :?>
+            <h2>Nie ma zawodników do modyfikacji.</h2></div>
+            <?php break; ?>
+        <?php endif;?>
+        <div class="col"><h2>Wybierz zawodnika</h2>    
             <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
                 <?php foreach($competitordata as $row) :?>
                     <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="<?= $row->tm_zawodnik_id?>" id="/main/mod/<?= $row->tm_zawodnik_id?>/1/1/1"><?= $row->imie?> <?= $row->nazwisko?> </option>
@@ -39,6 +43,10 @@ case 0: ?>
 <?php case 1: ?>
     <form action="/main/mod/modride" method="POST">
     <div class="row m-3" id="competitor_form">
+        <?php if(count($ridedata)==0) :?>
+            <h2>Nie ma przejazdów do modyfikacji.</h2></div>
+            <?php break; ?>
+        <?php endif;?>
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" name="ride_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($ridedata as $row) :?>

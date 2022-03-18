@@ -72,4 +72,9 @@ class ModificationModel{
     {
         $this->db->query("UPDATE gokart SET nazwa = '".$name."' WHERE nazwa = '".$to_modify_id."'");
     }
+
+    function modifycompetition($to_modify_id,$name,$start_date,$end_date)
+    {
+        $this->db->query("UPDATE zawody SET nazwa = '".$name."', data_rozpoczecia = '".$start_date."', data_zakonczenia = '".$end_date."' WHERE zawody_id = ".$to_modify_id);
+    }
 }

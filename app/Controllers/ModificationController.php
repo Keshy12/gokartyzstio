@@ -5,7 +5,7 @@ use App\Models\ModificationModel;
 
 class ModificationController extends BaseController
 {
-    public function index($idcompetitor=1,$idride=1,$idschool=1,$idgokart=1)
+    public function index($idcompetitor=1,$idride=1,$idschool=1,$idgokart=1,$idcompetition=1)
     {
         $session = \Config\Services::session();
         if(!isset($_SESSION["zalogowany"]))
@@ -92,6 +92,19 @@ class ModificationController extends BaseController
         $db = db_connect();
         $model = new ModificationModel($db);
         $model->modifygokart($_POST['gokart_picker'],$_POST['gokart_name']);
+        
+        return redirect()->to( base_url().'/main/mod' );
+        
+    }
+
+    public function modifycompetition()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        $model->modifycompetition($_POST['competition_picker'],$_POST['competition_name'],$_POST['competition_start_date'],$_POST['competition_end_date']);
         
         return redirect()->to( base_url().'/main/mod' );
         

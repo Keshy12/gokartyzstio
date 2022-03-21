@@ -244,5 +244,23 @@ case 0: ?>
         </div>
     </div>
 <?php break; ?>
+<?php case 11: ?>
+    <div class="row m-3" id="school_form">
+        <div class="col">
+            <form action="*" method="POST">
+                <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
+                <select id="competition_name" class="custom-select custom-select-lg mb-4 w-50">
+                    <option value="0">Nazwa Zawodów (Ze statusem zaplanowane) (Z BAZY)</option>
+                </select><br>
+                <input type="submit" value="Zacznij" class="btn btn-success"/>
+            </form><hr>
+            <p>Zmienia status zawodów z "ZAPLANOWANE" na "W TRAKCIE".
+                <br> Zostają wylosowane przejazdy dla zawodników.
+                <br> Zostaje włączony dostęp do strony sędziego.</p>
+            <!--  -->
+            <h2>Nie można zacząć zawodów kiedy inne są w trakcie.</h2>
+        </div>
+    </div>
+    <?php break; ?>
 <?php endswitch; ?>
 </div>

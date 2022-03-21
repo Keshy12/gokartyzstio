@@ -5,6 +5,7 @@ case 0: ?>
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz zawodnika</h2>          
             <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
+                <?php $tmp='';?>
                 <?php foreach($competitordata as $row) :?>
                     <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="<?= $row->tm_zawodnik_id?>" id="<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> </option>
                 <?php endforeach; ?>
@@ -20,7 +21,7 @@ case 0: ?>
                 <label for="competitor_school"><h4>Szkoła</h4></label><br>
                 <select id="competitor_school" name="competitor_school" class="custom-select custom-select-lg mb-4 w-50">
                     <?php foreach($schooldata as $innerrow) :?>
-                        <option <?php if($innerrow->szkola_id==$chosencompetitordata[0]->szkola_id){echo("selected");}?> value="<?= $innerrow->szkola_id?>"> <?= $innerrow->nazwa?> </option>
+                        <option  value="<?= $innerrow->szkola_id?>" <?php if($innerrow->szkola_id==$row->szkola_id){echo("selected");}?>> <?= $innerrow->nazwa?> </option>
                     <?php endforeach; ?>
                 </select><br>
                 <label for="competitor_competition"><h4>Zawody</h4></label><br>

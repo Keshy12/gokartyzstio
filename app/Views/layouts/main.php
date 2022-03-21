@@ -38,7 +38,7 @@
             $('.select_location').on('change', function(){
                 // let i = $(this)[0].selectedIndex
                 // window.location = $(this).children().eq(i).attr('id');
-                location.reload();
+                location.reload(true);
             })
             
         })

@@ -56,7 +56,7 @@ class BaseController extends Controller
         };  
         if(!isset($_COOKIE["button"]))
         {
-            $_COOKIE["button"] = 99;
+            $_COOKIE["button"] = 0;
         }; 
         $db = db_connect();
         $model = new ArbiterModel($db);

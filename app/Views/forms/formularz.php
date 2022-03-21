@@ -151,7 +151,7 @@ case 0: ?>
 <?php case 4: ?>
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
-           <form action="/main/mod/modschool" method="POST">
+            <form action="/main/add/school" method="POST">
                <label for="school_name"><h4>Nazwa</h4></label>
                <input id="school_name" name="school_name" class="form-control form-control-lg w-50" type="text" placeholder="Nazwa">
                <label for="school_town"><h4>Miasto</h4></label><br>
@@ -164,8 +164,8 @@ case 0: ?>
                <input id="school_acronym" name="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
                <input type="submit" value="Dodaj" class="btn btn-success" />
            </form>
-       </div>
-   </div>
+        </div>
+    </div>
 <?php break; ?>
 <?php case 5: ?>
     <div class="row m-3" id="town_form">
@@ -187,8 +187,10 @@ case 0: ?>
                 <label for="competition_start_date"><h4>Data Rozpoczęcia</h4></label>
                 <input id="competition_start_date" name="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
                 <input type="submit" value="Zaplanuj" class="btn btn-success" /><hr>
-                <p>Tworzy nowe zawody.
-                    <br>Zostaje włączony dostęp do rejstracji zawodników.</p>
+                <p>
+                    Tworzy nowe zawody.
+                    <br>Zostaje włączony dostęp do rejstracji zawodników.
+                </p>
             </form>
         </div>
     </div>
@@ -196,33 +198,42 @@ case 0: ?>
 <?php case 7: ?>
     <div class="row m-3" id="school_form">
         <div class="col">
-            <form action="*" method="POST">
+            <?php if($comp_numberOfRows == 1) : ?>
+                <h2>Nie można zacząć zawodów kiedy inne są w trakcie.</h2></div></div>
+                <?php break; ?>
+            <?php endif; ?>
+            <form action="/main/compmod/begin" method="POST">
                 <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
-                <select id="competition_name" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">Nazwa Zawodów (Ze statusem zaplanowane) (Z BAZY)</option>
+                <select id="competition_name" name="competition_id" class="custom-select custom-select-lg mb-1 w-50">
+                    <?php foreach($comp_chosencompetitiondata as $innerrow) :?>
+                        <option <?php if($innerrow->zawody_id==$comp_chosencompetitiondata[0]->zawody_id){echo("selected");}?> value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa ?> </option>
+                    <?php endforeach; ?>
                 </select><br>
                 <input type="submit" value="Zacznij" class="btn btn-success"/>
             </form><hr>
-            <p>Zmienia status zawodów z "ZAPLANOWANE" na "W TRAKCIE".
+            <p>
+                Zmienia status zawodów z "ZAPLANOWANE" na "W TRAKCIE".
                 <br> Zostają wylosowane przejazdy dla zawodników.
-                <br> Zostaje włączony dostęp do strony sędziego.</p>
-            <!--  -->
-            <h2>Nie można zacząć zawodów kiedy inne są w trakcie.</h2>
+                <br> Zostaje włączony dostęp do strony sędziego.
+            </p>
         </div>
     </div>
 <?php break; ?>
 <?php case 8: ?>
     <div class="row m-3" id="school_form">
         <div class="col">
-            <form action="*" method="POST">
-                <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label>
-                <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" disabled>
+        <?php if($comp_numberOfRows == 0) : ?>
+                <h2>Nie ma żadnych zawodów które można zakończyć.</h2></div></div>
+                <?php break; ?>
+            <?php endif; ?>
+            <form action="/main/compmod/finish" method="POST">
+                <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label> <!-- dla szefa -->
+                <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" value="<?= $comp_chosenactivecompetition[0]->nazwa ?>" disabled>
+                <input type="hidden" name="competition_id" value="<?= $comp_chosenactivecompetition[0]->zawody_id ?>">
                 <input type="submit" value="Zakończ" class="btn btn-info"/>
             </form><hr>
             <p>Zmienia status zawodów z "W TRAKCIE" na "ZAKOŃCZONE".
                 <br> Zawody zostają dodane do archiwum.</p>
-
-            <h2>Nie ma żadnych zawodów które można zakończyć.</h2>
         </div>
     </div>
 <?php break; ?>
@@ -258,6 +269,37 @@ case 0: ?>
                 <input id="gokart_name" name="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
                 <input type="submit" value="Dodaj" class="btn btn-success" />
             </form>
+        </div>
+    </div>
+<?php break; ?>
+<?php case 11: ?>
+    <div class="row m-3" id="school_form">
+        <div class="col">
+            <form action="*" method="POST">
+                <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
+                <select id="competition_name" class="custom-select custom-select-lg mb-4 w-50">
+                    <option value="0">Nazwa Zawodów (Ze statusem w trakcie) (Z BAZY)</option>
+                </select><br>
+                <label for="ride_amount"><h4>Limit przejazdów jednym gokartem naraz.</h4></label>
+                <input id="ride_amount" name="ride_amount" class="form-control form-control-lg mb-4 w-50" type="number" placeholder="Co ile będzie wymieniony gokart.">
+                <label for="gokart_checkbox"><h4>Gokarty:</h4></label>
+                <!-- Element -->
+                <div class="custom-control custom-checkbox" name="gokart_checkbox1">
+                    <input type="checkbox" class="custom-control-input" id="gokartCzerwony">
+                    <label class="custom-control-label" for="gokartCzerwony">Gokart Czerwony</label>
+                </div>
+                <!-- -->
+                <div class="custom-control custom-checkbox" name="gokart_checkbox2">
+                    <input type="checkbox" class="custom-control-input" id="gokartZielony">
+                    <label class="custom-control-label" for="gokartZielony">Gokart Zielony</label><br>
+                </div><br>
+                <input type="submit" value="Wylosuj" class="btn btn-success"/>
+
+            </form><hr>
+            <p> Zostają wylosowane przejazdy dla zawodników.
+                <br> Zostaje włączony dostęp do strony sędziego.</p>
+            <!--  -->
+            <h2>Nie ma żadnych zawodów w trakcie do których można wylosować przejazdy.</h2>
         </div>
     </div>
 <?php break; ?>

@@ -28,11 +28,16 @@ class ModificationController extends BaseController
         $data['citydata']=$model->get('miasto');
         $data['ridedata']=$model->getride();
 
-        $data['chosenschooldata']=$model->getchosen((int)$_COOKIE['school'],'szkola');
-        $data['chosenridedata']=$model->getchosenride((int)$_COOKIE['ride']);
-        $data['chosengokartdata']=$model->getchosen((int)$_COOKIE['gokart'],'gokart');
-        $data['chosencompetitiondata']=$model->getchosen((int)$_COOKIE['competition'],'zawody');
-        $data['chosencompetitordata']=$model->getchosen((int)$_COOKIE['competitor'],'tm_zawodnik');              
+        $data['chosenschooldata']=$model->getchosen('szkola', 'szkola_id', (int)$_COOKIE['school']);
+        $data['chosenridedata']=$model->getchosenride((int)$_COOKIE['ride']);  
+        
+        $data['chosengokartdata']=$model->getchosen('gokart', 'gokart_id', (int)$_COOKIE['gokart']);
+        $data['chosencompetitordata']=$model->getchosen('tm_zawodnik', 'tm_zawodnik_id', (int)$_COOKIE['competitor']);
+        $data['chosencompetitiondata']=$model->getchosen('zawody', 'zawody_id', (int)$_COOKIE['competition']);
+
+        $data['comp_chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
+        $data['comp_numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
+        $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');        
     
         return view('modification',$data);   
     }

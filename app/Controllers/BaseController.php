@@ -54,9 +54,9 @@ class BaseController extends Controller
         {
             $_SESSION["zalogowany"] = "";
         };  
-        if(!isset($_COOKIE["button"]))
+        if(!isset($_COOKIE["button"]) || $_COOKIE["button"]=="")
         {
-            $_COOKIE["button"] = 99;
+            $_COOKIE["button"] = 0;
         };
         if(!isset($_COOKIE['school']))
         {

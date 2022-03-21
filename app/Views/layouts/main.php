@@ -7,7 +7,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     <script>
         $(document).ready(function(){
             function GetSelectedIndex() {
@@ -48,6 +47,23 @@
             -webkit-appearance: none;
             margin: 0;
         }
+        body,html{
+            height:100%;
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: white;
+        }
+        ::-webkit-scrollbar-track {
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #555555;
+            border-radius: 0px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: gray;
+        }
     </style>
 </head>
 <header>
@@ -82,6 +98,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/main/judge">Sędzia</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/main/compform">Zgłoszenia</a>
+                        </li>
                         <?php elseif($_COOKIE["status"] == "zaplanowane"): ?>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="/main/judge">Sędzia</a>
@@ -103,7 +122,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/main/judge">Sędzia</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/main/compform">Zgłoszenia</a>
+                        </li>
                         <?php elseif($_COOKIE["status"] == "zaplanowane"): ?>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/main/judge">Sędzia</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/main/compform">Zgłoszenia</a>
                         </li>
@@ -135,14 +160,16 @@
     </nav>
 </header>
 <body>
+    <div style="min-height: 90%">
     <?= $this->renderSection('content')?>
-    <footer>
-        <div class="text-center p-3 bg-dark">
-            <a class="text-white">© 2022 Copyright:</a>
-            <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
+    </div>
 </body>
+<footer>
+    <div class="text-center p-3 bg-dark">
+        <a class="text-white">© 2022 Copyright:</a>
+        <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
+    </div>
+    <!-- Copyright: Mateusz Potoniec, Marcin Stożek, Marcin Tomaszek, Michał Wiewiórka, Kacper Zięba-->
+</footer>
 
 </html>

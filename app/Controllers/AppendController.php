@@ -9,6 +9,9 @@ class AppendController extends BaseController
 {
     function addSchool()
     {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
         $db = db_connect();
         $model = new AppendModel($db);
 
@@ -19,6 +22,9 @@ class AppendController extends BaseController
 
     function addTown()
     {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
         $db = db_connect();
         $model = new AppendModel($db);
 
@@ -28,6 +34,9 @@ class AppendController extends BaseController
 
     function addGokart()
     {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+            
         $db = db_connect();
         $model = new AppendModel($db);
 

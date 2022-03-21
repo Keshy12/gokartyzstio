@@ -129,12 +129,13 @@ case 0: ?>
                <input type="submit" value="Zatwierdź" class="btn btn-success" />
             <?php endforeach; ?>
         </div>
-   </div>   
+    </div>
+    </form>    
 <?php break; ?>
 <?php case 4: ?>
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
-           <form action="/main/mod/modschool" method="POST">
+            <form action="/main/add/school" method="POST">
                <label for="school_name"><h4>Nazwa</h4></label>
                <input id="school_name" name="school_name" class="form-control form-control-lg w-50" type="text" placeholder="Nazwa">
                <label for="school_town"><h4>Miasto</h4></label><br>
@@ -145,10 +146,10 @@ case 0: ?>
                </select><br>
                <label for="school_acronym"><h4>Akronim</h4></label>
                <input id="school_acronym" name="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
-               <input type="submit" value="Dodaj" class="btn btn-success"" />
+               <input type="submit" value="Dodaj" class="btn btn-success" />
            </form>
-       </div>
-   </div>
+        </div>
+    </div>
 <?php break; ?>
 <?php case 5: ?>
     <div class="row m-3" id="town_form">
@@ -156,7 +157,7 @@ case 0: ?>
             <form action="/main/add/town" method="POST">
                 <label for="town_name"><h4>Nazwa</h4></label>
                 <input id="town_name" name="town_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
-                <input type="submit" value="Dodaj" class="btn btn-success"" />
+                <input type="submit" value="Dodaj" class="btn btn-success" />
             </form>
         </div>
     </div>
@@ -170,8 +171,10 @@ case 0: ?>
                 <label for="competition_start_date"><h4>Data Rozpoczęcia</h4></label>
                 <input id="competition_start_date" name="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" >
                 <input type="submit" value="Zaplanuj" class="btn btn-success" /><hr>
-                <p>Tworzy nowe zawody.
-                    <br>Zostaje włączony dostęp do rejstracji zawodników.</p>
+                <p>
+                    Tworzy nowe zawody.
+                    <br>Zostaje włączony dostęp do rejstracji zawodników.
+                </p>
             </form>
         </div>
     </div>
@@ -179,33 +182,42 @@ case 0: ?>
 <?php case 7: ?>
     <div class="row m-3" id="school_form">
         <div class="col">
-            <form action="*" method="POST">
+            <?php if($comp_numberOfRows == 1) : ?>
+                <h2>Nie można zacząć zawodów kiedy inne są w trakcie.</h2></div></div>
+                <?php break; ?>
+            <?php endif; ?>
+            <form action="/main/compmod/begin" method="POST">
                 <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
-                <select id="competition_name" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">Nazwa Zawodów (Ze statusem zaplanowane) (Z BAZY)</option>
+                <select id="competition_name" name="competition_id" class="custom-select custom-select-lg mb-1 w-50">
+                    <?php foreach($comp_chosencompetitiondata as $innerrow) :?>
+                        <option <?php if($innerrow->zawody_id==$comp_chosencompetitiondata[0]->zawody_id){echo("selected");}?> value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa ?> </option>
+                    <?php endforeach; ?>
                 </select><br>
                 <input type="submit" value="Zacznij" class="btn btn-success"/>
             </form><hr>
-            <p>Zmienia status zawodów z "ZAPLANOWANE" na "W TRAKCIE".
+            <p>
+                Zmienia status zawodów z "ZAPLANOWANE" na "W TRAKCIE".
                 <br> Zostają wylosowane przejazdy dla zawodników.
-                <br> Zostaje włączony dostęp do strony sędziego.</p>
-            <!--  -->
-            <h2>Nie można zacząć zawodów kiedy inne są w trakcie.</h2>
+                <br> Zostaje włączony dostęp do strony sędziego.
+            </p>
         </div>
     </div>
 <?php break; ?>
 <?php case 8: ?>
     <div class="row m-3" id="school_form">
         <div class="col">
-            <form action="*" method="POST">
-                <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label>
-                <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" disabled>
+        <?php if($comp_numberOfRows == 0) : ?>
+                <h2>Nie ma żadnych zawodów które można zakończyć.</h2></div></div>
+                <?php break; ?>
+            <?php endif; ?>
+            <form action="/main/compmod/finish" method="POST">
+                <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label> <!-- dla szefa -->
+                <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" value="<?= $comp_chosenactivecompetition[0]->nazwa ?>" disabled>
+                <input type="hidden" name="competition_id" value="<?= $comp_chosenactivecompetition[0]->zawody_id ?>">
                 <input type="submit" value="Zakończ" class="btn btn-info"/>
             </form><hr>
             <p>Zmienia status zawodów z "W TRAKCIE" na "ZAKOŃCZONE".
                 <br> Zawody zostają dodane do archiwum.</p>
-
-            <h2>Nie ma żadnych zawodów które można zakończyć.</h2>
         </div>
     </div>
 <?php break; ?>

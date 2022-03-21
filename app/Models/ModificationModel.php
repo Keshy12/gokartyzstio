@@ -18,15 +18,13 @@ class ModificationModel{
         return $resultcompetitor->get()->getResult();
     }
 
-    function getchosen($id,$subject)
+    function getchosen($table, $column, $value)
     {
-        
-        $resultchosen = $this->db->table($subject)
-        ->where($subject.'_id', $id);
+        $resultchosen = $this->db->table($table)
+        ->where($column, $value);
         return $resultchosen->get()->getResult();
     }
 
-    
     function getride()
     {
         $resultride = $this->db->table('tm_przejazd')
@@ -38,13 +36,20 @@ class ModificationModel{
 
     function getchosenride($id)
     {
-        
         $resultride = $this->db->table('tm_przejazd')
         ->join('tm_zawodnik','tm_zawodnik_id')
         ->join('status_przejazdu','status_przejazdu_id')
         ->join('gokart','gokart_id')
         ->where('tm_przejazd_id', $id);
         return $resultride->get()->getResult();
+    }
+    
+    function getNumberOfRows($table, $column, $value)
+    {
+        $result = $this->db->table($table)
+        ->selectCount($table.'_id', 'numberOfRows')
+        ->where($column, $value);
+        return $result->get()->getResult();
     }
 
     function modifycompetitor($to_modify_id,$name,$surname,$bdate,$schol_id,$competition_id)

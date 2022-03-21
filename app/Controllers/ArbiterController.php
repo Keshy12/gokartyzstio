@@ -13,7 +13,7 @@ class ArbiterController extends BaseController
         $data = BaseModel::setTitle('Strona Sędziowska');
 
         if(!($_SESSION["zalogowany"] == "pełny" XOR $_SESSION["zalogowany"] == "limitowany"))
-            return view('gokartsMain',$data);
+            return redirect()->to( base_url().'/main');
 
         $db = db_connect();
         $model = new ArbiterModel($db);
@@ -28,21 +28,28 @@ class ArbiterController extends BaseController
 
     function disqualify()
     {
+        if(!($_SESSION["zalogowany"] == "pełny" XOR $_SESSION["zalogowany"] == "limitowany"))
+            return redirect()->to( base_url().'/main');
+
         $db = db_connect();
         $model = new ArbiterModel($db);
+
         $model->disqualify();
+
         return redirect()->to( base_url().'/main/judge' ); 
     }
 
     function addTime()
     {
+        if(!($_SESSION["zalogowany"] == "pełny" XOR $_SESSION["zalogowany"] == "limitowany"))
+            return redirect()->to( base_url().'/main');
+
         $db = db_connect();
         $model = new ArbiterModel($db);
 
         $time = $model->convertTimeToInt($_POST['minutes'], $_POST['seconds'], $_POST['milliseconds']);
-
         $model->setTime($time);
-        echo $time;
+
         return redirect()->to( base_url().'/main/judge' ); 
     }
 }

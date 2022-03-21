@@ -40,9 +40,24 @@ $routes->add('main/comp', 'CompetitionController');
 $routes->add('main/arch', 'ArchiveController');
 $routes->add('main/arch/archiveTable/(:any)', 'ArchiveController::archiveTable/$1');
 $routes->add('main/mod', 'ModificationController');
+$routes->add('main/mod/modgokart', 'ModificationController::modifygokart');
+$routes->add('main/mod/modschool', 'ModificationController::modifyschool');
+$routes->add('main/mod/modcomp', 'ModificationController::modifycompetitor');
+$routes->add('main/mod/modcompetition', 'ModificationController::modifycompetition');
+$routes->add('main/mod/modride', 'ModificationController::modifyride');
+$routes->add('main/mod/(:any)', 'ModificationController::index/$1,$2,$3,$4');
+$routes->add('main/add', 'AppendController');
+$routes->add('main/add/school', 'AppendController::addSchool');
+$routes->add('main/add/town', 'AppendController::addTown');
+$routes->add('main/add/gokart', 'AppendController::addGokart');
+$routes->add('main/compmod', 'CompModificationController');
+$routes->add('main/compmod/add', 'CompModificationController::addComp');
 $routes->add('main/judge', 'ArbiterController');
+$routes->add('main/judge/disqualify', 'ArbiterController::disqualify');
+$routes->add('main/judge/addTime', 'ArbiterController::addTime');
 $routes->add('main/score', 'CompetitionController::scoreboard');
-
+$routes->add('main/compform', 'FormController');
+$routes->add('main/compform/add', 'FormController::add');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

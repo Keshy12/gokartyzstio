@@ -5,57 +5,68 @@
         <div class="row mt-3">
             <!-- PIERWSZY RZĄD -->
             <div class="col">
-                <!-- ELEMENT NAJNOWSZY -->
-                <div class="card border-success mb-3">
-                    <div class="card-body">
-                        <h3 class="card-title">Imie Nazwisko</h3>
-                        <h5>Szkoła: ZSTIO Limanowa</h5>
-                        <h5>Gokart: Podstawowy czerowy</h5>
-                        <button type="button" class="btn btn-outline-success float-right ml-3 w-25">Dodaj czas</button>
-                        <button data-toggle="modal" data-target=".bd-example-modal-sm" type="button" class="btn btn-outline-danger">Dyskfalifikacja</button>
-                    </div>
-                </div>
                 <!-- ELEMENT ZWYKLY -->
-                <div class="card border mb-3">
-                    <div class="card-body">
-                        <h3 class="card-title">Imie Nazwisko</h3>
-                        <h5>Szkoła: ZSTIO Limanowa</h5>
-                        <h5>Gokart: Podstawowy czerowy</h5>
+                <?php if(count($result) <= 0) : ?>
+                    <h2>Przejazdy zakończone</h2>
+                <?php endif; ?>
+                <?php foreach($result as $row) : ?>
+                    <?php 
+                        switch($row->status_przejazdu_id)
+                        {
+                            case 2:
+                                ?>
+                                <!-- ELEMENT NAJNOWSZY -->
+                                <div class="card border-success mb-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><?= $row->imie ?> <?= $row->nazwisko ?></h3>
+                                        <h5>Szkoła: <?= $row->akronim ?></h5>
+                                        <h5>Gokart: <?= $row->nazwa ?></h5>
+                                        <button data-toggle="modal" data-target=".button1" type="button" class="btn btn-outline-success float-right ml-3 w-25">Dodaj czas</button>
+                                        <button data-toggle="modal" data-target=".button2" type="button" class="btn btn-outline-danger">Dyskfalifikacja</button>
+                                <?php
+                                break;
+                            case 3:
+                                ?>
+                                <div class="card border-info mb-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><?= $row->imie ?> <?= $row->nazwisko ?></h3>
+                                        <h5>Szkoła: <?= $row->akronim ?></h5>
+                                        <h5>Gokart: <?= $row->nazwa ?></h5>
+                                <?php
+                                break;
+                        }           
+                    ?>
                     </div>
                 </div>
-                <div class="card border mb-3">
-                    <div class="card-body">
-                        <h3 class="card-title">Imie Nazwisko</h3>
-                        <h5>Szkoła: ZSTIO Limanowa</h5>
-                        <h5>Gokart: Pomarańczowy Drugi</h5>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
-
-     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-sm button2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content p-3 border-danger">
                 <h4>Potwierdzenie</h4>
                 <h5>Czy napewno chcesz wykonać tę operacje?</h5>
-                <button type="button" class="btn btn-outline-danger mb-1" >Tak</button>
+                <a href="/main/judge/disqualify" class="btn btn-outline-danger mb-1">Tak</a>
                 <button type="button" class="btn btn-outline-success" data-dismiss="modal">Nie</button>
             </div>
         </div>
     </div> 
-    <!--<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-sm button1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content p-3 border-success">
                 <label for="ride_time"><h4>Dodaj Czas</h4></label>
                 <div id="ride_time" class="w-100">
-                    <input id="ride_time_minutes" class="form-control form-control-lg mb-4 w-25 float-left" min="1" type="number" maxlength="2" placeholder="M">
-                    <input id="ride_time_seconds" class="form-control form-control-lg mb-4 w-25 float-left" min="1" type="number" maxlength="2" placeholder="S">
-                    <input id="ride_time_milliseconds" class="form-control form-control-lg mb-4 w-50" min="1" type="number" maxlength="3" placeholder="MS">
-                    <button type="button" class="btn btn-outline-success" >Zatwierdź</button>
-                    <button type="button" class="btn btn-outline-danger" >Anuluj</button>
+                    <form action="/main/judge/addTime" method="POST" enctype="multipart/form-data">
+                        <input id="ride_time_minutes" name="minutes" class="form-control form-control-lg mb-4 w-25 float-left" min="0" type="number" maxlength="2" placeholder="M">
+                        <input id="ride_time_seconds" name="seconds" class="form-control form-control-lg mb-4 w-25 float-left" min="0" type="number" maxlength="2" placeholder="S">
+                        <input id="ride_time_milliseconds" name="milliseconds" class="form-control form-control-lg mb-4 w-50" min="0" type="number" maxlength="3" placeholder="MS">
+                        <button class="btn btn-outline-success">Zatwierdź</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Anuluj</button>
+                    </form>
+                    
                 </div>
             </div>
-        </div>-->
+        </div>
     </div>
 <?= $this->endSection() ?>

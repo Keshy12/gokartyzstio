@@ -1,159 +1,61 @@
 <?= $this->extend('layouts/main')?>
 <?= $this->section('content')?>
+
+<script>
+
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e=e||self,function(){var n=e.Cookies,o=e.Cookies=t();o.noConflict=function(){return e.Cookies=n,o}}())}(this,(function(){"use strict";function e(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)e[o]=n[o]}return e}return function t(n,o){function r(t,r,i){if("undefined"!=typeof document){"number"==typeof(i=e({},o,i)).expires&&(i.expires=new Date(Date.now()+864e5*i.expires)),i.expires&&(i.expires=i.expires.toUTCString()),t=encodeURIComponent(t).replace(/%(2[346B]|5E|60|7C)/g,decodeURIComponent).replace(/[()]/g,escape);var c="";for(var u in i)i[u]&&(c+="; "+u,!0!==i[u]&&(c+="="+i[u].split(";")[0]));return document.cookie=t+"="+n.write(r,t)+c}}return Object.create({set:r,get:function(e){if("undefined"!=typeof document&&(!arguments.length||e)){for(var t=document.cookie?document.cookie.split("; "):[],o={},r=0;r<t.length;r++){var i=t[r].split("="),c=i.slice(1).join("=");try{var u=decodeURIComponent(i[0]);if(o[u]=n.read(c,u),e===u)break}catch(e){}}return e?o[e]:o}},remove:function(t,n){r(t,"",e({},n,{expires:-1}))},withAttributes:function(n){return t(this.converter,e({},this.attributes,n))},withConverter:function(n){return t(e({},this.converter,n),this.attributes)}},{attributes:{value:Object.freeze(o)},converter:{value:Object.freeze(n)}})}({read:function(e){return'"'===e[0]&&(e=e.slice(1,-1)),e.replace(/(%[\dA-F]{2})+/gi,decodeURIComponent)},write:function(e){return encodeURIComponent(e).replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g,decodeURIComponent)}},{path:"/"})}));
+
+    $(document).ready(function(){
+        var id0=$('#0'),id1=$('#1'),id2=$('#2'),id3=$('#3'),id4=$('#4'),id5=$('#5'),id6=$('#6'),id7=$('#7'),id8=$('#8'),id9=$('#9'),id10=$('#10');
+        const id = [id0,id1,id2,id3,id4,id5,id6,id7,id8,id9,id10];
+        $('.form').detach();
+        id[<?php echo $_COOKIE["button"]?>].appendTo("#container");
+        $("button").click(function(){
+            $('.form').detach();
+            $(id[$(this).val()]).appendTo("#container");
+            Cookies.set('button', $(this).val())
+        });
+    });  
+</script>
+
+
 <div class="container-fluid">
     <div class="row m-3">
-        <div class="col-3"><h2>Zawody</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zaczynij Nowe</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Edytuj</button>
+        <div class="col-4"><h2>Zawody</h2>
+            <button type="button" value="6" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zaplanuj</button>
+            <button type="button" value="7" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zaczynij</button>
+            <button type="button" value="8" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zakończ</button>
+            <button type="button" value="11" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Wylosuj Przejazdy</button>
+            <button type="button" value="9" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Edytuj</button>
         </div>
-        <div class="col-3"><h2>Dodawanie</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>
+        <div class="col-4"><h2>Dodawanie</h2>
+            <button type="button" value="4" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Szkoła</button>
+            <button type="button" value="5" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Miasto</button>
+            <button type="button" value="10" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
         </div>
-        <div class="col-5"><h2>Modyfikacja</h2>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Zawodnik</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Przejazd</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>
+        <div class="col-4"><h2>Modyfikacja</h2>
+            <button type="button" value="0"  class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zawodnik</button>
+            <button type="button" value="1"  class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Przejazd</button>
+            <button type="button" value="2" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Szkoła</button>
+            <button type="button" value="3" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
         </div>
     </div>
     <hr>
+    <div id="container">
 
-    <!-- Formularz Modyfikacji Zawodnika
-    <div class="row m-3" id="competitor_form">
-        <div class="col"><h2>Wybierz zawodnika</h2>
-            <select id="competitor_picker" class="custom-select custom-select-lg mb-4 w-50">
-                <option value="0">Imie Nazwisko 1(Z BAZY)</option>
-            </select>
-            <hr>
-            <form action="*" method="POST">
-                <label for="competitor_name"><h4>Imie</h4></label>
-                <input id="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Imie">
-                <label for="competitor_surname"><h4>Nazwisko</h4></label>
-                <input id="competitor_surname" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwisko">
-                <label for="competitor_date"><h4>Data Urodzenia</h4></label>
-                <input id="competitor_date" class="form-control form-control-lg mb-4 w-50" type="date" >
-                <label for="competitor_school"><h4>Szkoła</h4></label><br>
-                <select id="competitor_school" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">ZSTIO (Z BAZY)</option>
-                    <option value="1">Kraków</option>
-                </select><br>
-                <input type="submit" value="USUŃ" class="btn btn-danger" />
-                <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
-            </form>
-        </div>
-    </div>-->
-
-    <!-- Formularz Modyfikacji Przejazdu
-    <div class="row m-3" id="ride_form">
-        <div class="col"><h2>Wybierz przejazd</h2>
-            <select id="ride_picker" class="custom-select custom-select-lg mb-4 w-50">
-                <option value="0">Imie Nazwisko Gokart(Z BAZY)</option>
-            </select>
-            <hr>
-            <form action="*" method="POST">
-                <label for="ride_competitor"><h4>Imie Nazwisko</h4></label>
-                <input id="ride_competitor" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Imie Nazwisko" disabled>
-                <label for="ride_status"><h4>Status Przejazdu</h4></label><br>
-                <select id="ride_status" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">Jechał (Z BAZY)</option>
-                </select><br>
-                <label for="ride_gokart"><h4>Gokart</h4></label><br>
-                <select id="ride_gokart" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">Czarowny ładny(Z BAZY)</option>
-                </select><br>
-                <label for="ride_time"><h4>Czas</h4></label>
-                <div id="ride_time" class="w-50">
-                    <input id="ride_time_minutes" class="form-control form-control-lg mb-4 w-25 float-left" type="number" maxlength="2" placeholder="M"><h4 class="float-left mt-2">:</h4>
-                    <input id="ride_time_seconds" class="form-control form-control-lg mb-4 w-25 float-left" type="number" maxlength="2" placeholder="S"><h4 class="float-left mt-3">.</h4>
-                    <input id="ride_time_milliseconds" class="form-control form-control-lg mb-4 w-25" type="number" maxlength="3" placeholder="MS">
-                </div>
-                <input type="submit" value="USUŃ" class="btn btn-danger" />
-                <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
-            </form>
-        </div>
-    </div>-->
-
-    <!-- Formularz Modyfikacji Szkoły
-   <div class="row m-3" id="school_form">
-       <div class="col"><h2>Wybierz Szkołe</h2>
-           <select id="school_picker" class="custom-select custom-select-lg mb-4 w-50">
-               <option value="0">Akronim Szkoły(Z BAZY)</option>
-           </select>
-           <hr>
-           <form action="*" method="POST">
-               <label for="school_name"><h4>Nazwa</h4></label>
-               <input id="school_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
-               <label for="school_town"><h4>Miasto</h4></label><br>
-               <select id="school_town" class="custom-select custom-select-lg mb-4 w-50">
-                   <option value="0">Limanowa (Z BAZY)</option>
-               </select><br>
-               <label for="school_acronym"><h4>Akronim</h4></label>
-               <input id="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
-               <input type="submit" value="USUŃ" class="btn btn-danger" />
-               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
-           </form>
-       </div>
-   </div>-->
-
-    <!-- Formularz Modyfikacji Gokartów
-   <div class="row m-3" id="gokart_form">
-       <div class="col"><h2>Wybierz Gokart</h2>
-           <select id="gokart_picker" class="custom-select custom-select-lg mb-4 w-50">
-               <option value="0">Pomarańczowy Gokart(Z BAZY)</option>
-           </select>
-           <hr>
-           <form action="*" method="POST">
-               <label for="gokart_name"><h4>Nazwa</h4></label>
-               <input id="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa">
-
-               <input type="submit" value="USUŃ" class="btn btn-danger" />
-               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
-           </form>
-       </div>
-   </div>-->
-
-    <!-- Formularz Dodawania Szkoły
-   <div class="row m-3" id="school_form">
-       <div class="col"><h2>Dodawanie Szkoły</h2>
-           <form action="*" method="POST">
-               <label for="school_name"><h4>Nazwa</h4></label>
-               <input id="school_name" class="form-control form-control-lg w-50" type="text" placeholder="Nazwa">
-               <label for="school_town"><h4>Miasto</h4></label><br>
-               <select id="school_town" class="custom-select custom-select-lg mb-1 w-50">
-                   <option value="0">Limanowa (Z BAZY)</option>
-               </select><br>
-               <input type="submit" value="DODAJ MIASTO" class="btn btn-outline-secondary mb-4" /><br>
-               <label for="school_acronym"><h4>Akronim</h4></label>
-               <input id="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
-               <input type="submit" value="DODAJ" class="btn btn-secondary" />
-           </form>
-       </div>
-   </div> -->
-
-    <!-- Formularz Dodawania Miasta
-    <div class="row m-3" id="town_form">
-        <div class="col"><h2>Dodawanie Miasta</h2>
-            <form action="*" method="POST">
-                <label for="town_name"><h4>Nazwa</h4></label>
-                <input id="town_name" class="form-control form-control-lg w-50 mb-4" type="text" placeholder="Nazwa">
-                <input type="submit" value="DODAJ" class="btn btn-secondary" />
-            </form>
-        </div>
-    </div>-->
-
-    <!-- Dodawanie Zawodów-->
-    <div class="row m-3" id="competition_form">
-        <div class="col"><h2>Modyfikowanie Zawodów</h2>
-            <form action="*" method="POST">
-                <label for="town_name"><h4>Nazwa</h4></label>
-                <input id="town_name" class="form-control form-control-lg w-50 mb-4" type="text" placeholder="Nazwa">
-                <input type="submit" value="DODAJ" class="btn btn-secondary" />
-            </form>
-        </div>
     </div>
-
-
+    <div class="form" id="0"><?= view('forms/formularz', $data = ['formularz' => 0]) ?></div>
+    <div class="form" id="1"><?= view('forms/formularz', $data = ['formularz' => 1]) ?></div>
+    <div class="form" id="2"><?= view('forms/formularz', $data = ['formularz' => 2]) ?></div>
+    <div class="form" id="3"><?= view('forms/formularz', $data = ['formularz' => 3]) ?></div>
+    <div class="form" id="4"><?= view('forms/formularz', $data = ['formularz' => 4]) ?></div>
+    <div class="form" id="5"><?= view('forms/formularz', $data = ['formularz' => 5]) ?></div>
+    <div class="form" id="6"><?= view('forms/formularz', $data = ['formularz' => 6]) ?></div>
+    <div class="form" id="7"><?= view('forms/formularz', $data = ['formularz' => 7]) ?></div>
+    <div class="form" id="8"><?= view('forms/formularz', $data = ['formularz' => 8]) ?></div>
+    <div class="form" id="9"><?= view('forms/formularz', $data = ['formularz' => 9]) ?></div>
+    <div class="form" id="10"><?= view('forms/formularz', $data = ['formularz' => 10]) ?></div>
+    <div class="form" id="11"><?= view('forms/formularz', $data = ['formularz' => 11]) ?></div>
 </div>
 
 

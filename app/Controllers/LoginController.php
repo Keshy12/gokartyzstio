@@ -3,28 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\LoginModel;
+use App\Models\BaseModel;
 
 class LoginController extends BaseController
 {
     public function login()
     {
-        $session = \Config\Services::session();
-        if(!isset($_SESSION["zalogowany"]))
-        {
-            $_SESSION["zalogowany"] = "";
-        };
-        if(!isset($_SESSION["status"]))
-        {
-            $_SESSION["status"] = "";
-        };
+        BaseModel::setSession();
+        $data = BaseModel::setTitle('Logowanie');
+        
         $db = db_connect();
         $model = new LoginModel($db);
-
-        
-        $data = [
-            'meta_title' => 'Logowanie',
-        ];
-        
         
         if(isset($_POST["userName"]) && isset($_POST["userPassword"])) {
             $login = $model->getLogin();

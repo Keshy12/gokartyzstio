@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\ArbiterModel;
 
 /**
  * Class BaseController
@@ -20,7 +21,7 @@ use Psr\Log\LoggerInterface;
  * For security be sure to declare any new methods as protected or private.
  */
 class BaseController extends Controller
-{
+{  
     /**
      * Instance of the main Request object.
      *
@@ -48,5 +49,46 @@ class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $session = \Config\Services::session();
+        if(!isset($_SESSION["zalogowany"]))
+        {
+            $_SESSION["zalogowany"] = "";
+        };  
+        if(!isset($_COOKIE["button"]))
+        {
+            $_COOKIE["button"] = 99;
+        };
+
+        $db = db_connect();
+        $model = new ArbiterModel($db);
+        $status = $model->getStatus();
+        $_COOKIE["status"] = "";
+        $zaplanowane = false;
+        $w_trakcie = false;
+        foreach($status as $stat)
+        {
+            if($stat->status_zawodow_id == 1)
+            {
+                $zaplanowane = true;
+            }
+            if($stat->status_zawodow_id == 2)
+            {
+                $w_trakcie = true;
+            }
+        }
+        if($zaplanowane && $w_trakcie)
+        {
+            $_COOKIE["status"] = "oba"; 
+        }
+        elseif($zaplanowane)
+        {
+            $_COOKIE["status"] = "zaplanowane"; 
+        }
+        elseif($w_trakcie)
+        {
+            $_COOKIE["status"] = "w_trakcie"; 
+        }
+        
+        
     }
 }

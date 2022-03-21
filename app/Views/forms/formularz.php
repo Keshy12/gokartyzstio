@@ -3,11 +3,6 @@
 case 0: ?>
     <form action="/main/mod/modcomp" method="POST">
     <div class="row m-3" id="competitor_form">
-        <?php if(isset($validation)) : ?>
-                <div class="text-danger">
-                    <?= $validation->listErrors() ?>
-                </div>
-        <?php endif; ?>  
         <div class="col"><h2>Wybierz zawodnika</h2>          
             <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
                 <?php foreach($competitordata as $row) :?>
@@ -35,7 +30,7 @@ case 0: ?>
                     <?php endforeach; ?>
                 </select><br>
                 <input type="submit" value="Usuń" class="btn btn-danger" />
-                <input type="submit" value="Zatwierdź" class="btn btn-success"/>
+                <input type="submit" value="Zatwierdź" class="btn btn-success"" />
             <?php endforeach; ?>
         </div>
     </div>

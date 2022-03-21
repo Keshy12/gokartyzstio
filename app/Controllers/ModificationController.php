@@ -5,60 +5,11 @@ use App\Models\ModificationModel;
 
 class ModificationController extends BaseController
 {
-    public function index($idcompetitor=1,$idride=1,$idschool=1,$idgokart=1,$idcompetition=1)
+    public function index()
     {
-
-        $validation =  \Config\Services::validation();
-        helper(['form']);
-        
-        if($this->request->getMethod() == 'POST'){
-            $rules = [
-                'competitor_name' => [
-                    'rules' => 'required',
-                    'errors' => ['required' => 'Musisz wpisać imię.'],
-                ],
-                'competitor_surname' => [
-                    'rules' => 'required',
-                    'errors' => ['required' => 'Musisz wpisać nazwisko.'],
-                ],
-                'email' => [
-                    'rules' => 'required|valid_email',
-                    'label' => 'Email adress',
-                    'errors' => [
-                        'required' => 'Email adress is a required field'
-                    ],
-                ],
-                // 'password' => 'required|min_length[8]',
-                // 'category' => 'in_list[Student, Teacher]',
-                // 'date' => [
-                //     'rules' => 'required|check_date',
-                //     'label' => 'Date',
-                //     'errors' => [
-                //         'check_date' => 'You need to specify a date before today'
-                //     ]
-
-                // ]
-                
-            ];
-    
-            if($this->validate($rules)){
-                //return redirect() -> to('/form/success');
-                //Then do database insertion
-                //Login user
-            }
-            else
-            {
-                $data['validation'] = $this->validator;
-            }
-        }
-        $session = \Config\Services::session();
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
-        };
-        if(!isset($_SESSION["status"]))
-        {
-            $_SESSION["status"] = "";
         };
         $data = [
             'meta_title' => 'Modyfikacja',
@@ -77,12 +28,12 @@ class ModificationController extends BaseController
         $data['citydata']=$model->get('miasto');
         $data['ridedata']=$model->getride();
 
-        $data['chosenschooldata']=$model->getchosen('szkola', 'szkola_id', (int)$idschool);
-        $data['chosenridedata']=$model->getchosenride((int)$idride);  
+        $data['chosenschooldata']=$model->getchosen('szkola', 'szkola_id', (int)$_COOKIE['school']);
+        $data['chosenridedata']=$model->getchosenride((int)$_COOKIE['ride']);  
         
-        $data['chosengokartdata']=$model->getchosen('gokart', 'gokart_id', (int)$idgokart);
-        $data['chosencompetitordata']=$model->getchosen('tm_zawodnik', 'tm_zawodnik_id', (int)$idcompetitor);
-        $data['chosencompetitiondata']=$model->getchosen('zawody', 'zawody_id', (int)$idcompetition);
+        $data['chosengokartdata']=$model->getchosen('gokart', 'gokart_id', (int)$_COOKIE['gokart']);
+        $data['chosencompetitordata']=$model->getchosen('tm_zawodnik', 'tm_zawodnik_id', (int)$_COOKIE['competitor']);
+        $data['chosencompetitiondata']=$model->getchosen('zawody', 'zawody_id', (int)$_COOKIE['competition']);
 
         $data['comp_chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
         $data['comp_numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
@@ -111,7 +62,7 @@ class ModificationController extends BaseController
         $db = db_connect();
         $model = new ModificationModel($db);
         $time=(int)$_POST['minutes']*60000+(int)$_POST['seconds']*1000+(int)$_POST['miliseconds'];
-        $model->modifyride($_POST['ride_picker'],$_POST['ride_status'],$_POST['ride_gokart'],$time);
+        $model->modifyride($_POST['ride_picker'],$_POST['ride_gokart'],$time);
         
         return redirect()->to( base_url().'/main/mod' );
     }

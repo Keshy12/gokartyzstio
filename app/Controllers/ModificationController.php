@@ -7,6 +7,8 @@ class ModificationController extends BaseController
 {
     public function index($idcompetitor=1,$idride=1,$idschool=1,$idgokart=1,$idcompetition=1)
     {
+        helper(['form']);
+        
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'competitor_name' => [

@@ -42,7 +42,11 @@
     </div>
     <hr>
     <div id="container">
-
+    <?php if(isset($validation)) : ?>
+            <div class="text-danger">
+                <?= $validation->listErrors() ?>
+            </div>
+    <?php endif; ?>    
     </div>
     <div class="form" id="0"><?= view('forms/formularz', $data = ['formularz' => 0]) ?></div>
     <div class="form" id="1"><?= view('forms/formularz', $data = ['formularz' => 1]) ?></div>

@@ -9,14 +9,16 @@ class CompetitionController extends BaseController
 {
     function index()
     {
-        $data = BaseModel::setTitle('Archiwum');
+        BaseModel::setSession();
+        $data = BaseModel::setTitle('Zawody');
+
         ///////
         $db = db_connect();
         $model = new CompetitionModel($db);
 
         $result_now = $model->comp_now();
         if(!$result_now)
-            return redirect()->to('main/score');
+            return redirect()->to( base_url().'/main/score' );
 
         $result = $model->comp_before();
         foreach($result as $row)

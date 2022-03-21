@@ -12,59 +12,20 @@ class ModificationModel{
         $this->db =& $db;
     }
 
-    function getcompetitor()
+    function get($subject)
     {
-        $resultcompetitor = $this->db->table('tm_zawodnik');
+        $resultcompetitor = $this->db->table($subject);
         return $resultcompetitor->get()->getResult();
     }
 
-    function getschool()
-    {
-        $resultcompetitor = $this->db->table('szkola');            
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getgokart()
-    {
-        $resultcompetitor = $this->db->table('gokart');             
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getcity()
-    {
-        $resultcompetitor = $this->db->table('miasto');             
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getstatus()
-    {
-        $resultcompetitor = $this->db->table('status_przejazdu');           
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getchosencompetitor($id)
+    function getchosen($id,$subject)
     {
         
-        $resultchosen = $this->db->table('tm_zawodnik')
-        ->where('tm_zawodnik_id', $id);
+        $resultchosen = $this->db->table($subject)
+        ->where($subject.'_id', $id);
         return $resultchosen->get()->getResult();
     }
 
-    function getchosenschool($id)
-    {
-        
-        $resultcompetitor = $this->db->table('szkola')
-        ->where('szkola_id', $id);         
-        return $resultcompetitor->get()->getResult();
-    }
-
-    function getchosengokart($id)
-    {
-        
-        $resultcompetitor = $this->db->table('gokart')
-        ->where('gokart_id', $id);         
-        return $resultcompetitor->get()->getResult();
-    }
     
     function getride()
     {
@@ -84,5 +45,31 @@ class ModificationModel{
         ->join('gokart','gokart_id')
         ->where('tm_przejazd_id', $id);
         return $resultride->get()->getResult();
+    }
+
+    function modifycompetitor($to_modify_id,$name,$surname,$bdate,$schol_id,$competition_id)
+    {
+        $this->db->query("UPDATE tm_zawodnik SET imie = '".$name."', nazwisko = '".$surname."', data_urodzenia = '".$bdate."', szkola_id = '".$schol_id."', zawody_id = '".$competition_id."' WHERE tm_zawodnik_id = '".$to_modify_id."'");
+    }
+
+    function modifyride($to_modify_id,$ride_status_id,$gokart_id,$time)
+    {
+        $this->db->query("UPDATE tm_przejazd SET status_przejazdu_id = '".$ride_status_id."', gokart_id = '".$gokart_id."', czas = '".$time."' WHERE tm_przejazd_id = ".$to_modify_id);
+    }
+
+    function modifyschool($to_modify_id,$name,$city_id,$acronym)
+    {
+        $this->db->query("UPDATE szkola SET nazwa = '".$name."', miasto_id = '".$city_id."', akronim = '$acronym' WHERE nazwa = '".$to_modify_id."'");
+
+    }
+
+    function modifygokart($to_modify_id,$name)
+    {
+        $this->db->query("UPDATE gokart SET nazwa = '".$name."' WHERE nazwa = '".$to_modify_id."'");
+    }
+
+    function modifycompetition($to_modify_id,$name,$start_date,$end_date)
+    {
+        $this->db->query("UPDATE zawody SET nazwa = '".$name."', data_rozpoczecia = '".$start_date."', data_zakonczenia = '".$end_date."' WHERE zawody_id = ".$to_modify_id);
     }
 }

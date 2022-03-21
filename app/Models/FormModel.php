@@ -18,6 +18,13 @@ class FormModel{
         return $resultcompetitor->get()->getResult();
     }
 
+    function getchosen($table, $column, $value)
+    {
+        $resultchosen = $this->db->table($table)
+        ->where($column, $value);
+        return $resultchosen->get()->getResult();
+    }
+    
     function add($imie,$nazwisko,$dataur,$szkola_id,$zawody_id)
     {
         $this->db->query("INSERT INTO `tm_zawodnik` (`imie`, `nazwisko`, `data_urodzenia`, `szkola_id`, `zawody_id`) VALUES ('".$imie."', '".$nazwisko."', '".$dataur."', '".$szkola_id."', '".$zawody_id."')");

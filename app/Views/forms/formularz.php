@@ -267,11 +267,13 @@ case 0: ?>
                 <label for="ride_amount"><h4>Limit przejazdów jednym gokartem naraz.</h4></label>
                 <input id="ride_amount" name="ride_amount" class="form-control form-control-lg mb-4 w-50" type="number" placeholder="Co ile będzie wymieniony gokart.">
                 <label for="gokart_checkbox"><h4>Gokarty:</h4></label>
-                <div class="custom-control custom-checkbox" name="gokart_checkbox">
-                    <!-- Element -->
+                <!-- Element -->
+                <div class="custom-control custom-checkbox" name="gokart_checkbox1">
                     <input type="checkbox" class="custom-control-input" id="gokartCzerwony">
-                    <label class="custom-control-label" for="gokartCzerwony">Gokart Czerwony</label><br>
-                    <!--  -->
+                    <label class="custom-control-label" for="gokartCzerwony">Gokart Czerwony</label>
+                </div>
+                <!-- -->
+                <div class="custom-control custom-checkbox" name="gokart_checkbox2">
                     <input type="checkbox" class="custom-control-input" id="gokartZielony">
                     <label class="custom-control-label" for="gokartZielony">Gokart Zielony</label><br>
                 </div><br>

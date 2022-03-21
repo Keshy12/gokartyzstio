@@ -244,5 +244,23 @@ case 0: ?>
         </div>
     </div>
 <?php break; ?>
+<?php case 11: ?>
+    <div class="row m-3" id="school_form">
+        <div class="col">
+            <form action="*" method="POST">
+                <label for="competition_name"><h4>Wybierz zawody do wylosowania przejazdów</h4></label><br>
+                <select id="competition_name" class="custom-select custom-select-lg mb-4 w-50">
+                    <option value="0">Nazwa Zawodów (Ze statusem w trakcie) (Z BAZY)</option>
+                </select><br>
+
+                <input type="submit" value="Wylosuj" class="btn btn-success"/>
+            </form><hr>
+            <p>Losuje przejazdy według podanych danych.
+                <br> Zostaje włączony dostęp do strony sędziego.
+                <!--  -->
+            <h2>Nie można żadnych zawodów w trakcie.</h2>
+        </div>
+    </div>
+<?php break; ?>
 <?php endswitch; ?>
 </div>

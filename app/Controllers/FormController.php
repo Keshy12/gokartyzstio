@@ -20,7 +20,7 @@ class FormController extends BaseController
                 'meta_title' => 'Zgłoszenie',
             ];
 
-            $data['competitiondata']=$model->get('zawody');
+            $data['competitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
             $data['schooldata']=$model->get('szkola');
 
             return view('competitorform', $data);

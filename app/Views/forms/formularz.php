@@ -262,17 +262,28 @@ case 0: ?>
             <form action="*" method="POST">
                 <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
                 <select id="competition_name" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">Nazwa Zawodów (Ze statusem zaplanowane) (Z BAZY)</option>
+                    <option value="0">Nazwa Zawodów (Ze statusem w trakcie) (Z BAZY)</option>
                 </select><br>
-                <input type="submit" value="Zacznij" class="btn btn-success"/>
+                <label for="ride_amount"><h4>Limit przejazdów jednym gokartem naraz.</h4></label>
+                <input id="ride_amount" name="ride_amount" class="form-control form-control-lg mb-4 w-50" type="number" placeholder="Co ile będzie wymieniony gokart.">
+                <label for="gokart_checkbox"><h4>Gokarty:</h4></label>
+                <div class="custom-control custom-checkbox" name="gokart_checkbox">
+                    <!-- Element -->
+                    <input type="checkbox" class="custom-control-input" id="gokartCzerwony">
+                    <label class="custom-control-label" for="gokartCzerwony">Gokart Czerwony</label><br>
+                    <!--  -->
+                    <input type="checkbox" class="custom-control-input" id="gokartZielony">
+                    <label class="custom-control-label" for="gokartZielony">Gokart Zielony</label><br>
+                </div><br>
+                <input type="submit" value="Wylosuj" class="btn btn-success"/>
+
             </form><hr>
-            <p>Zmienia status zawodów z "ZAPLANOWANE" na "W TRAKCIE".
-                <br> Zostają wylosowane przejazdy dla zawodników.
+            <p> Zostają wylosowane przejazdy dla zawodników.
                 <br> Zostaje włączony dostęp do strony sędziego.</p>
             <!--  -->
-            <h2>Nie można zacząć zawodów kiedy inne są w trakcie.</h2>
+            <h2>Nie ma żadnych zawodów w trakcie do których można wylosować przejazdy.</h2>
         </div>
     </div>
-    <?php break; ?>
+<?php break; ?>
 <?php endswitch; ?>
 </div>

@@ -21,6 +21,13 @@ class ModificationController extends BaseController
                     'rules' => 'required',
                     'errors' => ['required' => 'Musisz wpisać nazwisko.'],
                 ],
+                'email' => [
+                    'rules' => 'required|valid_email',
+                    'label' => 'Email adress',
+                    'errors' => [
+                        'required' => 'Email adress is a required field'
+                    ],
+                ],
                 // 'password' => 'required|min_length[8]',
                 // 'category' => 'in_list[Student, Teacher]',
                 // 'date' => [

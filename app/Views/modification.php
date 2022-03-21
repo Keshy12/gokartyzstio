@@ -42,12 +42,26 @@
         </div>
     </div>
     <hr>
-    <div id="container">
     <?php if(isset($validation)) : ?>
             <div class="text-danger">
                 <?= $validation->listErrors() ?>
             </div>
     <?php endif; ?>    
+    </div>
+    <form method="post">
+    <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input value="<?= set_value('email') ?>" name ="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <?php
+            echo '<pre>';
+            print_r($_POST);
+            echo '<pre>';
+    ?>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="container">
     </div>
     <div class="form" id="0"><?= view('forms/formularz', $data = ['formularz' => 0]) ?></div>
     <div class="form" id="1"><?= view('forms/formularz', $data = ['formularz' => 1]) ?></div>

@@ -28,7 +28,7 @@
             <button type="button" value="11" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Wylosuj Przejazdy</button>
             <button type="button" value="9" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Edytuj</button>
         </div>
-        <div class="col-3"><h2>Dodawanie</h2>
+        <div class="col-4"><h2>Dodawanie</h2>
             <button type="button" value="4" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Szkoła</button>
             <button type="button" value="5" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Miasto</button>
             <button type="button" value="10" class="btn btn-outline-dark btn-lg" data-mdb-ripple-color="dark">Gokart</button>

@@ -21,7 +21,7 @@
                     <option value="<?= $row->szkola_id?>"><?= $row->nazwa?></option>
                 <?php endforeach; ?>
                </select><br>
-               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+               <input type="submit" value="ZATWIERDŹ" class="btn btn-success" />
            </form>
        </div>
    </div>

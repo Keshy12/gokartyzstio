@@ -66,12 +66,15 @@
         ::-webkit-scrollbar-thumb:hover {
             background: gray;
         }
+        .navbar-brand:hover {
+            transform: scaleX(-1);
+        }
     </style>
 </head>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark h5">
         <a class="navbar-brand" href="/main">
-            <img src="/assets/images/gokart.png" width="80" height="50" alt="">
+            <img src="/assets/images/gokart.png" width="85" height="60" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

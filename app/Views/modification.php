@@ -25,6 +25,7 @@
             <button type="button" value="6" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zaplanuj</button>
             <button type="button" value="7" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zaczynij</button>
             <button type="button" value="8" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zakończ</button>
+            <button type="button" value="11" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Wylosuj Przejazdy</button>
             <button type="button" value="9" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Edytuj</button>
         </div>
         <div class="col-4"><h2>Dodawanie</h2>
@@ -54,6 +55,7 @@
     <div class="form" id="8"><?= view('forms/formularz', $data = ['formularz' => 8]) ?></div>
     <div class="form" id="9"><?= view('forms/formularz', $data = ['formularz' => 9]) ?></div>
     <div class="form" id="10"><?= view('forms/formularz', $data = ['formularz' => 10]) ?></div>
+    <div class="form" id="11"><?= view('forms/formularz', $data = ['formularz' => 11]) ?></div>
 </div>
 
 

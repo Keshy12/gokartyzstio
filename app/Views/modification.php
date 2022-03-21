@@ -24,6 +24,7 @@
             $(id[$(this).val()]).appendTo("#container");
             Cookies.set('button', $(this).val())
         });
+        
 
     });  
 </script>

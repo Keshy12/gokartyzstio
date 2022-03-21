@@ -58,6 +58,28 @@ class BaseController extends Controller
         {
             $_COOKIE["button"] = 99;
         };
+        if(!isset($_COOKIE['school']))
+        {
+            $_COOKIE['school']=1;
+        };
+        if(!isset($_COOKIE['ride']))
+        {
+            $_COOKIE['ride']=1;
+        };  
+        if(!isset($_COOKIE['gokart']))
+        {
+            $_COOKIE['gokart']=1;
+        };  
+        if(!isset($_COOKIE['competition']))
+        {
+            $_COOKIE['competition']=1;
+        };   
+        if(!isset($_COOKIE['competitor']))
+        {
+            $_COOKIE['competitor']=1;
+        };  
+
+        
 
         $db = db_connect();
         $model = new ArbiterModel($db);

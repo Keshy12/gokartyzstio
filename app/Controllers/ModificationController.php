@@ -5,9 +5,8 @@ use App\Models\ModificationModel;
 
 class ModificationController extends BaseController
 {
-    public function index($idcompetitor=1,$idride=1,$idschool=1,$idgokart=1,$idcompetition=1)
+    public function index()
     {
-        $session = \Config\Services::session();
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
@@ -29,11 +28,11 @@ class ModificationController extends BaseController
         $data['citydata']=$model->get('miasto');
         $data['ridedata']=$model->getride();
 
-        $data['chosenschooldata']=$model->getchosen((int)$idschool,'szkola');
-        $data['chosenridedata']=$model->getchosenride((int)$idride);
-        $data['chosengokartdata']=$model->getchosen((int)$idgokart,'gokart');
-        $data['chosencompetitiondata']=$model->getchosen((int)$idcompetition,'zawody');
-        $data['chosencompetitordata']=$model->getchosen((int)$idcompetitor,'tm_zawodnik');              
+        $data['chosenschooldata']=$model->getchosen((int)$_COOKIE['school'],'szkola');
+        $data['chosenridedata']=$model->getchosenride((int)$_COOKIE['ride']);
+        $data['chosengokartdata']=$model->getchosen((int)$_COOKIE['gokart'],'gokart');
+        $data['chosencompetitiondata']=$model->getchosen((int)$_COOKIE['competition'],'zawody');
+        $data['chosencompetitordata']=$model->getchosen((int)$_COOKIE['competitor'],'tm_zawodnik');              
     
         return view('modification',$data);   
     }

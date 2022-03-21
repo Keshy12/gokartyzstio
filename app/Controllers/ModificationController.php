@@ -62,7 +62,7 @@ class ModificationController extends BaseController
         $db = db_connect();
         $model = new ModificationModel($db);
         $time=(int)$_POST['minutes']*60000+(int)$_POST['seconds']*1000+(int)$_POST['miliseconds'];
-        $model->modifyride($_POST['ride_picker'],$_POST['ride_status'],$_POST['ride_gokart'],$time);
+        $model->modifyride($_POST['ride_picker'],$_POST['ride_gokart'],$time);
         
         return redirect()->to( base_url().'/main/mod' );
     }

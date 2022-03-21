@@ -1,7 +1,6 @@
 <div>
 <?php switch($formularz): 
 case 0: ?>
-<?php var_dump($chosencompetitordata)?>
     <form action="/main/mod/modcomp" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz zawodnika</h2>          
@@ -38,7 +37,6 @@ case 0: ?>
     </form>
 <?php break; ?>
 <?php case 1: ?>
-    <?php var_dump($chosenridedata);?>
     <form action="/main/mod/modride" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz przejazd</h2>
@@ -85,7 +83,6 @@ case 0: ?>
     </form>
 <?php break; ?>
 <?php case 2: ?>
-    <?php var_dump($chosenschooldata);?>
     <?php if(isset($chosenschooldata[0]->szkola_id)): ?>
     <form action="/main/mod/modschool" method="POST">
     <div class="row m-3" id="school_form">
@@ -123,7 +120,6 @@ case 0: ?>
 
 <?php break; ?>
 <?php case 3: ?>
-    <?php var_dump($chosengokartdata);?>
     <?php if(isset($chosengokartdata[0]->gokart_id)): ?>
     <form action="/main/mod/modgokart" method="POST">
     <div class="row m-3" id="gokart_form">    
@@ -243,7 +239,7 @@ case 0: ?>
         <div class="col"><h2>Wybierz Zawody</h2>
             <select id="competition_picker" name="competition_picker"class=" select_location custom-select custom-select-lg mb-4 w-50">
                 <?php foreach($competitiondata as $innerrow) :?>
-                        <option <?php if($innerrow->zawody_id==$chosencompetitiondata[0]->zawody_id){echo("selected");$_SESSION['selected']['competition']=$innerrow->zawody_id;}?> id="/main/mod/1/1/1/1/<?= $innerrow->zawody_id?>" value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
+                        <option <?php if($innerrow->zawody_id==$chosencompetitiondata[0]->zawody_id){echo("selected");}?> id="<?= $innerrow->zawody_id?>" value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
                 <?php endforeach; ?>
             </select>
             <hr>

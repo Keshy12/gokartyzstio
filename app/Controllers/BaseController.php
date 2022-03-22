@@ -41,6 +41,7 @@ class BaseController extends Controller
     /**
      * Constructor.
      */
+    
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
@@ -50,6 +51,7 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $session = \Config\Services::session();
+        $validation =  \Config\Services::validation();
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
@@ -78,7 +80,6 @@ class BaseController extends Controller
         {
             $_COOKIE['competitor']=1;
         };  
-
         
 
         $db = db_connect();

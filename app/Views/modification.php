@@ -41,27 +41,26 @@
             <button type="button" value="3" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
         </div>
     </div>
-    <hr>
+    <div id="container">
+
     <?php if(isset($validation)) : ?>
-            <div class="text-danger">
-                <?= $validation->listErrors() ?>
-            </div>
-    <?php endif; ?>    
-    </div>
+        <div class="text-danger">
+            <?= $validation->listErrors() ?>
+        </div>
+    <?php endif; ?>
     <form method="post">
     <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input value="<?= set_value('email') ?>" name ="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <label for="exampleInputEmail1">Email address</label>
+        <input name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
-    <?php
-            echo '<pre>';
-            print_r($_POST);
-            echo '<pre>';
-    ?>
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <?php print_r($_POST) ?>
     </form>
-    <div id="container">
     </div>
     <div class="form" id="form0"><?= view('forms/formularz', $data = ['formularz' => 0]) ?></div>
     <div class="form" id="form1"><?= view('forms/formularz', $data = ['formularz' => 1]) ?></div>

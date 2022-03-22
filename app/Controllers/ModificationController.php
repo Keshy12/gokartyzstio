@@ -7,6 +7,32 @@ class ModificationController extends BaseController
 {
     public function index()
     {
+        helper('form');
+        helper(['form']);
+       // $this->form_validation->set_rules('email','Title', 'required');
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'email' => [
+                    'rules' => 'required|valid_email',
+                    'label' => 'Email adress',
+                    'errors' => [
+                        'required' => 'Email adress is a required field'
+                    ],
+                ],
+                'password' => 'required|min_length[8]',
+            ];
+    
+            if($this->validate($rules)){
+                //return redirect() -> to('/form/success');
+                //Then do database insertion
+                //Login user
+            }
+            else
+            {
+                $data['validation'] = $this->validator;
+            }
+        }
+
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
@@ -38,7 +64,8 @@ class ModificationController extends BaseController
         $data['comp_chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
         $data['comp_numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
         $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');        
-    
+        
+        print_r($data);
         return view('modification',$data);   
     }
 

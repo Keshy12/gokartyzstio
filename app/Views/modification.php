@@ -7,7 +7,7 @@
 
     $(document).ready(function(){
         var id0=$('#form0'),id1=$('#form1'),id2=$('#form2'),id3=$('#form3'),id4=$('#form4'),id5=$('#form5'),id6=$('#form6'),id7=$('#form7'),id8=$('#form8'),id9=$('#form9'),id10=$('#form10'),id11=$('#form11'),id12=$('#form12');
-        const id = [id0,id1,id2,id3,id4,id5,id6,id7,id8,id9,id10,,id12];
+        const id = [id0,id1,id2,id3,id4,id5,id6,id7,id8,id9,id10,id11,id12];
         $('.form').detach();
         id[<?php echo $_COOKIE["button"]?>].appendTo("#container");
         $("button").click(function(){

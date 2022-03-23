@@ -62,7 +62,8 @@ class ModificationController extends BaseController
         $data['chosencompetitiondata']=$model->getchosen('zawody', 'zawody_id', (int)$_COOKIE['competition']);
 
         $data['comp_chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
-        $data['comp_numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
+        $data['comp_countCompetition']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
+        $data['comp_countCompetitor']=$model->getNumberOfRows('tm_przejazd', 'tm_przejazd_id', 'tm_przejazd_id')[0]->numberOfRows;
         $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');        
     
         return view('modification',$data);   

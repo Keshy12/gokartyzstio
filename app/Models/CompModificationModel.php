@@ -37,6 +37,11 @@ class CompModificationModel extends AppendModel{
         return $result->get()->getResult();
     }
 
+    function updateRide($id)
+    {
+        $this->db->query("UPDATE tm_przejazd SET status_przejazdu_id = 2 WHERE tm_przejazd_id = ".$id);
+    }
+
     function ridesOrder($osoby, $liczbaosobnaprzejazd, $liczbagokart)
     {
         $liczbaosob = count($osoby);
@@ -46,8 +51,8 @@ class CompModificationModel extends AppendModel{
 
         $liczbaprzejazdow = ($liczbaosob % $liczbaosobnaprzejazd == 0) ? (int)($liczbaosob / $liczbaosobnaprzejazd) : (int)($liczbaosob / $liczbaosobnaprzejazd) + 1;
 
-        //$osoby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-        //$osoby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // $osoby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+        // $osoby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         $zawody = array();
         $osobyI = 0;
 
@@ -80,7 +85,7 @@ class CompModificationModel extends AppendModel{
             }
         }
 
-        $przejazdLength = count($zawody[0]);
+        $przejazdLength = (isset($zawody[0])) ? count($zawody[0]) : 1;
         $zawodyLength = count($zawody);
         $zawody[count($zawody)] = array();  
 

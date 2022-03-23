@@ -77,17 +77,11 @@ class CompModificationController extends BaseController
         $competition = $model->ridesOrder($competitorsArray, $_POST['ride_amount'], $gokartCount);
 
         foreach($competition as $ride)
-        {
             for($przejazdI = 0; $przejazdI < $gokartCount; $przejazdI++)
-            {
-                foreach($ride[$przejazdI] as $competitor)
-                {
-                    if($competitor === array_key_first($ride[$przejazdI]))
-                        $model->add('tm_przejazd', ['tm_zawodnik_id' => $competitor, 'status_przejazdu_id' => 2, 'gokart_id' => $gokartsArray[$przejazdI]]);
+                foreach($ride[$przejazdI] as $index=>$competitor)
                     $model->add('tm_przejazd', ['tm_zawodnik_id' => $competitor, 'status_przejazdu_id' => 3, 'gokart_id' => $gokartsArray[$przejazdI]]);
-                }
-            }
-        }
+        
+        $model->updateRide($model->getfirstid('tm_przejazd')[0]->tm_przejazd_id);
         return redirect()->to( base_url().'/main/mod' ); 
     }
 }

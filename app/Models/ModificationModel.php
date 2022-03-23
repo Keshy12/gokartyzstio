@@ -21,13 +21,13 @@ class ModificationModel{
     function getfirstid($table)
     {
         $result = $this->db->table($table)
-        ->select($table.'_id');
+        ->select($table.'_id')
+        ->orderBy($table.'_id', 'ASC');
         return $result->get(1)->getResult();
     }
 
     function getchosen($table, $column, $value)
     {
-        
         $resultchosen = $this->db->table($table)
         ->where($column, $value);
         return $resultchosen->get()->getResult();
@@ -73,7 +73,6 @@ class ModificationModel{
     function modifyschool($to_modify_id,$name,$city_id,$acronym)
     {
         $this->db->query("UPDATE szkola SET nazwa = '".$name."', miasto_id = '".$city_id."', akronim = '$acronym' WHERE nazwa = '".$to_modify_id."'");
-
     }
 
     function modifygokart($to_modify_id,$name)

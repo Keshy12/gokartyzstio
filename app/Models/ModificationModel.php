@@ -18,6 +18,13 @@ class ModificationModel{
         return $resultcompetitor->get()->getResult();
     }
 
+    function getfirstid($table)
+    {
+        $result = $this->db->table($table)
+        ->select($table.'_id');
+        return $result->get(1)->getResult();
+    }
+
     function getchosen($table, $column, $value)
     {
         

@@ -334,23 +334,22 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 12: ?>
-    <div class="row m-3" id="school_form">
-        <div class="col"><h2>Wybierz Szkołę</h2>
-            <form action="/main/add/school" method="POST">
-                <select id="school_town" name="school_town" class="custom-select custom-select-lg mb-4 w-50">
-                    <?php foreach($citydata as $innerrow) :?>
-                        <option value="<?= $innerrow->miasto_id?>"> <?= $innerrow->nazwa ?> </option>
-                    <?php endforeach; ?>
-                </select><hr>
-                <label for="school_name"><h4>Nazwa</h4></label>
-                <input id="school_name" name="school_name" class="form-control form-control-lg w-50 mb-4" type="text" placeholder="Nazwa">
-                <label for="school_acronym"><h4>Akronim</h4></label>
-                <input id="school_acronym" name="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Akronim">
-                <input type="submit" value="Usuń" class="btn btn-danger" />
+<form action="/main/mod/modcity" method="POST">
+    <div class="row m-3" id="city_form">
+        <div class="col"><h2>Wybierz miasto</h2>
+            <select id="city_picker" name="city_picker" class="select_location custom-select custom-select-lg mb-4 w-50">
+                <?php foreach($citydata as $innerrow) :?>
+                    <option <?php if($innerrow->miasto_id==$chosencitydata[0]->miasto_id){echo("selected");}  ?> value="<?= $innerrow->miasto_id?>" id="<?= $innerrow->miasto_id?>" > <?= $innerrow->nazwa ?> </option>
+                <?php endforeach; ?>
+            </select><hr>
+            <?php foreach($chosencitydata as $row) :?>
+                <label for="city_name"><h4>Nazwa</h4></label>
+                <input id="city_name" name="city_name" class="form-control form-control-lg w-50 mb-4" type="text" value="<?= $row->nazwa?>">
                 <input type="submit" value="Zatwierdź" class="btn btn-success" />
-            </form>
+            <?php endforeach;?>          
         </div>
     </div>
+</form>
 <?php break; ?>
 <?php endswitch; ?>
 </div>

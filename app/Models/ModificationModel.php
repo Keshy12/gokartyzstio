@@ -73,7 +73,6 @@ class ModificationModel{
     function modifyschool($to_modify_id,$name,$city_id,$acronym)
     {
         $this->db->query("UPDATE szkola SET nazwa = '".$name."', miasto_id = '".$city_id."', akronim = '$acronym' WHERE nazwa = '".$to_modify_id."'");
-
     }
 
     function modifygokart($to_modify_id,$name)
@@ -84,5 +83,10 @@ class ModificationModel{
     function modifycompetition($to_modify_id,$name,$start_date,$end_date)
     {
         $this->db->query("UPDATE zawody SET nazwa = '".$name."', data_rozpoczecia = '".$start_date."', data_zakonczenia = '".$end_date."' WHERE zawody_id = ".$to_modify_id);
+    }
+
+    function modifycity($to_modify_id,$name)
+    {
+        $this->db->query("UPDATE miasto SET nazwa = '".$name."' WHERE miasto_id = '".$to_modify_id."'");
     }
 }

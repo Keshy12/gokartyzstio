@@ -26,6 +26,10 @@ class ModificationController extends BaseController
             $_COOKIE['school']=(int)$model->getfirstid('szkola')[0]->szkola_id;
         };
 
+        if(!isset($_COOKIE['city']))
+        {
+            $_COOKIE['city']=(int)$model->getfirstid('miasto')[0]->miasto_id;
+        };
 
         if(!isset($_COOKIE['ride']))
         {
@@ -57,8 +61,8 @@ class ModificationController extends BaseController
 
         $data['chosenschooldata']=$model->getchosen('szkola', 'szkola_id', (int)$_COOKIE['school']);
         $data['chosenridedata']=$model->getchosenride((int)$_COOKIE['ride']);  
-        
         $data['chosengokartdata']=$model->getchosen('gokart', 'gokart_id', (int)$_COOKIE['gokart']);
+        $data['chosencitydata']=$model->getchosen('miasto', 'miasto_id', (int)$_COOKIE['city']);
         $data['chosencompetitordata']=$model->getchosen('tm_zawodnik', 'tm_zawodnik_id', (int)$_COOKIE['competitor']);
         $data['chosencompetitiondata']=$model->getchosen('zawody', 'zawody_id', (int)$_COOKIE['competition']);
 
@@ -252,6 +256,37 @@ class ModificationController extends BaseController
             if($this->validate($rules)){
                 unset($_SESSION['validation']);
                 $model->modifycompetition($_POST['competition_picker'],$_POST['competition_name'],$_POST['competition_start_date'],$_POST['competition_end_date']);
+                return redirect()->to( base_url().'/main/mod' );
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors();    
+            }
+        }        
+        return redirect()->to( base_url().'/main/mod' );
+        
+    }
+
+    public function modifycity()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+
+        $db = db_connect();
+        $model = new ModificationModel($db);
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'city_name' => [
+                    'rules' => 'required',
+                    'label' => 'nazwa_miasta',
+                    'errors' => [
+                        'required' => 'Nazwa miasta jest wymagana.',
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                unset($_SESSION['validation']);
+                $model->modifycity($_POST['city_picker'],$_POST['city_name']);
                 return redirect()->to( base_url().'/main/mod' );
             }
             else

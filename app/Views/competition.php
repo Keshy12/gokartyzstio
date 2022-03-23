@@ -1,5 +1,6 @@
 <?= $this->extend('layouts/main')?>
 <?= $this->section('content')?>
+    <meta http-equiv="refresh" content="12">
     <div class="container-fluid">
         <div class="row mt-3">
             <div class="col">

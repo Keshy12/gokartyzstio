@@ -19,7 +19,6 @@
     });    
 </script>
 
-
 <div class="container-fluid">
     <div class="row m-3">
         <div class="col-4"><h2>Zawody</h2>

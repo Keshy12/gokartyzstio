@@ -1,11 +1,12 @@
 <div>
 <?php switch($formularz): 
 case 0: ?>
-    <?php if(isset($validation)) : ?>
-            <div class="text-danger">
-                <?= $validation->listErrors() ?>
-            </div>
-        <?php endif; ?>    
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <form action="/main/mod/modcomp" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz zawodnika</h2>          
@@ -43,6 +44,12 @@ case 0: ?>
     </form>
 <?php break; ?>
 <?php case 1: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <form action="/main/mod/modride" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz przejazd</h2>
@@ -89,6 +96,12 @@ case 0: ?>
     </form>
 <?php break; ?>
 <?php case 2: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <?php if(isset($chosenschooldata[0]->szkola_id)): ?>
     <form action="/main/mod/modschool" method="POST">
     <div class="row m-3" id="school_form">
@@ -126,6 +139,12 @@ case 0: ?>
 
 <?php break; ?>
 <?php case 3: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <?php if(isset($chosengokartdata[0]->gokart_id)): ?>
     <form action="/main/mod/modgokart" method="POST">
     <div class="row m-3" id="gokart_form">    
@@ -151,6 +170,12 @@ case 0: ?>
 
 <?php break; ?>
 <?php case 4: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
             <form action="/main/add/school" method="POST">
@@ -170,6 +195,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 5: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <div class="row m-3" id="town_form">
         <div class="col"><h2>Dodawanie Miasta</h2>
             <form action="/main/add/town" method="POST">
@@ -181,6 +212,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 6: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <div class="row m-3" id="competition_form">
         <div class="col"><h2>Dodawanie/Planowanie Zawodów</h2>
             <form action="/main/compmod/add" method="POST">
@@ -198,6 +235,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 7: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <div class="row m-3" id="school_form">
         <div class="col">
             <?php if($comp_numberOfRows == 1) : ?>
@@ -222,6 +265,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 8: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <div class="row m-3" id="school_form">
         <div class="col">
         <?php if($comp_numberOfRows == 0) : ?>
@@ -240,6 +289,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 9: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <form action="/main/mod/modcompetition" method="POST">
     <div class="row m-3" id="school_form">
         <div class="col"><h2>Wybierz Zawody</h2>
@@ -264,6 +319,12 @@ case 0: ?>
     </form>
 <?php break; ?>
 <?php case 10: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <div class="row m-3" id="gokart_form">
         <div class="col"><h2>Dodawanie Gokarta</h2>
             <form action="/main/add/gokart" method="POST">
@@ -275,6 +336,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 11: ?>
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']); ?>
+    <?php endif; ?>    
     <div class="row m-3" id="school_form">
         <div class="col">
             <form action="*" method="POST">

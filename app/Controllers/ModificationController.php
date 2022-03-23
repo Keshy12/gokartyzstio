@@ -8,29 +8,7 @@ class ModificationController extends BaseController
     public function index()
     {
         helper(['form']);
-
         $data = [];     
-
-        $rules = [
-            'competitor_name' => [
-                'rules' => 'required',
-                'label' => 'Imie',
-                'errors' => [
-                    'required' => 'Imie is a required field'
-                ],
-            ],
-        ];
-
-        if($this->validate($rules)){
-            //return redirect() -> to('/form/success');
-            //Then do database insertion
-            //Login user
-        }
-        else
-        {
-            
-        }
-        
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
@@ -62,44 +40,39 @@ class ModificationController extends BaseController
         $data['comp_chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
         $data['comp_numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
         $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');        
-    
         return view('modification',$data);   
+        
     }
 
     public function modifycompetitor()
-    {
-        helper(['form']);
-
-        $data = []; 
-
-        if($this->request->getMethod() == 'post'){
-            $rules = [
-                'competitor_name' => [
-                    'rules' => 'required',
-                    'label' => 'Imie',
-                    'errors' => [
-                        'required' => 'Imie is a required field'
-                    ],
-                ],
-            ];
-    
-            if($this->validate($rules)){
-                //return redirect() -> to('/form/success');
-                //Then do database insertion
-                //Login user
-            }
-            else
-            {
-                $_COOKIE['valid'] = $this->validator;
-            }
-        }
+    {        
         if(!isset($_SESSION["zalogowany"]))
         if(!($_SESSION["zalogowany"] == "pełny"))
             return redirect()->to( base_url().'/main');
 
         $db = db_connect();
         $model = new ModificationModel($db);
-        $model->modifycompetitor($_POST['competitor_picker'],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school'],$_POST['competitor_competition']);
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'competitor_name' => [
+                    'rules' => 'required|string',
+                    'label' => 'Imie',
+                    'errors' => [
+                        'required' => 'Imie jest wymagane',
+                        'string' => 'Używaj tylko liter alfabetu'
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                $model->modifycompetitor($_POST['competitor_picker'],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school'],$_POST['competitor_competition']);
+                return redirect()->to( base_url().'/main/mod' );
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors();    
+            }
+        }
+    
         return redirect()->to( base_url().'/main/mod' );
     }
 

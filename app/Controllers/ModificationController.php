@@ -20,6 +20,32 @@ class ModificationController extends BaseController
 
         $db = db_connect();
         $model = new ModificationModel($db);
+        
+        if(!isset($_COOKIE['school']))
+        {
+            $_COOKIE['school']=(int)$model->getfirstid('szkola')[0]->szkola_id;
+        };
+
+
+        if(!isset($_COOKIE['ride']))
+        {
+            $_COOKIE['ride'] = (isset($model->getfirstid('tm_przejazd')[0]->tm_przejazd_id)) ? $model->getfirstid('tm_przejazd')[0]->tm_przejazd_id : 0;
+        };
+       
+        if(!isset($_COOKIE['ride']))
+        {
+            $_COOKIE['competitor'] = (isset($model->getfirstid('tm_zawodnik')[0]->tm_zawodnik_id)) ? $model->getfirstid('tm_zawodnik')[0]->tm_zawodnik_id : 0;
+        };
+
+        if(!isset($_COOKIE['gokart']))
+        {
+            $_COOKIE['gokart']=(int)$model->getfirstid('gokart')[0]->gokart_id;
+        };  
+        if(!isset($_COOKIE['competition']))
+        {
+            $_COOKIE['competition']=(int)$model->getfirstid('zawody')[0]->zawody_id;
+        };   
+
 
         $data['competitordata']=$model->get('tm_zawodnik');
         $data['schooldata']=$model->get('szkola');

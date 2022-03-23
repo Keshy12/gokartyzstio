@@ -9,6 +9,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use App\Models\ArbiterModel;
+use App\Models\ModificationModel;
 
 /**
  * Class BaseController
@@ -50,6 +51,8 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $session = \Config\Services::session();
+        $db = db_connect();
+        $model = new ArbiterModel($db);
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
@@ -58,31 +61,10 @@ class BaseController extends Controller
         {
             $_COOKIE["button"] = 0;
         };
-        if(!isset($_COOKIE['school']))
-        {
-            $_COOKIE['school']=1;
-        };
-        if(!isset($_COOKIE['ride']))
-        {
-            $_COOKIE['ride']=1;
-        };  
-        if(!isset($_COOKIE['gokart']))
-        {
-            $_COOKIE['gokart']=1;
-        };  
-        if(!isset($_COOKIE['competition']))
-        {
-            $_COOKIE['competition']=1;
-        };   
-        if(!isset($_COOKIE['competitor']))
-        {
-            $_COOKIE['competitor']=1;
-        };  
 
         
 
-        $db = db_connect();
-        $model = new ArbiterModel($db);
+       
         $status = $model->getStatus();
         $_COOKIE["status"] = "";
         $zaplanowane = false;

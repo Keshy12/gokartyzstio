@@ -1,11 +1,11 @@
 <div>
 <?php switch($formularz): 
 case 0: ?>
+<?php if(count($chosencompetitiondata)!=0):?>
     <form action="/main/mod/modcomp" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz zawodnika</h2>          
             <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
-                <?php $tmp='';?>
                 <?php foreach($competitordata as $row) :?>
                     <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="<?= $row->tm_zawodnik_id?>" id="<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> </option>
                 <?php endforeach; ?>
@@ -36,12 +36,17 @@ case 0: ?>
         </div>
     </div>
     </form>
+    <?php else:?>
+        <h2>Brak Zawodników</h2>
+    <?php endif;?>
 <?php break; ?>
 <?php case 1: ?>
+    <?php if(count($chosenridedata)!=0):?>
     <form action="/main/mod/modride" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" name="ride_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
+            
                 <?php foreach($ridedata as $row) :?>
                    <option <?php if($row->tm_przejazd_id==$chosenridedata[0]->tm_przejazd_id){echo("selected");} ?> value="<?= $row->tm_przejazd_id?>" id="<?= $row->tm_przejazd_id?>"><?= $row->imie?> <?= $row->nazwisko?> (<?= $row->nazwa?>) </option>
                 <?php endforeach; ?>
@@ -82,6 +87,9 @@ case 0: ?>
         </div>
     </div>
     </form>
+    <?php else:?>
+        <h2>Brak Przejazdów</h2>
+    <?php endif;?>
 <?php break; ?>
 <?php case 2: ?>
     <?php if(isset($chosenschooldata[0]->szkola_id)): ?>
@@ -140,12 +148,14 @@ case 0: ?>
             <?php endforeach; ?>
         </div>
    </div>
+   </form>
    <?php else:?>
     <h2>Brak dodanych gokartów</h2>
    <?php endif;?>
 
 <?php break; ?>
 <?php case 4: ?>
+
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
             <form action="/main/add/school" method="POST">
@@ -154,7 +164,7 @@ case 0: ?>
                <label for="school_town"><h4>Miasto</h4></label><br>
                <select id="school_town" name="school_town" class="custom-select custom-select-lg mb-1 w-50">
                     <?php foreach($citydata as $innerrow) :?>
-                        <option <?php if($innerrow->miasto_id==$chosenschooldata[0]->miasto_id){echo("selected");}?> value="<?= $innerrow->miasto_id?>"> <?= $innerrow->nazwa ?> </option>
+                        <option value="<?= $innerrow->miasto_id?>"> <?= $innerrow->nazwa ?> </option>
                     <?php endforeach; ?>
                </select><br>
                <label for="school_acronym"><h4>Akronim</h4></label>
@@ -163,6 +173,7 @@ case 0: ?>
            </form>
         </div>
     </div>
+    
 <?php break; ?>
 <?php case 5: ?>
     <div class="row m-3" id="town_form">
@@ -239,9 +250,13 @@ case 0: ?>
     <div class="row m-3" id="school_form">
         <div class="col"><h2>Wybierz Zawody</h2>
             <select id="competition_picker" name="competition_picker"class=" select_location custom-select custom-select-lg mb-4 w-50">
+            <?php if(count($chosencompetitiondata)!=0):?>
                 <?php foreach($competitiondata as $innerrow) :?>
                         <option <?php if($innerrow->zawody_id==$chosencompetitiondata[0]->zawody_id){echo("selected");}?> id="<?= $innerrow->zawody_id?>" value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
                 <?php endforeach; ?>
+            <?php else: ?>
+                <h2></h2>
+            <?php endif;?>
             </select>
             <hr>
             <?php foreach($chosencompetitiondata as $row) :?>

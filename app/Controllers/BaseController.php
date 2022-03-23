@@ -72,11 +72,11 @@ class BaseController extends Controller
         };  
         if(!isset($_COOKIE['competition']))
         {
-            $_COOKIE['competition']=1;
+            $_COOKIE['competition']=4;
         };   
         if(!isset($_COOKIE['competitor']))
         {
-            $_COOKIE['competitor']=1;
+            $_COOKIE['competitor']=7;
         };  
 
         

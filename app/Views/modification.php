@@ -45,7 +45,7 @@
         <div class="text-danger">
             <?= $_SESSION['validation']?>
         </div> 
-        <?php unset($_SESSION) ?>
+        <?php unset($_SESSION['validation']) ?>
     <?php endif; ?> 
     </div>  
     <div id="container">

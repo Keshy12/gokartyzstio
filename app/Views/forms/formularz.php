@@ -10,7 +10,7 @@ case 0: ?>
                     <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="<?= $row->tm_zawodnik_id?>" id="<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> </option>
                 <?php endforeach; ?>
             </select>
-            <hr>           
+            <hr>   
             <?php foreach($chosencompetitordata as $row) :?>
                 <label for="competitor_name"><h4>Imie</h4></label>
                 <input id="competitor_name" name="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie ?>">
@@ -63,12 +63,6 @@ case 0: ?>
                 ?>
                 <label for="ride_competitor"><h4>Imie Nazwisko</h4></label>
                 <input id="ride_competitor" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie?> <?=$row->nazwisko?>" disabled>
-                <!-- <label for="ride_status"><h4>Status Przejazdu</h4></label><br> -->
-                <!-- <select id="ride_status" name="ride_status" class="custom-select custom-select-lg mb-4 w-50">
-                    <?php /* foreach($statusdata as $innerrow) :?>
-                        <option <?php if($innerrow->status_przejazdu_id==$chosenridedata[0]->status_przejazdu_id){echo("selected");}?> value="<?= $innerrow->status_przejazdu_id?>"> <?= $innerrow->status?> </option>
-                    <?php endforeach; */?>
-                </select><br> -->
                 <label for="ride_gokart"><h4>Gokart</h4></label><br>
                 <select id="ride_gokart" name="ride_gokart" class="custom-select custom-select-lg mb-4 w-50">
                     <?php foreach($gokartdata as $innerrow) :?>

@@ -178,7 +178,10 @@
         <a class="text-white">© 2022 Copyright:</a>
         <a class="link text-white" href="https://zstio.edu.pl/">zstio.edu.pl</a>
     </div>
-    <!-- Copyright: Mateusz Potoniec, Marcin Stożek, Marcin Tomaszek, Michał Wiewiórka, Kacper Zięba-->
+    <!--
+        Wykonawcy: Mateusz Potoniec, Marcin Stożek, Marcin Tomaszek, Michał Wiewiórka, Kacper Zięba.
+        Grafika/Logo: Sandra Cydeiko.
+     -->
 </footer>
 
 </html>

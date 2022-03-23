@@ -215,6 +215,11 @@ case 0: ?>
 <?php break; ?>
 <?php case 7: ?>
 
+<?php if(!isset($comp_chosencompetitiondata[0]->zawody_id)):?>
+    <h2>Brak zawodów do rozpoczęcia</h2>
+    <?php break; ?>
+<?php endif;?>
+
 <div class="row m-3" id="school_form">
     <div class="col">
         <?php if($comp_numberOfRows == 1) : ?>
@@ -260,6 +265,11 @@ case 0: ?>
 
 <?php break; ?>
 <?php case 9: ?>
+
+<?php if(!isset($comp_chosencompetitiondata[0]->zawody_id)):?>
+    <h2>Brak dodanych zawodów</h2>
+    <?php break; ?>
+<?php endif;?>
 
 <form action="/main/mod/modcompetition" method="POST">
     <div class="row m-3" id="school_form">
@@ -334,6 +344,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 12: ?>
+
+<?php if(!isset($chosencitydata[0]->city_id)):?>
+    <h2>Brak dodanych miast</h2>
+    <?php break; ?>
+<?php endif;?>
+
 <form action="/main/mod/modcity" method="POST">
     <div class="row m-3" id="city_form">
         <div class="col"><h2>Wybierz miasto</h2>
@@ -350,6 +366,7 @@ case 0: ?>
         </div>
     </div>
 </form>
+
 <?php break; ?>
 <?php endswitch; ?>
 </div>

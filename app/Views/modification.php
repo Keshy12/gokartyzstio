@@ -43,7 +43,6 @@
     </div>
     <hr>
     <div id="container">
-
     </div>
     <div class="form" id="form0"><?= view('forms/formularz', $data = ['formularz' => 0]) ?></div>
     <div class="form" id="form1"><?= view('forms/formularz', $data = ['formularz' => 1]) ?></div>

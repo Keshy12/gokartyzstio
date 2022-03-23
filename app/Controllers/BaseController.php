@@ -36,7 +36,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['form'];
 
     /**
      * Constructor.
@@ -78,8 +78,6 @@ class BaseController extends Controller
         {
             $_COOKIE['competitor']=1;
         };  
-
-        
 
         $db = db_connect();
         $model = new ArbiterModel($db);

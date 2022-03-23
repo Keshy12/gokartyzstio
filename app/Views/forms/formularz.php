@@ -1,6 +1,11 @@
 <div>
 <?php switch($formularz): 
 case 0: ?>
+    <?php if(isset($validation)) : ?>
+            <div class="text-danger">
+                <?= $validation->listErrors() ?>
+            </div>
+        <?php endif; ?>    
     <form action="/main/mod/modcomp" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz zawodnika</h2>          

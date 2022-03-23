@@ -4,14 +4,38 @@ namespace App\Controllers;
 use App\Models\ModificationModel;
 
 class ModificationController extends BaseController
-{
+{   
     public function index()
     {
+        helper(['form']);
+
+        $data = [];     
+
+        $rules = [
+            'competitor_name' => [
+                'rules' => 'required',
+                'label' => 'Imie',
+                'errors' => [
+                    'required' => 'Imie is a required field'
+                ],
+            ],
+        ];
+
+        if($this->validate($rules)){
+            //return redirect() -> to('/form/success');
+            //Then do database insertion
+            //Login user
+        }
+        else
+        {
+            
+        }
+        
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
         };
-        $data = [
+        $data += [
             'meta_title' => 'Modyfikacja',
         ];
         if($_SESSION["zalogowany"] != "pełny")
@@ -44,13 +68,38 @@ class ModificationController extends BaseController
 
     public function modifycompetitor()
     {
+        helper(['form']);
+
+        $data = []; 
+
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'competitor_name' => [
+                    'rules' => 'required',
+                    'label' => 'Imie',
+                    'errors' => [
+                        'required' => 'Imie is a required field'
+                    ],
+                ],
+            ];
+    
+            if($this->validate($rules)){
+                //return redirect() -> to('/form/success');
+                //Then do database insertion
+                //Login user
+            }
+            else
+            {
+                $_COOKIE['valid'] = $this->validator;
+            }
+        }
+        if(!isset($_SESSION["zalogowany"]))
         if(!($_SESSION["zalogowany"] == "pełny"))
             return redirect()->to( base_url().'/main');
 
         $db = db_connect();
         $model = new ModificationModel($db);
         $model->modifycompetitor($_POST['competitor_picker'],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school'],$_POST['competitor_competition']);
-        
         return redirect()->to( base_url().'/main/mod' );
     }
 

@@ -46,7 +46,6 @@ case 0: ?>
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" name="ride_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
-            
                 <?php foreach($ridedata as $row) :?>
                    <option <?php if($row->tm_przejazd_id==$chosenridedata[0]->tm_przejazd_id){echo("selected");} ?> value="<?= $row->tm_przejazd_id?>" id="<?= $row->tm_przejazd_id?>"><?= $row->imie?> <?= $row->nazwisko?> (<?= $row->nazwa?>) </option>
                 <?php endforeach; ?>
@@ -120,7 +119,6 @@ case 0: ?>
    <?php else:?>
     <h2>Brak dodanych szkół</h2>
    <?php endif;?>
-
 <?php break; ?>
 <?php case 3: ?>
     <?php if(isset($chosengokartdata[0]->gokart_id)): ?>
@@ -146,7 +144,6 @@ case 0: ?>
    <?php else:?>
     <h2>Brak dodanych gokartów</h2>
    <?php endif;?>
-
 <?php break; ?>
 <?php case 4: ?>
 
@@ -279,6 +276,10 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 11: ?>
+    <?php if($comp_numberOfRows == 0) : ?>
+        <h2>Nie ma żadnych zawodów w trakcie do których można wylosować przejazdy.</h2>
+        <?php break;?>
+    <?php endif; ?>
     <div class="row m-3" id="school_form">
         <div class="col">
             <form action="/main/compmod/random" method="POST">
@@ -294,12 +295,11 @@ case 0: ?>
                     </div><br>
                 <?php endforeach; ?>
                 <input type="submit" value="Wylosuj" class="btn btn-success"/>
-
             </form><hr>
-            <p> Zostają wylosowane przejazdy dla zawodników.
-                <br> Zostaje włączony dostęp do strony sędziego.</p>
-            <!--  -->
-            <h2>Nie ma żadnych zawodów w trakcie do których można wylosować przejazdy.</h2>
+            <p> 
+                Zostają wylosowane przejazdy dla zawodników.<br> 
+                Zostaje włączony dostęp do strony sędziego.
+            </p>
         </div>
     </div>
 <?php break; ?>

@@ -6,7 +6,7 @@ case 0: ?>
         <div class="col"><h2>Wybierz zawodnika</h2>          
             <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
                 <?php $tmp='';?>
-                <?php foreach($competitordata as $row) :?>
+                <?php if(count($chosencompetitiondata)!=0) foreach($competitordata as $row) :?>
                     <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="<?= $row->tm_zawodnik_id?>" id="<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> </option>
                 <?php endforeach; ?>
             </select>

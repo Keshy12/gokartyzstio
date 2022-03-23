@@ -66,14 +66,28 @@ class CompModificationController extends BaseController
         $db = db_connect();
         $model = new CompModificationModel($db);
 
-        $competitors = [];
+        $competitorsArray = [];
+        $gokartsArray = $_POST['gokartSelected'];
+        $gokartCount = count($gokartsArray);
 
-        $result = $model->getId();
-        foreach($result as $row)
-            array_push($competitors, $row->tm_zawodnik_id);
+        $competitorsId = $model->getId();
+        foreach($competitorsId as $row)
+            array_push($competitorsArray, $row->tm_zawodnik_id);
 
-        $result = $model->ridesOrder($competitors, $_POST[''], $_POST['']);
+        $competition = $model->ridesOrder($competitorsArray, $_POST['ride_amount'], $gokartCount);
 
-        $result = $model->getId();
+        foreach($competition as $ride)
+        {
+            for($przejazdI = 0; $przejazdI < $gokartCount; $przejazdI++)
+            {
+                foreach($ride[$przejazdI] as $competitor)
+                {
+                    if($competitor === array_key_first($ride[$przejazdI]))
+                        $model->add('tm_przejazd', ['tm_zawodnik_id' => $competitor, 'status_przejazdu_id' => 2, 'gokart_id' => $gokartsArray[$przejazdI]]);
+                    $model->add('tm_przejazd', ['tm_zawodnik_id' => $competitor, 'status_przejazdu_id' => 3, 'gokart_id' => $gokartsArray[$przejazdI]]);
+                }
+            }
+        }
+        return redirect()->to( base_url().'/main/mod' ); 
     }
 }

@@ -36,7 +36,7 @@ class CompModificationModel extends AppendModel{
         ->where('status_zawodow_id', 2);
         return $result->get()->getResult();
     }
-    
+
     function ridesOrder($osoby, $liczbaosobnaprzejazd, $liczbagokart)
     {
         $liczbaosob = count($osoby);
@@ -82,9 +82,7 @@ class CompModificationModel extends AppendModel{
 
         $przejazdLength = count($zawody[0]);
         $zawodyLength = count($zawody);
-        $zawody[count($zawody)] = array();
-
-        
+        $zawody[count($zawody)] = array();  
 
         $liczbaosobwostatnim = ($liczbaosob % $liczbaosobnaprzejazd == 0) ? $liczbaosobnaprzejazd : $liczbaosob % $liczbaosobnaprzejazd;
 
@@ -104,7 +102,6 @@ class CompModificationModel extends AppendModel{
                 $osobyI++;
             }
         }
-
         return $zawody;
     }
 }

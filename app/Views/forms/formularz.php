@@ -272,24 +272,18 @@ case 0: ?>
 <?php case 11: ?>
     <div class="row m-3" id="school_form">
         <div class="col">
-            <form action="*" method="POST">
-                <label for="competition_name"><h4>Wybierz zawody do rozpoczęcia</h4></label><br>
-                <select id="competition_name" class="custom-select custom-select-lg mb-4 w-50">
-                    <option value="0">Nazwa Zawodów (Ze statusem w trakcie) (Z BAZY)</option>
-                </select><br>
+            <form action="/main/compmod/random" method="POST">
+                <label for="competition_name"><h4>Zawody</h4></label><br>
+                <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" value="<?= $comp_chosenactivecompetition[0]->nazwa ?>" disabled>
                 <label for="ride_amount"><h4>Limit przejazdów jednym gokartem naraz.</h4></label>
-                <input id="ride_amount" name="ride_amount" class="form-control form-control-lg mb-4 w-50" type="number" placeholder="Co ile będzie wymieniony gokart.">
+                <input id="ride_amount" name="ride_amount" class="form-control form-control-lg mb-4 w-50" type="number" min="0" placeholder="Co ile będzie wymieniony gokart.">
                 <label for="gokart_checkbox"><h4>Gokarty:</h4></label>
-                <!-- Element -->
-                <div class="custom-control custom-checkbox" name="gokart_checkbox1">
-                    <input type="checkbox" class="custom-control-input" id="gokartCzerwony">
-                    <label class="custom-control-label" for="gokartCzerwony">Gokart Czerwony</label>
-                </div>
-                <!-- -->
-                <div class="custom-control custom-checkbox" name="gokart_checkbox2">
-                    <input type="checkbox" class="custom-control-input" id="gokartZielony">
-                    <label class="custom-control-label" for="gokartZielony">Gokart Zielony</label><br>
-                </div><br>
+                <?php foreach($gokartdata as $row) : ?>
+                    <div class="custom-control custom-checkbox" name="<?= $row->nazwa ?>">
+                        <input type="checkbox" name="gokartSelected[]" class="custom-control-input" value="<?= $row->gokart_id ?>" id="<?= $row->nazwa ?>">
+                        <label class="custom-control-label" for="<?= $row->nazwa ?>"><?= $row->nazwa ?></label><br>
+                    </div><br>
+                <?php endforeach; ?>
                 <input type="submit" value="Wylosuj" class="btn btn-success"/>
 
             </form><hr>

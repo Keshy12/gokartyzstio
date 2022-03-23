@@ -58,4 +58,22 @@ class CompModificationController extends BaseController
         return redirect()->to( base_url().'/main/mod' ); 
     }
 
+    function randomConp()
+    {
+        if(!($_SESSION["zalogowany"] == "pełny"))
+            return redirect()->to( base_url().'/main');
+        
+        $db = db_connect();
+        $model = new CompModificationModel($db);
+
+        $competitors = [];
+
+        $result = $model->getId();
+        foreach($result as $row)
+            array_push($competitors, $row->tm_zawodnik_id);
+
+        $result = $model->ridesOrder($competitors, $_POST[''], $_POST['']);
+
+        $result = $model->getId();
+    }
 }

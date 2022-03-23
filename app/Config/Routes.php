@@ -54,6 +54,7 @@ $routes->add('main/compmod', 'CompModificationController');
 $routes->add('main/compmod/add', 'CompModificationController::addComp');
 $routes->add('main/compmod/begin', 'CompModificationController::beginComp');
 $routes->add('main/compmod/finish', 'CompModificationController::finishConp');
+$routes->add('main/compmod/random', 'CompModificationController::randomConp');
 $routes->add('main/judge', 'ArbiterController');
 $routes->add('main/judge/disqualify', 'ArbiterController::disqualify');
 $routes->add('main/judge/addTime', 'ArbiterController::addTime');

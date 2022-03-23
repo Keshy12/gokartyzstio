@@ -90,7 +90,6 @@ class ModificationController extends BaseController
         $model->modifygokart($_POST['gokart_picker'],$_POST['gokart_name']);
         
         return redirect()->to( base_url().'/main/mod' );
-        
     }
 
     public function modifycompetition()
@@ -103,6 +102,5 @@ class ModificationController extends BaseController
         $model->modifycompetition($_POST['competition_picker'],$_POST['competition_name'],$_POST['competition_start_date'],$_POST['competition_end_date']);
         
         return redirect()->to( base_url().'/main/mod' );
-        
     }
 }

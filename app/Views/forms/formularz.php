@@ -1,8 +1,13 @@
 <div>
 <?php switch($formularz): 
 case 0: ?>
-<?php if(count($chosencompetitiondata)!=0):?>
-    <form action="/main/mod/modcomp" method="POST">
+
+<?php if(count($chosencompetitiondata)==0):?>
+    <h2>Brak dodanych zawodników</h2>
+    <?php break; ?>
+<?php endif;?>
+
+<form action="/main/mod/modcomp" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz zawodnika</h2>          
             <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
@@ -35,14 +40,17 @@ case 0: ?>
             <?php endforeach; ?>
         </div>
     </div>
-    </form>
-    <?php else:?>
-        <h2>Brak Zawodników</h2>
-    <?php endif;?>
+</form>
+
 <?php break; ?>
 <?php case 1: ?>
-    <?php if(count($chosenridedata)!=0):?>
-    <form action="/main/mod/modride" method="POST">
+    
+<?php if(count($chosenridedata)==0):?>
+    <h2>Brak dodanych przejazdów</h2>
+    <?php break; ?>
+<?php endif;?>
+
+<form action="/main/mod/modride" method="POST">
     <div class="row m-3" id="competitor_form">
         <div class="col"><h2>Wybierz przejazd</h2>
             <select id="ride_picker" name="ride_picker" class=" select_location custom-select custom-select-lg mb-4 w-50">
@@ -80,14 +88,17 @@ case 0: ?>
             <?php endforeach; ?>
         </div>
     </div>
-    </form>
-    <?php else:?>
-        <h2>Brak Przejazdów</h2>
-    <?php endif;?>
+</form>
+
 <?php break; ?>
 <?php case 2: ?>
-    <?php if(isset($chosenschooldata[0]->szkola_id)): ?>
-    <form action="/main/mod/modschool" method="POST">
+
+<?php if(!isset($chosenschooldata[0]->szkola_id)):?>
+    <h2>Brak dodanych szkół</h2>
+    <?php break; ?>
+<?php endif;?>
+    
+<form action="/main/mod/modschool" method="POST">
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Wybierz Szkołe</h2>
            <select id="school_picker"  name="school_picker" class="  select_location custom-select custom-select-lg mb-4 w-50">
@@ -116,15 +127,17 @@ case 0: ?>
             <?php endforeach;?>
        </div>
    </div>
-   </form>
-   <?php else:?>
-    <h2>Brak dodanych szkół</h2>
-   <?php endif;?>
+</form>
 
 <?php break; ?>
 <?php case 3: ?>
-    <?php if(isset($chosengokartdata[0]->gokart_id)): ?>
-    <form action="/main/mod/modgokart" method="POST">
+
+<?php if(!isset($chosengokartdata[0]->gokart_id)):?>
+    <h2>Brak dodanych gokartów</h2>
+    <?php break; ?>
+<?php endif;?>
+
+<form action="/main/mod/modgokart" method="POST">
     <div class="row m-3" id="gokart_form">    
         <div class="col"><h2>Wybierz Gokart</h2>
            <select id="gokart_picker" name="gokart_picker"class=" select_location custom-select custom-select-lg mb-4 w-50">
@@ -142,10 +155,7 @@ case 0: ?>
             <?php endforeach; ?>
         </div>
    </div>
-   </form>
-   <?php else:?>
-    <h2>Brak dodanych gokartów</h2>
-   <?php endif;?>
+</form>
 
 <?php break; ?>
 <?php case 4: ?>

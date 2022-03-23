@@ -34,6 +34,10 @@
             $('select#ride_picker option').on('click', function(){
                 Cookies.set('ride', $(this).attr('id'))
             });
+
+            $('select#city_picker option').on('click', function(){
+                Cookies.set('city', $(this).attr('id'))
+            });
             
             $('.select_location').on('change', function(){
                 // let i = $(this)[0].selectedIndex

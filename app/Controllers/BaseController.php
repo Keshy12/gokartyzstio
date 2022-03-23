@@ -37,7 +37,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['form'];
 
     /**
      * Constructor.
@@ -62,9 +62,8 @@ class BaseController extends Controller
             $_COOKIE["button"] = 0;
         };
 
-        
-
-       
+        $db = db_connect();
+        $model = new ArbiterModel($db);
         $status = $model->getStatus();
         $_COOKIE["status"] = "";
         $zaplanowane = false;

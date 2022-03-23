@@ -40,7 +40,35 @@ class FormController extends BaseController
                 'meta_title' => 'Zgłoszenie',
             ];
             
-            $model->add($_POST['imie'], $_POST['nazwisko'], $_POST['dataur'], $_POST['szkola_id'], $_POST['zawody_id']);
+            if($this->request->getMethod() == 'post'){
+                $rules = [
+                    'imie' => [
+                        'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*$/iu]',
+                        'label' => 'Imie',
+                        'errors' => [
+                            'required' => 'Imie jest wymagane',
+                            'regex_match' => 'W imieniu używaj tylko liter alfabetu'
+                        ],
+                    ],
+                    'nazwisko' => [
+                        'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*$/iu]',
+                        'label' => 'Nazwisko',
+                        'errors' => [
+                            'required' => 'Nazwisko jest wymagane',
+                            'regex_match' => 'W nazwisko używaj tylko liter alfabetu'
+                        ],
+                    ],
+                ];
+                if($this->validate($rules)){
+                    $model->add($_POST['imie'], $_POST['nazwisko'], $_POST['dataur'], $_POST['szkola_id'], $_POST['zawody_id']);
+                    return redirect()->to( base_url().'/main/compform' );
+        
+                }
+                else
+                {
+                    $_SESSION['validation'] = $this->validator->listErrors();    
+                }
+            }
 
             return redirect()->to( base_url().'/main/compform' );
 

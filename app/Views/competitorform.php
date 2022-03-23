@@ -1,5 +1,11 @@
 <?= $this->extend('layouts/main')?>
 <?= $this->section('content')?>
+<?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']) ?>
+    <?php endif; ?> 
    <div class="row m-3" id="school_form">
        <div class="col">
            <form action="/main/compform/add" method="POST">
@@ -21,7 +27,7 @@
                     <option value="<?= $row->szkola_id?>"><?= $row->nazwa?></option>
                 <?php endforeach; ?>
                </select><br>
-               <input type="submit" value="ZATWIERDŹ" class="btn btn-secondary" />
+               <input type="submit" value="ZATWIERDŹ" class="btn btn-success" />
            </form>
        </div>
    </div>

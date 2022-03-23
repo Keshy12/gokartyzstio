@@ -84,4 +84,9 @@ class ModificationModel{
     {
         $this->db->query("UPDATE zawody SET nazwa = '".$name."', data_rozpoczecia = '".$start_date."', data_zakonczenia = '".$end_date."' WHERE zawody_id = ".$to_modify_id);
     }
+
+    function modifycity($to_modify_id,$name)
+    {
+        $this->db->query("UPDATE miasto SET nazwa = '".$name."' WHERE miasto_id = '".$to_modify_id."'");
+    }
 }

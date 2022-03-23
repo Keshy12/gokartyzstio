@@ -44,11 +44,48 @@ class ArbiterController extends BaseController
             
         $db = db_connect();
         $model = new ArbiterModel($db);
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'minutes' => [
+                    'rules' => 'required|numeric|less_than[60]',
+                    'label' => 'minuty',
+                    'errors' => [
+                        'required' => 'Minuty są wymagane',
+                        'numeric' => 'Używaj tylko cyfr',
+                        'less_than' => 'Wpisz mniej niż 60 minut',
+                    ],
+                ],
+                'seconds' => [
+                    'rules' => 'required|numeric|less_than[60]',
+                    'label' => 'sekundy',
+                    'errors' => [
+                        'required' => 'Sekundy są wymagane',
+                        'numeric' => 'Używaj tylko cyfr',
+                        'less_than' => 'Wpisz mniej niż 60 sekund',
+                    ],
+                ],
+                'milliseconds' => [
+                    'rules' => 'required|numeric|less_than[1000]',
+                    'label' => 'milisekundy',
+                    'errors' => [
+                        'required' => 'Milisekundy są wymagane',
+                        'numeric' => 'Używaj tylko cyfr',
+                        'less_than' => 'Wpisz mniej niż 1000 milisekund',
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                $time = $model->convertTimeToInt($_POST['minutes'], $_POST['seconds'], $_POST['milliseconds']);
+                $model->setTime($time);
+                echo $time;
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors();  
+            }
+        }
 
-        $time = $model->convertTimeToInt($_POST['minutes'], $_POST['seconds'], $_POST['milliseconds']);
 
-        $model->setTime($time);
-        echo $time;
         return redirect()->to( base_url().'/main/judge' ); 
     }
 }

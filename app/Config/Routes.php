@@ -45,7 +45,7 @@ $routes->add('main/mod/modschool', 'ModificationController::modifyschool');
 $routes->add('main/mod/modcomp', 'ModificationController::modifycompetitor');
 $routes->add('main/mod/modcompetition', 'ModificationController::modifycompetition');
 $routes->add('main/mod/modride', 'ModificationController::modifyride');
-$routes->add('main/mod/(:any)', 'ModificationController::index/$1,$2,$3,$4');
+$routes->add('main/mod', 'ModificationController::index');
 $routes->add('main/add', 'AppendController');
 $routes->add('main/add/school', 'AppendController::addSchool');
 $routes->add('main/add/town', 'AppendController::addTown');

@@ -58,9 +58,9 @@ class ModificationModel{
         $this->db->query("UPDATE tm_zawodnik SET imie = '".$name."', nazwisko = '".$surname."', data_urodzenia = '".$bdate."', szkola_id = '".$schol_id."', zawody_id = '".$competition_id."' WHERE tm_zawodnik_id = '".$to_modify_id."'");
     }
 
-    function modifyride($to_modify_id,$ride_status_id,$gokart_id,$time)
+    function modifyride($to_modify_id,$gokart_id,$time)
     {
-        $this->db->query("UPDATE tm_przejazd SET status_przejazdu_id = '".$ride_status_id."', gokart_id = '".$gokart_id."', czas = '".$time."' WHERE tm_przejazd_id = ".$to_modify_id);
+        $this->db->query("UPDATE tm_przejazd SET gokart_id = '".$gokart_id."', czas = '".$time."' WHERE tm_przejazd_id = ".$to_modify_id);
     }
 
     function modifyschool($to_modify_id,$name,$city_id,$acronym)

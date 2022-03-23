@@ -37,7 +37,7 @@ case 0: ?>
     </div>
     </form>
     <?php else:?>
-        <h2>Brak Przejazdów</h2>
+        <h2>Brak Zawodników</h2>
     <?php endif;?>
 <?php break; ?>
 <?php case 1: ?>
@@ -148,12 +148,14 @@ case 0: ?>
             <?php endforeach; ?>
         </div>
    </div>
+   </form>
    <?php else:?>
     <h2>Brak dodanych gokartów</h2>
    <?php endif;?>
 
 <?php break; ?>
 <?php case 4: ?>
+
     <div class="row m-3" id="school_form">
        <div class="col"><h2>Dodawanie Szkoły</h2>
             <form action="/main/add/school" method="POST">
@@ -162,7 +164,7 @@ case 0: ?>
                <label for="school_town"><h4>Miasto</h4></label><br>
                <select id="school_town" name="school_town" class="custom-select custom-select-lg mb-1 w-50">
                     <?php foreach($citydata as $innerrow) :?>
-                        <option <?php if($innerrow->miasto_id==$chosenschooldata[0]->miasto_id){echo("selected");}?> value="<?= $innerrow->miasto_id?>"> <?= $innerrow->nazwa ?> </option>
+                        <option value="<?= $innerrow->miasto_id?>"> <?= $innerrow->nazwa ?> </option>
                     <?php endforeach; ?>
                </select><br>
                <label for="school_acronym"><h4>Akronim</h4></label>
@@ -171,6 +173,7 @@ case 0: ?>
            </form>
         </div>
     </div>
+    
 <?php break; ?>
 <?php case 5: ?>
     <div class="row m-3" id="town_form">

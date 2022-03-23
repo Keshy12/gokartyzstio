@@ -42,6 +42,11 @@ class CompModificationModel extends AppendModel{
         $this->db->query("UPDATE tm_przejazd SET status_przejazdu_id = 2 WHERE tm_przejazd_id = ".$id);
     }
 
+    function updateDate($id)
+    {
+        $this->db->query("UPDATE zawody SET data_zakonczenia = NOW() WHERE zawody_id = ".$id);
+    }
+
     function ridesOrder($osoby, $liczbaosobnaprzejazd, $liczbagokart)
     {
         $liczbaosob = count($osoby);

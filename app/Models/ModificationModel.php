@@ -52,10 +52,10 @@ class ModificationModel{
         return $resultride->get()->getResult();
     }
 
-    function getNumberOfRows($table, $column, $value)
+    function countRows($table, $column, $value)
     {
         $result = $this->db->table($table)
-        ->selectCount($table.'_id', 'numberOfRows')
+        ->selectCount($table.'_id', 'count')
         ->where($column, $value);
         return $result->get()->getResult();
     }

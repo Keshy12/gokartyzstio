@@ -243,8 +243,10 @@ case 0: ?>
                 <input type="hidden" name="competition_id" value="<?= $comp_chosenactivecompetition[0]->zawody_id ?>">
                 <input type="submit" value="Zakończ" class="btn btn-info"/>
             </form><hr>
-            <p>Zmienia status zawodów z "W TRAKCIE" na "ZAKOŃCZONE".
-                <br> Zawody zostają dodane do archiwum.</p>
+            <p>
+                Zmienia status zawodów z "W TRAKCIE" na "ZAKOŃCZONE".
+                <br> Zawody zostają dodane do archiwum.
+            </p>
         </div>
     </div>
 <?php break; ?>
@@ -294,8 +296,8 @@ case 0: ?>
             <h2>Nie ma żadnych zawodów w trakcie do których można wylosować przejazdy.</h2>
             <?php break;?>
         <?php endif; ?>
-        <?php if($comp_countCompetition == 0) : ?>
-            <h2>Nie ma żadnych zawodów w trakcie do których można wylosować przejazdy.</h2>
+        <?php if($comp_countCompetitor > 0) : ?>
+            <h2>Przejazdy zostały wylosowane.</h2>
             <?php break;?>
         <?php endif; ?>
             <form action="/main/compmod/random" method="POST">

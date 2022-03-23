@@ -334,6 +334,12 @@ case 0: ?>
     </div>
 <?php break; ?>
 <?php case 12: ?>
+
+<?php if(!isset($chosencitydata[0]->city_id)):?>
+    <h2>Brak dodanych miast</h2>
+    <?php break; ?>
+<?php endif;?>
+
 <form action="/main/mod/modcity" method="POST">
     <div class="row m-3" id="city_form">
         <div class="col"><h2>Wybierz miasto</h2>
@@ -350,6 +356,7 @@ case 0: ?>
         </div>
     </div>
 </form>
+
 <?php break; ?>
 <?php endswitch; ?>
 </div>

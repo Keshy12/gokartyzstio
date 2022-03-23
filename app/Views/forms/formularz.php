@@ -210,11 +210,11 @@ case 0: ?>
 
 <div class="row m-3" id="school_form">
     <div class="col">
-        <?php if($comp_countCompetition == 1) : ?>
+        <?php if($comp_countActiveCompetition == 1) : ?>
             <h2>Nie można zacząć zawodów kiedy inne są w trakcie.</h2></div></div>
             <?php break; ?>
         <?php endif; ?>
-        <?php if($comp_countCompetition == 0) : ?>
+        <?php if($comp_countScheduledCompetition == 0) : ?>
             <h2>Brak zawodów do rozpoczęcia</h2></div></div>
             <?php break; ?>
         <?php endif;?>
@@ -239,12 +239,12 @@ case 0: ?>
 
 <div class="row m-3" id="school_form">
     <div class="col">
-    <?php if($comp_countCompetition == 0) : ?>
+    <?php if($comp_countActiveCompetition == 0) : ?>
             <h2>Nie ma żadnych zawodów które można zakończyć.</h2></div></div>
             <?php break; ?>
         <?php endif; ?>
         <form action="/main/compmod/finish" method="POST">
-            <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label> <!-- dla szefa -->
+            <label for="competition_name"><h4>Nazwa Aktywnych Zawodów</h4></label>
             <input id="competition_name" name="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" placeholder="Nazwa" value="<?= $comp_chosenactivecompetition[0]->nazwa ?>" disabled>
             <input type="hidden" name="competition_id" value="<?= $comp_chosenactivecompetition[0]->zawody_id ?>">
             <input type="submit" value="Zakończ" class="btn btn-info"/><hr>
@@ -308,7 +308,7 @@ case 0: ?>
 
 <div class="row m-3" id="school_form">
     <div class="col">
-        <?php if($comp_countCompetition == 0) : ?>
+        <?php if($comp_countActiveCompetition == 0) : ?>
             <h2>Nie ma żadnych zawodów w trakcie do których można wylosować przejazdy.</h2></div></div>
             <?php break;?>
         <?php endif; ?>

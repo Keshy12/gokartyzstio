@@ -47,7 +47,7 @@ class ModificationController extends BaseController
         };  
         if(!isset($_COOKIE['competition']))
         {
-            $_COOKIE['competition']=(int)$model->getfirstid('zawody')[0]->zawody_id;
+            $_COOKIE['competition'] = (isset($model->getfirstid('zawody')[0]->zawody_id)) ? $model->getfirstid('zawody')[0]->zawody_id : 0;
         };   
 
 
@@ -67,10 +67,11 @@ class ModificationController extends BaseController
         $data['chosencompetitiondata']=$model->getchosen('zawody', 'zawody_id', (int)$_COOKIE['competition']);
 
         $data['comp_chosencompetitiondata']=$model->getchosen('zawody', 'status_zawodow_id', '1');
-        $data['comp_countCompetition']=$model->countRows('zawody', 'status_zawodow_id', '2')[0]->count;
+        $data['comp_countScheduledCompetition']=$model->countRows('zawody', 'status_zawodow_id', '1')[0]->count;
+        $data['comp_countActiveCompetition']=$model->countRows('zawody', 'status_zawodow_id', '2')[0]->count;
         $data['comp_countCompetitor']=$model->countRows('tm_przejazd', 'tm_przejazd_id is not', NULL)[0]->count;
         $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');   
-
+        
         return view('modification',$data);   
     }
 

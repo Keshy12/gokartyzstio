@@ -59,16 +59,22 @@ class CompModificationController extends BaseController
         $db = db_connect();
         $model = new CompModificationModel($db);
 
+        if(count($model->getWithJoin('tm_przejazd', ['tm_zawodnik', 'tm_zawodnik_id'])) == 0)
+        {
+            $model->remove('tm_zawodnik', 'zawody_id', $_POST['competition_id']);
+            $model->remove('zawody', 'zawody_id', $_POST['competition_id']);
+            return redirect()->to( base_url().'/main/mod' ); 
+        }
+
         $ride = $model->getWithJoin('tm_przejazd', ['tm_zawodnik', 'tm_zawodnik_id']);
 
         foreach($ride as $index=>$row)
         {
             $model->add('archiwum', ['imie' => $row->imie, 'nazwisko' => $row->nazwisko, 'gokart_id' => $row->gokart_id, 'czas' => $row->czas, 'szkola_id' => $row->szkola_id, 'zawody_id' => $row->zawody_id]);
-            $competitor[$index] = $row->tm_zawodnik_id;
-            $model->remove('tm_przejazd', $row->tm_przejazd_id);
+            $model->remove('tm_przejazd', 'tm_przejazd_id', $row->tm_przejazd_id);
         }
-        foreach(array_unique($competitor) as $id)
-            $model->remove('tm_zawodnik', $id);
+        
+        $model->remove('tm_zawodnik', 'zawody_id', $_POST['competition_id']);
 
         $model->changeState($_POST['competition_id'], '3');
         $model->updateDate($_POST['competition_id']);

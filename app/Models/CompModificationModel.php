@@ -21,10 +21,12 @@ class CompModificationModel extends AppendModel{
         return $result->get()->getResult();
     }
 
-    public function remove($table, $id)
+    public function remove($table, $column, $value, ...$joins)
     {
-        $result = $this->db->table($table)
-        ->where($table.'_id', $id)
+        $result = $this->db->table($table);
+        foreach($joins as $join)
+            $result->join([$join[0], $join[1]]);
+        $result->where($column, $value)
         ->delete();
     }
 

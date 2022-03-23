@@ -8,10 +8,10 @@
     $(document).ready(function(){
         var id0=$('#form0'),id1=$('#form1'),id2=$('#form2'),id3=$('#form3'),id4=$('#form4'),id5=$('#form5'),id6=$('#form6'),id7=$('#form7'),id8=$('#form8'),id9=$('#form9'),id10=$('#form10'),id11=$('#form11');
         const id = [id0,id1,id2,id3,id4,id5,id6,id7,id8,id9,id10,id11];
-
         $('.form').detach();
         id[<?php echo $_COOKIE["button"]?>].appendTo("#container");
         $("button").click(function(){
+            $('#error').detach();
             $('.form').detach();
             $(id[$(this).val()]).appendTo("#container");
             Cookies.set('button', $(this).val())
@@ -39,8 +39,15 @@
             <button type="button" value="2" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Szkoła</button>
             <button type="button" value="3" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
         </div>
-    </div>
-    <hr>
+    </div> 
+    <did id="error">
+    <?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION) ?>
+    <?php endif; ?> 
+    </div>  
     <div id="container">
     </div>
     <div class="form" id="form0"><?= view('forms/formularz', $data = ['formularz' => 0]) ?></div>

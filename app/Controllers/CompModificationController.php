@@ -15,8 +15,26 @@ class CompModificationController extends BaseController
 
         $db = db_connect();
         $model = new CompModificationModel($db);
-
-        $model->add('zawody', ['nazwa' => $_POST['competition_name'], 'data_rozpoczecia' => $_POST['competition_start_date'], 'status_zawodow_id' => 1]);
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'competition_name' => [
+                    'rules' => 'required',
+                    'label' => 'nazwa zawodów',
+                    'errors' => [
+                        'required' => 'Nazwa zawodów jest wymagana',
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                unset($_SESSION['validation']);
+                $model->add('zawody', ['nazwa' => $_POST['competition_name'], 'data_rozpoczecia' => $_POST['competition_start_date'], 'status_zawodow_id' => 1]);
+                return redirect()->to( base_url().'/main/mod' );
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors();    
+            }
+        }
         return redirect()->to( base_url().'/main/mod' ); 
     }
 

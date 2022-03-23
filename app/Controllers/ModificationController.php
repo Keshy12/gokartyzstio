@@ -7,7 +7,6 @@ class ModificationController extends BaseController
 {   
     public function index()
     {
-        helper(['form']);
         $data = [];     
         if(!isset($_SESSION["zalogowany"]))
         {
@@ -49,21 +48,29 @@ class ModificationController extends BaseController
         if(!isset($_SESSION["zalogowany"]))
         if(!($_SESSION["zalogowany"] == "pełny"))
             return redirect()->to( base_url().'/main');
-
         $db = db_connect();
         $model = new ModificationModel($db);
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'competitor_name' => [
-                    'rules' => 'required|string',
+                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*$/iu]',
                     'label' => 'Imie',
                     'errors' => [
                         'required' => 'Imie jest wymagane',
-                        'string' => 'Używaj tylko liter alfabetu'
+                        'regex_match' => 'Używaj tylko liter alfabetu'
+                    ],
+                ],
+                'competitor_surname' => [
+                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*$/iu]',
+                    'label' => 'Nazwisko',
+                    'errors' => [
+                        'required' => 'Nazwisko jest wymagane',
+                        'regex_match' => 'Używaj tylko liter alfabetu'
                     ],
                 ],
             ];
             if($this->validate($rules)){
+                unset($_SESSION['validation']);
                 $model->modifycompetitor($_POST['competitor_picker'],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school'],$_POST['competitor_competition']);
                 return redirect()->to( base_url().'/main/mod' );
             }
@@ -83,8 +90,48 @@ class ModificationController extends BaseController
 
         $db = db_connect();
         $model = new ModificationModel($db);
-        $time=(int)$_POST['minutes']*60000+(int)$_POST['seconds']*1000+(int)$_POST['miliseconds'];
-        $model->modifyride($_POST['ride_picker'],$_POST['ride_gokart'],$time);
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'minutes' => [
+                    'rules' => 'required|numeric|less_than[60]',
+                    'label' => 'minuty',
+                    'errors' => [
+                        'required' => 'Minuty są wymagane',
+                        'numeric' => 'Używaj tylko cyfr',
+                        'less_than' => 'Wpisz mniej niż 60 minut',
+                    ],
+                ],
+                'seconds' => [
+                    'rules' => 'required|numeric|less_than[60]',
+                    'label' => 'sekundy',
+                    'errors' => [
+                        'required' => 'Sekundy są wymagane',
+                        'numeric' => 'Używaj tylko cyfr',
+                        'less_than' => 'Wpisz mniej niż 60 sekund',
+                    ],
+                ],
+                'miliseconds' => [
+                    'rules' => 'required|numeric|less_than[1000]',
+                    'label' => 'milisekundy',
+                    'errors' => [
+                        'required' => 'Sekundy są wymagane',
+                        'numeric' => 'Używaj tylko cyfr',
+                        'less_than' => 'Wpisz mniej niż 1000 milisekund',
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                unset($_SESSION['validation']);
+                $time=(int)$_POST['minutes']*60000+(int)$_POST['seconds']*1000+(int)$_POST['miliseconds'];
+                $model->modifyride($_POST['ride_picker'],$_POST['ride_gokart'],$time);
+                
+                return redirect()->to( base_url().'/main/mod' );
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors();    
+            }
+        }
         
         return redirect()->to( base_url().'/main/mod' );
     }
@@ -96,8 +143,34 @@ class ModificationController extends BaseController
 
         $db = db_connect();
         $model = new ModificationModel($db);
-        $model->modifyschool($_POST['school_picker'],$_POST['school_name'],$_POST['school_town'],$_POST['school_acronym']);
-        
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'school_name' => [
+                    'rules' => 'required',
+                    'label' => 'nazwa_szkoly',
+                    'errors' => [
+                        'required' => 'Nazwa szkoły jest wymagana',
+                    ],
+                ],
+                'school_acronym' => [
+                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ" "]*$/iu]',
+                    'label' => 'akronim_szkoly',
+                    'errors' => [
+                        'required' => 'Akronim szkoły jest wymagana',
+                        'regex_match' => 'W akronimie używaj tylko polskich znaków.',
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                unset($_SESSION['validation']);
+                $model->modifyschool($_POST['school_picker'],$_POST['school_name'],$_POST['school_town'],$_POST['school_acronym']);
+                return redirect()->to( base_url().'/main/mod' );
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors();    
+            }
+        }        
         return redirect()->to( base_url().'/main/mod' );
     }
 
@@ -108,8 +181,27 @@ class ModificationController extends BaseController
 
         $db = db_connect();
         $model = new ModificationModel($db);
-        $model->modifygokart($_POST['gokart_picker'],$_POST['gokart_name']);
-        
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'gokart_name' => [
+                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ" "]*$/iu]',
+                    'label' => 'nazwa_gokartu',
+                    'errors' => [
+                        'required' => 'Nazwa gokartu jest wymagana.',
+                        'regex_match' => 'W nazwie gokartu używaj tylko polskich znaków.'
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                unset($_SESSION['validation']);
+                $model->modifygokart($_POST['gokart_picker'],$_POST['gokart_name']);
+                return redirect()->to( base_url().'/main/mod' );
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors();    
+            }
+        }        
         return redirect()->to( base_url().'/main/mod' );
         
     }
@@ -121,8 +213,26 @@ class ModificationController extends BaseController
 
         $db = db_connect();
         $model = new ModificationModel($db);
-        $model->modifycompetition($_POST['competition_picker'],$_POST['competition_name'],$_POST['competition_start_date'],$_POST['competition_end_date']);
-        
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'competition_name' => [
+                    'rules' => 'required',
+                    'label' => 'nazwa_zawodow',
+                    'errors' => [
+                        'required' => 'Nazwa zawodów jest wymagana.',
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                unset($_SESSION['validation']);
+                $model->modifycompetition($_POST['competition_picker'],$_POST['competition_name'],$_POST['competition_start_date'],$_POST['competition_end_date']);
+                return redirect()->to( base_url().'/main/mod' );
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors();    
+            }
+        }        
         return redirect()->to( base_url().'/main/mod' );
         
     }

@@ -5,8 +5,9 @@ use App\Models\ModificationModel;
 
 class ModificationController extends BaseController
 {
+
     public function index()
-    {
+    {   
         if(!isset($_SESSION["zalogowany"]))
         {
             $_SESSION["zalogowany"] = "";
@@ -39,7 +40,7 @@ class ModificationController extends BaseController
         $data['comp_numberOfRows']=$model->getNumberOfRows('zawody', 'status_zawodow_id', '2')[0]->numberOfRows;
         $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');        
         
-        print_r($data);
+        
         return view('modification',$data);   
     }
 
@@ -52,7 +53,7 @@ class ModificationController extends BaseController
         $model = new ModificationModel($db);
         $model->modifycompetitor($_POST['competitor_picker'],$_POST['competitor_name'],$_POST['competitor_surname'],$_POST['competitor_date'],$_POST['competitor_school'],$_POST['competitor_competition']);
         
-        return redirect()->to( base_url().'/main/mod' );
+        return view('modification',$data);
     }
 
     public function modifyride()
@@ -65,7 +66,7 @@ class ModificationController extends BaseController
         $time=(int)$_POST['minutes']*60000+(int)$_POST['seconds']*1000+(int)$_POST['miliseconds'];
         $model->modifyride($_POST['ride_picker'],$_POST['ride_gokart'],$time);
         
-        return redirect()->to( base_url().'/main/mod' );
+        return view('modification',$data);
     }
 
     public function modifyschool()
@@ -77,7 +78,7 @@ class ModificationController extends BaseController
         $model = new ModificationModel($db);
         $model->modifyschool($_POST['school_picker'],$_POST['school_name'],$_POST['school_town'],$_POST['school_acronym']);
         
-        return redirect()->to( base_url().'/main/mod' );
+        return view('modification',$data);
     }
 
     public function modifygokart()
@@ -89,7 +90,7 @@ class ModificationController extends BaseController
         $model = new ModificationModel($db);
         $model->modifygokart($_POST['gokart_picker'],$_POST['gokart_name']);
         
-        return redirect()->to( base_url().'/main/mod' );
+        return view('modification',$data);
         
     }
 
@@ -102,7 +103,7 @@ class ModificationController extends BaseController
         $model = new ModificationModel($db);
         $model->modifycompetition($_POST['competition_picker'],$_POST['competition_name'],$_POST['competition_start_date'],$_POST['competition_end_date']);
         
-        return redirect()->to( base_url().'/main/mod' );
+        return view('modification',$data);
         
     }
 }

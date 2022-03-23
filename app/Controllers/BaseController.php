@@ -53,31 +53,7 @@ class BaseController extends Controller
         $session = \Config\Services::session();
         $validation =  \Config\Services::validation();
 
-        helper('form');
-        helper(['form']);
-       // $this->form_validation->set_rules('email','Title', 'required');
-        if($this->request->getMethod() == 'post'){
-            $rules = [
-                'email' => [
-                    'rules' => 'required|valid_email',
-                    'label' => 'Email adress',
-                    'errors' => [
-                        'required' => 'Email adress is a required field'
-                    ],
-                ],
-                'password' => 'required|min_length[8]',
-            ];
-    
-            if($this->validate($rules)){
-                //return redirect() -> to('/form/success');
-                //Then do database insertion
-                //Login user
-            }
-            else
-            {
-                $data['validation'] = $this->validator;
-            }
-        }
+
 
         if(!isset($_SESSION["zalogowany"]))
         {
@@ -140,5 +116,32 @@ class BaseController extends Controller
         }
         
         
+    }
+    protected function formValid(){
+        helper('form');
+        helper(['form']);
+       // $this->form_validation->set_rules('email','Title', 'required');
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'email' => [
+                    'rules' => 'required|valid_email',
+                    'label' => 'Email adress',
+                    'errors' => [
+                        'required' => 'Email adress is a required field'
+                    ],
+                ],
+                'password' => 'required|min_length[8]',
+            ];
+    
+            if($this->validate($rules)){
+                //return redirect() -> to('/form/success');
+                //Then do database insertion
+                //Login user
+            }
+            else
+            {
+                $data['validation'] = $this->validator;
+            }
+        }
     }
 }

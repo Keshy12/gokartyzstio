@@ -277,10 +277,11 @@ class ModificationController extends BaseController
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'city_name' => [
-                    'rules' => 'required',
+                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ" "]*$/iu]',
                     'label' => 'nazwa_miasta',
                     'errors' => [
                         'required' => 'Nazwa miasta jest wymagana.',
+                        'regex_match' => 'W nazwie miasta używaj tylko polskich znaków.'
                     ],
                 ],
             ];

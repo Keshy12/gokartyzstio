@@ -4,7 +4,7 @@
 <?php switch($formularz): 
 case 0: ?>
 
-<?php if(count($chosencompetitiondata)==0):?>
+<?php if(!isset($chosencompetitordata[0]->tm_zawodnik_id)):?>
     <h2>Brak dodanych zawodników</h2>
     <?php break; ?>
 <?php endif;?>
@@ -345,7 +345,7 @@ case 0: ?>
 <?php break; ?>
 <?php case 12: ?>
 
-<?php if(!isset($chosencitydata[0]->city_id)):?>
+<?php if(!isset($chosencitydata[0]->miasto_id)):?>
     <h2>Brak dodanych miast</h2>
     <?php break; ?>
 <?php endif;?>

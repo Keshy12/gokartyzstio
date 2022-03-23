@@ -83,7 +83,7 @@ class ModificationController extends BaseController
                     'label' => 'Imie',
                     'errors' => [
                         'required' => 'Imie jest wymagane',
-                        'regex_match' => 'Używaj tylko liter alfabetu'
+                        'regex_match' => 'W imieniu używaj tylko liter alfabetu'
                     ],
                 ],
                 'competitor_surname' => [
@@ -91,7 +91,7 @@ class ModificationController extends BaseController
                     'label' => 'Nazwisko',
                     'errors' => [
                         'required' => 'Nazwisko jest wymagane',
-                        'regex_match' => 'Używaj tylko liter alfabetu'
+                        'regex_match' => 'W nazwisko używaj tylko liter alfabetu'
                     ],
                 ],
             ];

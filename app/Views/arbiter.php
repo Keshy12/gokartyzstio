@@ -1,6 +1,11 @@
 <?= $this->extend('layouts/main')?>
 <?= $this->section('content')?>
-
+<?php if(isset($_SESSION['validation'])) : ?>
+        <div class="text-danger">
+            <?= $_SESSION['validation']?>
+        </div> 
+        <?php unset($_SESSION['validation']) ?>
+    <?php endif; ?> 
     <div class="container-fluid">
         <div class="row mt-3">
             <!-- PIERWSZY RZĄD -->
@@ -64,7 +69,6 @@
                         <button class="btn btn-outline-success">Zatwierdź</button>
                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Anuluj</button>
                     </form>
-                    
                 </div>
             </div>
         </div>

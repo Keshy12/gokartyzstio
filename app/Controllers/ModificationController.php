@@ -140,7 +140,7 @@ class ModificationController extends BaseController
                     'rules' => 'required|numeric|less_than[1000]',
                     'label' => 'milisekundy',
                     'errors' => [
-                        'required' => 'Sekundy są wymagane',
+                        'required' => 'Milisekundy są wymagane',
                         'numeric' => 'Używaj tylko cyfr',
                         'less_than' => 'Wpisz mniej niż 1000 milisekund',
                     ],

@@ -276,11 +276,11 @@ class ModificationController extends BaseController
         $model = new ModificationModel($db);
         if($this->request->getMethod() == 'post'){
             $rules = [
-                'competition_name' => [
+                'city_name' => [
                     'rules' => 'required',
-                    'label' => 'nazwa_zawodow',
+                    'label' => 'nazwa_miasta',
                     'errors' => [
-                        'required' => 'Nazwa zawodów jest wymagana.',
+                        'required' => 'Nazwa miasta jest wymagana.',
                     ],
                 ],
             ];

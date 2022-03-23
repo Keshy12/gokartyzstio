@@ -87,25 +87,65 @@ class CompModificationController extends BaseController
         if(!($_SESSION["zalogowany"] == "pełny"))
             return redirect()->to( base_url().'/main');
         
+
         $db = db_connect();
         $model = new CompModificationModel($db);
-
         $competitorsArray = [];
-        $gokartsArray = $_POST['gokartSelected'];
-        $gokartCount = count($gokartsArray);
+        
 
         $competitorsId = $model->getId();
+       
         foreach($competitorsId as $row)
             array_push($competitorsArray, $row->tm_zawodnik_id);
-
-        $competition = $model->ridesOrder($competitorsArray, $_POST['ride_amount'], $gokartCount);
-
-        foreach($competition as $ride)
-            for($przejazdI = 0; $przejazdI < $gokartCount; $przejazdI++)
-                foreach($ride[$przejazdI] as $index=>$competitor)
-                    $model->add('tm_przejazd', ['tm_zawodnik_id' => $competitor, 'status_przejazdu_id' => 3, 'gokart_id' => $gokartsArray[$przejazdI]]);
+            
+        $competitorsArraycount = count($competitorsArray)+1;
+        if($this->request->getMethod() == 'post'){
+            $rules = [
+                'ride_amount' => [
+                    'rules' => "required|is_natural_no_zero|less_than[{$competitorsArraycount}]",
+                    'label' => 'limit_przejazdow',
+                    'errors' => [
+                        'required' => 'Limit przejazdów jest wymagany.',
+                        'is_natural_no_zero' => 'Limit przejazdów przyjmuje tylko liczby naturalne.',
+                        'less_than' => 'Liczba przejazdów przekracza liczbę uczestników.',
+                    ],
+                ],
+            ];
+            if($this->validate($rules)){
+                switch(count($_POST['gokartSelected']) == 1)
+                {
+                    case true:
+                        if(!isset($_SESSION['validation']))
+                            $_SESSION['validation'] = "";
+                        $_SESSION['validation'].="<ul><li>Nie wybrano gokarty.</li></ul>";
+                        return redirect()->to( base_url().'/main/mod' ); 
+                        break;
+                }
+                unset($_SESSION['validation']);
+                $gokartsArray = $_POST['gokartSelected'];
+                $gokartCount = count($gokartsArray);
+                $competition = $model->ridesOrder($competitorsArray, $_POST['ride_amount'], $gokartCount);
         
-        $model->updateRide($model->getfirstid('tm_przejazd')[0]->tm_przejazd_id);
-        return redirect()->to( base_url().'/main/mod' ); 
+                foreach($competition as $ride)
+                    for($przejazdI = 1; $przejazdI < $gokartCount; $przejazdI++)
+                        foreach($ride[$przejazdI] as $index=>$competitor)
+                            $model->add('tm_przejazd', ['tm_zawodnik_id' => $competitor, 'status_przejazdu_id' => 3, 'gokart_id' => $gokartsArray[$przejazdI]]);
+                
+                $model->updateRide($model->getfirstid('tm_przejazd')[0]->tm_przejazd_id);
+                return redirect()->to( base_url().'/main/mod' ); 
+            }
+            else
+            {
+                $_SESSION['validation'] = $this->validator->listErrors(); 
+
+                switch(count($_POST['gokartSelected']) == 1)
+                {
+                    case true:
+                        $_SESSION['validation'] .= "<ul><li>Nie wybrano gokarty.</li></ul>";
+                        break;
+                }
+                return redirect()->to( base_url().'/main/mod' ); 
+            }
+        }
     }
 }

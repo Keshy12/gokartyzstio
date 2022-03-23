@@ -322,6 +322,7 @@ case 0: ?>
             <label for="ride_amount"><h4>Limit przejazdów jednym gokartem naraz.</h4></label>
             <input id="ride_amount" name="ride_amount" class="form-control form-control-lg mb-4 w-50" type="number" min="0" placeholder="Co ile będzie wymieniony gokart.">
             <label for="gokart_checkbox"><h4>Gokarty:</h4></label>
+            <input type="hidden" value="a" name="gokartSelected[]">;
             <?php foreach($gokartdata as $row) : ?>
                 <div class="custom-control custom-checkbox" name="<?= $row->nazwa ?>">
                     <input type="checkbox" name="gokartSelected[]" class="custom-control-input" value="<?= $row->gokart_id ?>" id="<?= $row->nazwa ?>">

@@ -24,7 +24,7 @@ class AppendController extends BaseController
                     ],
                 ],
                 'school_acronym' => [
-                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ" "]*$/iu]',
+                    'rules' => 'required|regex_match[/^[A-Za-z ZĄĆĘŁŃÓŚŹŻąćęłńóśźż0-9]*$/iu]',
                     'label' => 'akronim_szkoly',
                     'errors' => [
                         'required' => 'Akronim szkoły jest wymagany',
@@ -57,7 +57,7 @@ class AppendController extends BaseController
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'town_name' => [
-                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ" "]*$/iu]',
+                    'rules' => 'required|regex_match[/^[A-Za-z /-ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*$/iu]',
                     'label' => 'nazwa miasta',
                     'errors' => [
                         'required' => 'Nazwa miasta jest wymagana',

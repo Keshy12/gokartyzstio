@@ -85,7 +85,7 @@ class ModificationController extends BaseController
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'competitor_name' => [
-                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*$/iu]',
+                    'rules' => 'required|regex_match[/^[a-zA-ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*([\- ]{1}[a-zA-ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*)?*$/iu]',
                     'label' => 'Imie',
                     'errors' => [
                         'required' => 'Imie jest wymagane',
@@ -93,7 +93,7 @@ class ModificationController extends BaseController
                     ],
                 ],
                 'competitor_surname' => [
-                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*([ ][0-9]{1}[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]{2,4})?$/iu]',
+                    'rules' => 'required|regex_match[/^[a-zA-ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*([\- ]{1}[a-zA-ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*)?([ ]{1}[0-9]{1}[a-zA-Z]{1,4})?$/iu]',
                     'label' => 'Nazwisko',
                     'errors' => [
                         'required' => 'Nazwisko jest wymagane',
@@ -185,7 +185,7 @@ class ModificationController extends BaseController
                     ],
                 ],
                 'school_acronym' => [
-                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ" "]*$/iu]',
+                    'rules' => 'required|regex_match[/^[A-Za-z ZĄĆĘŁŃÓŚŹŻąćęłńóśźż0-9]*$/iu]*$/iu]',
                     'label' => 'akronim_szkoly',
                     'errors' => [
                         'required' => 'Akronim szkoły jest wymagana',
@@ -216,7 +216,7 @@ class ModificationController extends BaseController
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'gokart_name' => [
-                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ" "]*$/iu]',
+                    'rules' => 'required|regex_match[/^[A-Za-z ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*$/iu]',
                     'label' => 'nazwa_gokartu',
                     'errors' => [
                         'required' => 'Nazwa gokartu jest wymagana.',
@@ -278,7 +278,7 @@ class ModificationController extends BaseController
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'city_name' => [
-                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ" "]*$/iu]',
+                    'rules' => 'required|regex_match[/^[A-Za-z /-ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*$/iu]',
                     'label' => 'nazwa_miasta',
                     'errors' => [
                         'required' => 'Nazwa miasta jest wymagana.',

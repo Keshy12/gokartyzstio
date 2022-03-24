@@ -43,7 +43,7 @@ class FormController extends BaseController
             if($this->request->getMethod() == 'post'){
                 $rules = [
                     'imie' => [
-                        'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*$/iu]',
+                        'rules' => 'required|regex_match[/^[a-zA-ZZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*$/iu]',
                         'label' => 'Imie',
                         'errors' => [
                             'required' => 'Imie jest wymagane',
@@ -51,7 +51,7 @@ class FormController extends BaseController
                         ],
                     ],
                     'nazwisko' => [
-                        'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*([ ][0-9]{1}[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]{2,4})?$/iu]',
+                        'rules' => 'required|regex_match[/^[a-zA-ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*([\- ]{1}[a-zA-ZĄĆĘŁŃÓŚŹŻąćęłńóśźż]*)?([ ]{1}[0-9]{1}[a-zA-Z]{1,4})?$/iu]',
                         'label' => 'Nazwisko',
                         'errors' => [
                             'required' => 'Nazwisko jest wymagane',

@@ -93,7 +93,7 @@ class ModificationController extends BaseController
                     ],
                 ],
                 'competitor_surname' => [
-                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*$/iu]',
+                    'rules' => 'required|regex_match[/^[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]*([ ][0-9]{1}[A-PR-UWY-ZĄĆĘŁŃÓŚŹŻ]{2,4})?$/iu]',
                     'label' => 'Nazwisko',
                     'errors' => [
                         'required' => 'Nazwisko jest wymagane',

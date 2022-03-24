@@ -22,22 +22,22 @@
 <div class="container-fluid">
     <div class="row m-3">
         <div class="col-4"><h2>Zawody</h2>
-            <button type="button" value="6" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zaplanuj</button>
-            <button type="button" value="7" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zacznij</button>
-            <button type="button" value="11" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Wylosuj Przejazdy</button>
-            <button type="button" value="8" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zakończ</button>
-            <button type="button" value="9" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Edytuj</button>
+            <button type="button" value="0" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zaplanuj</button>
+            <button type="button" value="1" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zacznij</button>
+            <button type="button" value="2" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Wylosuj Przejazdy</button>
+            <button type="button" value="3" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zakończ</button>
+            <button type="button" value="4" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Edytuj</button>
         </div>
         <div class="col-4"><h2>Dodawanie</h2>
-            <button type="button" value="4" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Szkoła</button>
-            <button type="button" value="5" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Miasto</button>
-            <button type="button" value="10" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
+            <button type="button" value="5" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Szkoła</button>
+            <button type="button" value="6" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Miasto</button>
+            <button type="button" value="7" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
         </div>
         <div class="col-4"><h2>Modyfikacja</h2>
-            <button type="button" value="0"  class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zawodnik</button>
-            <button type="button" value="1"  class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Przejazd</button>
-            <button type="button" value="2" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Szkoła</button>
-            <button type="button" value="3" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
+            <button type="button" value="8"  class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Zawodnik</button>
+            <button type="button" value="9"  class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Przejazd</button>
+            <button type="button" value="10" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Szkoła</button>
+            <button type="button" value="11" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Gokart</button>
             <button type="button" value="12" class="btn btn-outline-dark btn-lg mb-1" data-mdb-ripple-color="dark">Miasto</button>
         </div>
     </div> 

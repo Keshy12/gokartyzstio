@@ -27,6 +27,10 @@
                     <option value="<?= $row->szkola_id?>"><?= $row->nazwa?></option>
                 <?php endforeach; ?>
                </select><br>
+               <div class="form-check">
+                   <input type="checkbox" class="form-check-input" id="rules_form_check" required>
+                   <label class="form-check-label" for="rules_form_check">Akceptuje <a href="*">regulamin</a> zawodów.</label>
+               </div><br>
                <input type="submit" value="ZATWIERDŹ" class="btn btn-success" />
            </form>
        </div>

@@ -117,7 +117,6 @@ case 0: ?>
                </select><br>
                <label for="school_acronym"><h4>Akronim</h4></label>
                <input id="school_acronym" name="school_acronym" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->akronim ?>">
-               <input type="submit" value="USUŃ" class="btn btn-danger" />
                <input type="submit" value="ZATWIERDŹ" class="btn btn-success" />
             <?php endforeach;?>
         </form>

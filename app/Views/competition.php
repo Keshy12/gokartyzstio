@@ -12,11 +12,11 @@
                             case 1:
                                 ?>
                                 <?php if(is_null($row->czas)) : ?>
-                                    <div class="card border-danger mb-2">
+                                    <div class="card mb-2" style="border: 3px solid red; background-color: rgba(255,0,0,0.06);">
                                         <div class="card-body">
                                             <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?> <r class="float-right">DYSKWALIFIKACJA</r></h4>
                                 <?php else : ?>
-                                    <div class="card border-secondary mb-2">
+                                    <div class="card mb-2" style="border: 3px solid deepskyblue; background-color: rgba(120,120,120,0.1);">
                                         <div class="card-body">
                                             <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?> <r class="float-right">Czas: <?= $row->czas ?></r></h4>
                                 <?php endif; ?>
@@ -24,14 +24,14 @@
                                 break;
                             case 2:
                                 ?>
-                                <div class="card border-success mb-2">
+                                <div class="card mb-2" style="border: 3px solid limegreen; background-color: rgba(0,255,0,0.06);">
                                     <div class="card-body">
-                                        <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?></h4>
+                                        <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?><r class="float-right"></r></h4>
                                 <?php
                                 break;
                             case 3:
                                 ?>
-                                <div class="card border-info mb-2">
+                                <div class="card mb-2" style="border: 3px solid grey; background-color: rgba(120,120,120,0.1);">
                                     <div class="card-body">
                                         <h4 class="mt-2"><b><?= $row->imie ?> <?= $row->nazwisko ?></b> <?= $row->nazwa ?></h4>
                                 <?php

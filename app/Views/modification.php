@@ -51,19 +51,19 @@
     </div>  
     <div id="container">
     </div>
-    <div class="form" id="form0"><?= view('forms/formularz', $data = ['formularz' => 0]) ?></div>
-    <div class="form" id="form1"><?= view('forms/formularz', $data = ['formularz' => 1]) ?></div>
-    <div class="form" id="form2"><?= view('forms/formularz', $data = ['formularz' => 2]) ?></div>
-    <div class="form" id="form3"><?= view('forms/formularz', $data = ['formularz' => 3]) ?></div>
-    <div class="form" id="form4"><?= view('forms/formularz', $data = ['formularz' => 4]) ?></div>
-    <div class="form" id="form5"><?= view('forms/formularz', $data = ['formularz' => 5]) ?></div>
-    <div class="form" id="form6"><?= view('forms/formularz', $data = ['formularz' => 6]) ?></div>
-    <div class="form" id="form7"><?= view('forms/formularz', $data = ['formularz' => 7]) ?></div>
-    <div class="form" id="form8"><?= view('forms/formularz', $data = ['formularz' => 8]) ?></div>
-    <div class="form" id="form9"><?= view('forms/formularz', $data = ['formularz' => 9]) ?></div>
-    <div class="form" id="form10"><?= view('forms/formularz', $data = ['formularz' => 10]) ?></div>
-    <div class="form" id="form11"><?= view('forms/formularz', $data = ['formularz' => 11]) ?></div>
-    <div class="form" id="form12"><?= view('forms/formularz', $data = ['formularz' => 12]) ?></div>
+    <div class="form" id="form0"><?= view('forms/modificationForms', $data = ['modificationForms' => 0]) ?></div>
+    <div class="form" id="form1"><?= view('forms/modificationForms', $data = ['modificationForms' => 1]) ?></div>
+    <div class="form" id="form2"><?= view('forms/modificationForms', $data = ['modificationForms' => 2]) ?></div>
+    <div class="form" id="form3"><?= view('forms/modificationForms', $data = ['modificationForms' => 3]) ?></div>
+    <div class="form" id="form4"><?= view('forms/modificationForms', $data = ['modificationForms' => 4]) ?></div>
+    <div class="form" id="form5"><?= view('forms/modificationForms', $data = ['modificationForms' => 5]) ?></div>
+    <div class="form" id="form6"><?= view('forms/modificationForms', $data = ['modificationForms' => 6]) ?></div>
+    <div class="form" id="form7"><?= view('forms/modificationForms', $data = ['modificationForms' => 7]) ?></div>
+    <div class="form" id="form8"><?= view('forms/modificationForms', $data = ['modificationForms' => 8]) ?></div>
+    <div class="form" id="form9"><?= view('forms/modificationForms', $data = ['modificationForms' => 9]) ?></div>
+    <div class="form" id="form10"><?= view('forms/modificationForms', $data = ['modificationForms' => 10]) ?></div>
+    <div class="form" id="form11"><?= view('forms/modificationForms', $data = ['modificationForms' => 11]) ?></div>
+    <div class="form" id="form12"><?= view('forms/modificationForms', $data = ['modificationForms' => 12]) ?></div>
 </div>
 
 

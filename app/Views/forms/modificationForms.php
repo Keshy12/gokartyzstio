@@ -1,5 +1,5 @@
 <div>
-<?php switch($formularz): 
+<?php switch($modificationForms):
 case 0: ?>
 
 <div class="row m-3" id="competitor_form">

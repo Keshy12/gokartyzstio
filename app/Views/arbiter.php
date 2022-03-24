@@ -21,7 +21,7 @@
                             case 2:
                                 ?>
                                 <!-- ELEMENT NAJNOWSZY -->
-                                <div class="card mb-3" style="border: 3px solid lightgreen;">
+                                <div class="card mb-3" style="border: 3px solid palegreen;">
                                     <div class="card-body">
                                         <h3 class="card-title"><?= $row->imie ?> <?= $row->nazwisko ?></h3>
                                         <h5>Szkoła: <?= $row->akronim ?></h5>

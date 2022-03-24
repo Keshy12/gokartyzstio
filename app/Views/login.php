@@ -15,9 +15,16 @@
                 </div>
                 <div class="card-footer text-muted">
                     <input type="submit" value="ZALOGUJ" class="btn btn-secondary" />
+
                 </div>
                 </form>
             </div>
+            <?php if(isset($_SESSION['info'])) : ?>
+                    <div class="text-danger text-center">
+                        <br><?= $_SESSION['info']?>
+                    </div> 
+                    <?php unset($_SESSION['info']) ?>
+            <?php endif; ?> 
         </div>
     </div>
 </div>

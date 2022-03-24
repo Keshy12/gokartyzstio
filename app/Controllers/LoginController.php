@@ -21,20 +21,13 @@ class LoginController extends BaseController
             {
                 if($_POST["userName"] == $log->login && hash('sha256',$_POST['userPassword']) == $log->haslo) {
                     $_SESSION["zalogowany"] = $log->permisje;
+                    unset($_SESSION["info"]);
                     return view('gokartsMain',$data);
                 } 
                 else {
-                    $_SESSION["info"] = "Dane nieprwidłowe. Spróbuj ponownie.";
+                    $_SESSION["info"] = "Dane nieprawidłowe. Spróbuj ponownie.";
                 }
             }
-
-            // if($_POST["userName"] == $login[0]->login && hash('sha256',$_POST['userPassword']) == $pass[0]->haslo) {
-            //     $_SESSION["zalogowany"] = "user1";
-            //     return view('gokartsMain',$data);
-            // } 
-            // else {
-            //     $_SESSION["info"] = "Dane nieprwidłowe. Spróbuj ponownie.";
-            // }
         }
         return view('login',$data);
     }

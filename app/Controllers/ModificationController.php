@@ -97,7 +97,7 @@ class ModificationController extends BaseController
                     'label' => 'Nazwisko',
                     'errors' => [
                         'required' => 'Nazwisko jest wymagane',
-                        'regex_match' => 'W nazwisko używaj tylko liter alfabetu'
+                        'regex_match' => 'W nazwisko używaj tylko liter alfbetu'
                     ],
                 ],
             ];

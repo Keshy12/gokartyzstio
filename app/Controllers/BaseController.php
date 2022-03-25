@@ -37,7 +37,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['form'];
+    protected $helpers = ['form', 'cookie'];
 
     /**
      * Constructor.
@@ -92,6 +92,18 @@ class BaseController extends Controller
             $_COOKIE["status"] = "w_trakcie"; 
         }
         
+        if(isset($_SESSION['deleteCompetition']))
+        {
+            unset($_COOKIE['competition']);
+            setcookie('competition', $_SESSION['deleteCompetition'], 12*60*60*1000, "/");
+            unset($_SESSION['deleteCompetition']);
+        }
         
+        if(isset($_SESSION['deleteCompetitor']))
+        {
+            unset($_COOKIE['competitor']);
+            setcookie('competitor', $_SESSION['deleteCompetitor'], 12*60*60*1000, "/");
+            unset($_SESSION['deleteCompetitor']);
+        }
     }
 }

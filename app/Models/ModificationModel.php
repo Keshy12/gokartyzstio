@@ -18,11 +18,24 @@ class ModificationModel{
         return $resultcompetitor->get()->getResult();
     }
 
-    function getfirstid($table)
+    function checkStatus($table, $id, ...$joins)
     {
         $result = $this->db->table($table)
-        ->select($table.'_id')
-        ->orderBy($table.'_id', 'ASC');
+        ->select($table.'_id');
+        foreach($joins as $join)
+            $result->join($join[0], $join[1]);
+        $result->where($table.'_id', $id)
+        ->where('status_zawodow_id', 1);
+        return $result->get(1)->getResult();
+    }
+
+    function getfirstid($table, ...$wheres)
+    {
+        $result = $this->db->table($table)
+        ->select($table.'_id');
+        foreach($wheres as $where)
+            $result->where($where[0], $where[1]);
+        $result->orderBy($table.'_id', 'ASC');
         return $result->get(1)->getResult();
     }
 
@@ -58,6 +71,15 @@ class ModificationModel{
         ->selectCount($table.'_id', 'count')
         ->where($column, $value);
         return $result->get()->getResult();
+    }
+
+    public function remove($table, $column, $value, ...$joins)
+    {
+        $result = $this->db->table($table);
+        foreach($joins as $join)
+            $result->join([$join[0], $join[1]]);
+        $result->where($column, $value)
+        ->delete();
     }
 
     function modifycompetitor($to_modify_id,$name,$surname,$bdate,$schol_id,$competition_id)

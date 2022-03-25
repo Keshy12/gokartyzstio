@@ -17,22 +17,4 @@ class BaseModel{
         $time = sprintf($format, $minutes, $seconds, $milliseconds);
         return $time;
     }
-
-    public static function setSession()
-    {
-        $session = \Config\Services::session();
-        if(!isset($_SESSION["zalogowany"]))
-        {
-            $_SESSION["zalogowany"] = "";
-        }; 
-    }
-
-    public static function setTitle($title)
-    {
-        $data = [
-            'meta_title' => $title,
-        ];
-        return $data;
-    }
-
 }

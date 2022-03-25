@@ -6,15 +6,9 @@ use App\Models\ModificationModel;
 class ModificationController extends BaseController
 {   
     public function index()
-    {
-        $data = [];     
-        if(!isset($_SESSION["zalogowany"]))
-        {
-            $_SESSION["zalogowany"] = "";
-        };
-        $data += [
-            'meta_title' => 'Modyfikacja',
-        ];
+    {  
+        $data['meta_title'] = 'Modyfikacja';
+
         if($_SESSION["zalogowany"] != "pełny")
             return view('gokartsMain',$data);
 
@@ -50,7 +44,6 @@ class ModificationController extends BaseController
             $_COOKIE['competition'] = (isset($model->getfirstid('zawody')[0]->zawody_id)) ? $model->getfirstid('zawody')[0]->zawody_id : 0;
         };   
 
-
         $data['competitordata']=$model->get('tm_zawodnik');
         $data['schooldata']=$model->get('szkola');
         $data['gokartdata']=$model->get('gokart');
@@ -70,18 +63,30 @@ class ModificationController extends BaseController
         $data['comp_countScheduledCompetition']=$model->countRows('zawody', 'status_zawodow_id', '1')[0]->count;
         $data['comp_countActiveCompetition']=$model->countRows('zawody', 'status_zawodow_id', '2')[0]->count;
         $data['comp_countCompetitor']=$model->countRows('tm_przejazd', 'tm_przejazd_id is not', NULL)[0]->count;
-        $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');   
-        
+        $data['comp_chosenactivecompetition']=$model->getchosen('zawody', 'status_zawodow_id', '2');  
+        $data['comp_checkCompetitionStatus']=$model->checkStatus('zawody', (int)$_COOKIE['competition']);
+        $data['comp_checkCompetitorStatus']=$model->checkStatus('tm_zawodnik', (int)$_COOKIE['competitor'], ['zawody', 'zawody_id']);
+
         return view('modification',$data);   
     }
 
     public function modifycompetitor()
     {        
-        if(!isset($_SESSION["zalogowany"]))
         if(!($_SESSION["zalogowany"] == "pełny"))
             return redirect()->to( base_url().'/main');
         $db = db_connect();
         $model = new ModificationModel($db);
+
+        if(isset($_POST['Delete']))
+        {
+            $model->remove('tm_zawodnik', 'tm_zawodnik_id', $_COOKIE['competitor']);
+            unset($_COOKIE['competitor']);
+            $id = (isset($model->getfirstid('tm_zawodnik')[0]->tm_zawodnik_id)) ? $model->getfirstid('tm_zawodnik')[0]->tm_zawodnik_id : 0;
+            $_SESSION['deleteCompetitor'] = $id;
+
+            return redirect()->to( base_url().'/main/mod' );
+        }
+
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'competitor_name' => [
@@ -244,6 +249,17 @@ class ModificationController extends BaseController
 
         $db = db_connect();
         $model = new ModificationModel($db);
+
+        if(isset($_POST['Delete']))
+        {
+            $model->remove('zawody', 'zawody_id', $_COOKIE['competition']);
+            unset($_COOKIE['competition']);
+            $id = (isset($model->getfirstid('zawody')[0]->zawody_id)) ? $model->getfirstid('zawody')[0]->zawody_id : 0;
+            $_SESSION['deleteCompetition'] = $id;
+            
+            return redirect()->to( base_url().'/main/mod' );
+        }
+
         if($this->request->getMethod() == 'post'){
             $rules = [
                 'competition_name' => [
@@ -265,7 +281,6 @@ class ModificationController extends BaseController
             }
         }        
         return redirect()->to( base_url().'/main/mod' );
-        
     }
 
     public function modifycity()

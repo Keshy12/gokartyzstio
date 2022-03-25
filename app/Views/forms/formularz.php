@@ -1,4 +1,5 @@
 <div>
+
 <?php switch($formularz): 
 case 0: ?>
 
@@ -35,8 +36,10 @@ case 0: ?>
                         <option <?php if($innerrow->zawody_id==$chosencompetitordata[0]->zawody_id){echo("selected");}?> value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
                     <?php endforeach; ?>
                 </select><br>
-                <input type="submit" value="Usuń" class="btn btn-danger" />
-                <input type="submit" value="Zatwierdź" class="btn btn-success"/>
+                <input type="submit" name="Update" value="Zatwierdź" class="btn btn-success"/>
+                <?php if(count($comp_checkCompetitorStatus) > 0) : ?>
+                    <input type="submit" name="Delete" value="Usuń" class="btn btn-danger" />
+                <?php endif; ?>
             <?php endforeach; ?>
         </form>
     </div>
@@ -261,7 +264,7 @@ case 0: ?>
 
 <div class="row m-3" id="school_form">
     <div class="col">
-        <?php if(!isset($comp_chosencompetitiondata[0]->zawody_id)):?>
+        <?php if(!isset($chosencompetitiondata[0]->zawody_id)) :?>
             <h2>Brak dodanych zawodów</h2></div></div>
             <?php break; ?>
         <?php endif;?>
@@ -270,9 +273,8 @@ case 0: ?>
             <select id="competition_picker" name="competition_picker"class=" select_location custom-select custom-select-lg mb-4 w-50">
             <?php if(count($chosencompetitiondata)!=0):?>
                 <?php foreach($competitiondata as $innerrow) :?>
-                        <option <?php if($innerrow->zawody_id==$chosencompetitiondata[0]->zawody_id){echo("selected");}?> id="<?= $innerrow->zawody_id?>" value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
+                    <option <?php if($innerrow->zawody_id==$chosencompetitiondata[0]->zawody_id){echo("selected");}?> id="<?= $innerrow->zawody_id?>" value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
                 <?php endforeach; ?>
-            <?php else: ?>
             <?php endif;?>
             </select>
             <hr>
@@ -283,9 +285,11 @@ case 0: ?>
                 <input id="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" name="competition_start_date" value="<?= $row->data_rozpoczecia?>">
                 <label for="competition_end_date"><h4>Data Zakończenia</h4></label>
                 <input id="competition_end_date" class="form-control form-control-lg mb-4 w-50" type="date" name="competition_end_date" value="<?= $row->data_zakonczenia?>">
-                <input type="submit" value="Usuń" class="btn btn-danger" />
-                <input type="submit" value="Zatwierdź" class="btn btn-success" />
             <?php endforeach;?>
+            <input type="submit" name="Update" value="Zatwierdź" class="btn btn-success" />
+            <?php if(count($comp_checkCompetitionStatus) > 0) : ?>
+                <input type="submit" name="Delete" value="Usuń" class="btn btn-danger" />
+            <?php endif; ?>
         </form>
     </div>
 </div>

@@ -9,8 +9,7 @@ class ArbiterController extends BaseController
 {
     function index()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Strona Sędziowska');
+        $data['meta_title'] = 'Strona Sędziowska';
 
         if(!($_SESSION["zalogowany"] == "pełny" XOR $_SESSION["zalogowany"] == "limitowany"))
             return redirect()->to( base_url().'/main');

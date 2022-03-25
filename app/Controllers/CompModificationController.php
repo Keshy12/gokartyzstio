@@ -63,6 +63,15 @@ class CompModificationController extends BaseController
         {
             $model->remove('tm_zawodnik', 'zawody_id', $_POST['competition_id']);
             $model->remove('zawody', 'zawody_id', $_POST['competition_id']);
+
+            unset($_COOKIE['competition']);
+            $id = (isset($model->getfirstid('zawody')[0]->zawody_id)) ? $model->getfirstid('zawody')[0]->zawody_id : 0;
+            $_SESSION['deleteCompetition'] = $id;
+
+            unset($_COOKIE['competitor']);
+            $id = (isset($model->getfirstid('tm_zawodnik')[0]->tm_zawodnik_id)) ? $model->getfirstid('tm_zawodnik')[0]->tm_zawodnik_id : 0;
+            $_SESSION['deleteCompetitor'] = $id;
+
             return redirect()->to( base_url().'/main/mod' ); 
         }
 

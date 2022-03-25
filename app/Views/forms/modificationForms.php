@@ -106,32 +106,33 @@ case 0: ?>
     <!-- Modyfikacja Zawodów -->
     <div class="row m-3" id="school_form">
     <div class="col">
-    <?php if(!isset($comp_chosencompetitiondata[0]->zawody_id)):?>
-        <h2>Brak dodanych zawodów</h2></div></div>
-        <?php break; ?>
-    <?php endif;?>
-    <h2>Wybierz Zawody</h2>
-    <form action="/main/mod/modcompetition" method="POST">
-        <select id="competition_picker" name="competition_picker"class=" select_location custom-select custom-select-lg mb-4 w-50">
+        <?php if(!isset($chosencompetitiondata[0]->zawody_id)) :?>
+            <h2>Brak dodanych zawodów</h2></div></div>
+            <?php break; ?>
+        <?php endif;?>
+        <h2>Wybierz Zawody</h2>
+        <form action="/main/mod/modcompetition" method="POST">
+            <select id="competition_picker" name="competition_picker"class=" select_location custom-select custom-select-lg mb-4 w-50">
             <?php if(count($chosencompetitiondata)!=0):?>
                 <?php foreach($competitiondata as $innerrow) :?>
                     <option <?php if($innerrow->zawody_id==$chosencompetitiondata[0]->zawody_id){echo("selected");}?> id="<?= $innerrow->zawody_id?>" value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
                 <?php endforeach; ?>
-            <?php else: ?>
             <?php endif;?>
-        </select>
-        <hr>
-        <?php foreach($chosencompetitiondata as $row) :?>
-            <label for="competition_name"><h4>Nazwa</h4></label>
-            <input id="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" name="competition_name" value="<?= $row->nazwa?>">
-            <label for="competition_start_date"><h4>Data Rozpoczęcia</h4></label>
-            <input id="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" name="competition_start_date" value="<?= $row->data_rozpoczecia?>">
-            <label for="competition_end_date"><h4>Data Zakończenia</h4></label>
-            <input id="competition_end_date" class="form-control form-control-lg mb-4 w-50" type="date" name="competition_end_date" value="<?= $row->data_zakonczenia?>">
-            <input type="submit" value="Usuń" class="btn btn-danger" />
-            <input type="submit" value="Zatwierdź" class="btn btn-success" />
-        <?php endforeach;?>
-    </form>
+            </select>
+            <hr>
+            <?php foreach($chosencompetitiondata as $row) :?>
+                <label for="competition_name"><h4>Nazwa</h4></label>
+                <input id="competition_name" class="form-control form-control-lg mb-4 w-50" type="text" name="competition_name" value="<?= $row->nazwa?>">
+                <label for="competition_start_date"><h4>Data Rozpoczęcia</h4></label>
+                <input id="competition_start_date" class="form-control form-control-lg mb-4 w-50" type="date" name="competition_start_date" value="<?= $row->data_rozpoczecia?>">
+                <label for="competition_end_date"><h4>Data Zakończenia</h4></label>
+                <input id="competition_end_date" class="form-control form-control-lg mb-4 w-50" type="date" name="competition_end_date" value="<?= $row->data_zakonczenia?>">
+            <?php endforeach;?>
+            <input type="submit" name="Update" value="Zatwierdź" class="btn btn-success" />
+            <?php if(count($comp_checkCompetitionStatus) > 0) : ?>
+                <input type="submit" name="Delete" value="Usuń" class="btn btn-danger" />
+            <?php endif; ?>
+        </form>
     </div>
     </div>
 <?php break; ?>
@@ -182,42 +183,45 @@ case 0: ?>
 <?php case 8: ?>
     <!-- Modyfikacja Zawodników -->
     <div class="row m-3" id="competitor_form">
-        <div class="col">
-            <?php if(!isset($chosencompetitordata[0]->tm_zawodnik_id)):?>
+    <div class="col">
+        <?php if(!isset($chosencompetitordata[0]->tm_zawodnik_id)):?>
             <h2>Brak dodanych zawodników</h2></div></div>
             <?php break; ?>
-            <?php endif;?>
-    <h2>Wybierz zawodnika</h2>
-    <form action="/main/mod/modcomp" method="POST">
-        <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
-            <?php foreach($competitordata as $row) :?>
-                <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="<?= $row->tm_zawodnik_id?>" id="<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> </option>
+        <?php endif;?> 
+        <h2>Wybierz zawodnika</h2>  
+        <form action="/main/mod/modcomp" method="POST">       
+            <select value="Wybierz" id="competitor_picker"  name="competitor_picker" class=" select_location custom-select custom-select-lg mb-4 w-50" onchange="">
+                <?php foreach($competitordata as $row) :?>
+                    <option <?php if($row->tm_zawodnik_id==$chosencompetitordata[0]->tm_zawodnik_id){echo("selected");}  ?> value="<?= $row->tm_zawodnik_id?>" id="<?= $row->tm_zawodnik_id?>"><?= $row->imie?> <?= $row->nazwisko?> </option>
+                <?php endforeach; ?>
+            </select>
+            <hr>   
+            <?php foreach($chosencompetitordata as $row) :?>
+                <label for="competitor_name"><h4>Imie</h4></label>
+                <input id="competitor_name" name="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie ?>">
+                <label for="competitor_surname"><h4>Nazwisko</h4></label>
+                <input id="competitor_surname" name="competitor_surname" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwisko ?>">
+                <label for="competitor_date"><h4>Data Urodzenia</h4></label>
+                <input id="competitor_date" name="competitor_date" class="form-control form-control-lg mb-4 w-50" type="date" value="<?= $row->data_urodzenia?>" >
+                <label for="competitor_school"><h4>Szkoła</h4></label><br>
+                <select id="competitor_school" name="competitor_school" class="custom-select custom-select-lg mb-4 w-50">
+                    <?php foreach($schooldata as $innerrow) :?>
+                        <option  value="<?= $innerrow->szkola_id?>" <?php if($innerrow->szkola_id==$row->szkola_id){echo("selected");}?>> <?= $innerrow->nazwa?> </option>
+                    <?php endforeach; ?>
+                </select><br>
+                <label for="competitor_competition"><h4>Zawody</h4></label><br>
+                <select id="competitor_competition" name="competitor_competition" class="custom-select custom-select-lg mb-4 w-50">
+                    <?php foreach($competitiondata as $innerrow) :?>
+                        <option <?php if($innerrow->zawody_id==$chosencompetitordata[0]->zawody_id){echo("selected");}?> value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
+                    <?php endforeach; ?>
+                </select><br>
+                <input type="submit" name="Update" value="Zatwierdź" class="btn btn-success"/>
+                <?php if(count($comp_checkCompetitorStatus) > 0) : ?>
+                    <input type="submit" name="Delete" value="Usuń" class="btn btn-danger" />
+                <?php endif; ?>
             <?php endforeach; ?>
-        </select>
-        <hr>
-        <?php foreach($chosencompetitordata as $row) :?>
-            <label for="competitor_name"><h4>Imie</h4></label>
-            <input id="competitor_name" name="competitor_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->imie ?>">
-            <label for="competitor_surname"><h4>Nazwisko</h4></label>
-            <input id="competitor_surname" name="competitor_surname" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwisko ?>">
-            <label for="competitor_date"><h4>Data Urodzenia</h4></label>
-            <input id="competitor_date" name="competitor_date" class="form-control form-control-lg mb-4 w-50" type="date" value="<?= $row->data_urodzenia?>" >
-            <label for="competitor_school"><h4>Szkoła</h4></label><br>
-            <select id="competitor_school" name="competitor_school" class="custom-select custom-select-lg mb-4 w-50">
-                <?php foreach($schooldata as $innerrow) :?>
-                    <option  value="<?= $innerrow->szkola_id?>" <?php if($innerrow->szkola_id==$row->szkola_id){echo("selected");}?>> <?= $innerrow->nazwa?> </option>
-                <?php endforeach; ?>
-            </select><br>
-            <label for="competitor_competition"><h4>Zawody</h4></label><br>
-            <select id="competitor_competition" name="competitor_competition" class="custom-select custom-select-lg mb-4 w-50">
-                <?php foreach($competitiondata as $innerrow) :?>
-                    <option <?php if($innerrow->zawody_id==$chosencompetitordata[0]->zawody_id){echo("selected");}?> value="<?= $innerrow->zawody_id?>"> <?= $innerrow->nazwa?> </option>
-                <?php endforeach; ?>
-            </select><br>
-            <input type="submit" value="Usuń" class="btn btn-danger" />
-            <input type="submit" value="Zatwierdź" class="btn btn-success"/>
-        <?php endforeach; ?>
-    </form>
+        </form>
+    </div>
 </div>
 </div>
 <?php break; ?>
@@ -260,7 +264,6 @@ case 0: ?>
                 <input id="ride_time_seconds" name="seconds"  class="form-control form-control-lg mb-4 w-25 float-left" type="number" maxlength="2" placeholder="S" value="<?= $seconds ?>"><h4 class="float-left mt-3">.</h4>
                 <input id="ride_time_milliseconds" name="miliseconds" class="form-control form-control-lg mb-4 w-25" type="number" maxlength="3" placeholder="MS" value="<?= $miliseconds ?>">
             </div>
-            <input type="submit" value="Usuń" class="btn btn-danger" />
             <input type="submit" value="Zatwierdź" class="btn btn-success"/>
         <?php endforeach; ?>
     </form>
@@ -319,7 +322,6 @@ case 0: ?>
         <?php foreach($chosengokartdata as $row) :?>
             <label for="gokart_name"><h4>Nazwa</h4></label>
             <input id="gokart_name" name="gokart_name" class="form-control form-control-lg mb-4 w-50" type="text" value="<?= $row->nazwa ?>">
-            <input type="submit" value="Usuń" class="btn btn-danger" />
             <input type="submit" value="Zatwierdź" class="btn btn-success" />
         <?php endforeach; ?>
     </form>

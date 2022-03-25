@@ -9,8 +9,7 @@ class CompetitionController extends BaseController
 {
     function index()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Zawody');
+        $data['meta_title'] = 'Zawody';
 
         ///////
         $db = db_connect();
@@ -44,8 +43,7 @@ class CompetitionController extends BaseController
 
     function scoreboard()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Wyniki');
+        $data['meta_title'] = 'Wyniki';
 
         $db = db_connect();
         $model = new CompetitionModel($db);

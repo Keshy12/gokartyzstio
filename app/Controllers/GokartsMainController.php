@@ -8,8 +8,7 @@ class GokartsMainController extends BaseController
 {
     public function index()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Strona Główna');
+        $data['meta_title'] = 'Strona Główna';
 
         // $db = db_connect();
         // $model = new CustomModel($db);

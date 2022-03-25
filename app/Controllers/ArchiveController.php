@@ -9,8 +9,7 @@ class ArchiveController extends BaseController
 {
     function index()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Archiwum');
+        $data['meta_title'] = 'Archiwum';
 
         $db = db_connect();
         $model = new ArchiveModel($db);
@@ -22,8 +21,7 @@ class ArchiveController extends BaseController
 
     function archiveTable($id)
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Wyniki');
+        $data['meta_title'] = 'Wyniki';
 
         $db = db_connect();
         $model = new ArchiveModel($db);

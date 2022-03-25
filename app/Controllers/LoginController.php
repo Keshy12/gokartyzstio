@@ -9,8 +9,7 @@ class LoginController extends BaseController
 {
     public function login()
     {
-        BaseModel::setSession();
-        $data = BaseModel::setTitle('Logowanie');
+        $data['meta_title'] = 'Logowanie';
         
         $db = db_connect();
         $model = new LoginModel($db);
@@ -34,12 +33,7 @@ class LoginController extends BaseController
 
     public function logout()
     {
-        $session = \Config\Services::session();
-
-        $data = [
-            'meta_title' => 'Wylogowanie',
-        ];
         $_SESSION["zalogowany"] = "";
-        return view('gokartsMain',$data);
+        return redirect()->to( base_url().'/main' ); 
     }
 }

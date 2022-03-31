@@ -3,29 +3,33 @@
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-center mb-3">Szkoła</h2>
-                    <table class="table text-center table-bordered table-sm ">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">🏆</th>
-                            <th scope="col">Szkoła</th>
-                            <th scope="col">Akronim</th>
-                            <th scope="col">Średni czas</th>
-                        </tr>
-                        </thead>
-                        <tbody class="font-weight-bold">
+            <?php if(isset($resultSchoolLeaderboard)) :?>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="text-center mb-3">Szkoła</h2>
+                        <table class="table text-center table-bordered table-sm ">
+                            <thead class="thead-dark">
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Jeżeli zwraca tylko 1 row to nie wyświetlać</td>
-                                <td>ZSTIO</td>
-                                <td>1:12.432</td>
+                                <th scope="col">🏆</th>
+                                <th scope="col">Szkoła</th>
+                                <th scope="col">Akronim</th>
+                                <th scope="col">Średni czas</th>
                             </tr>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody class="font-weight-bold">
+                                <?php foreach($resultSchoolLeaderboard as $key=>$row) :?>
+                                    <tr>
+                                        <th scope="row"><?= $key +1 ?></th>
+                                        <td><?= $row->nazwa ?></td>
+                                        <td><?= $row->akronim ?></td>
+                                        <td><?= $row->czas ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-lg-12">
                     <h2 class="text-center mb-3">Tablica Wyników</h2>

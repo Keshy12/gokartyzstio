@@ -55,10 +55,14 @@ class CompetitionController extends BaseController
         $data['resultleaderboard'] = $result;
         $data['i'] = 1;
 
-        if(count($model->schoolAVG()) > 1)
-            echo "asdf";
-            //$data['resultSchoolLeaderboard'] = $result_school;
+        $result_school = $model->schoolAVG();
+        if(count($result_school) > 1)
+        {
+            foreach($result_school as $row)
+                $row->czas = BaseModel::formatMilliseconds($row->czas);
+            $data['resultSchoolLeaderboard'] = $result_school;
+        }
 
-        //return view('scoreboard',$data);
+        return view('scoreboard',$data);
     }
 }

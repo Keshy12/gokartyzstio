@@ -46,8 +46,8 @@
                 <h2>Tablica Wyników <a href="/main/score"><button type="button" class="btn btn-outline-dark float-right" data-mdb-ripple-color="dark">Wszystkie Wyniki</button></a></h2>
                 <div class="row">
                     <div class="col-lg-12">
-                        <table class="table border text-center">
-                            <thead>
+                        <table class="table text-center">
+                            <thead class="thead-dark">
                             <tr>
                                 <th scope="col">🏆</th>
                                 <th scope="col">Imię</th>

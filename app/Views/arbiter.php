@@ -21,18 +21,18 @@
                             case 2:
                                 ?>
                                 <!-- ELEMENT NAJNOWSZY -->
-                                <div class="card mb-3" style="border: 3px solid green;">
+                                <div class="card mb-3" style="border: 3px solid green; background-color: rgba(0,0,0,0)">
                                     <div class="card-body">
                                         <h3 class="card-title"><?= $row->imie ?> <?= $row->nazwisko ?></h3>
                                         <h5>Szkoła: <?= $row->akronim ?></h5>
                                         <h5>Gokart: <?= $row->nazwa ?></h5>
-                                        <button data-toggle="modal" data-target=".button1" type="button" class="btn btn-outline-success float-right ml-3 w-25">Dodaj czas</button>
-                                        <button data-toggle="modal" data-target=".button2" type="button" class="btn btn-outline-danger w-25">Dyskwalifikacja</button>
+                                        <button data-toggle="modal" data-target=".button1" type="button" class="btn btn-success float-right ml-3 w-25">Dodaj czas</button>
+                                        <button data-toggle="modal" data-target=".button2" type="button" class="btn btn-danger w-25">Dyskwalifikacja</button>
                                 <?php
                                 break;
                             case 3:
                                 ?>
-                                <div class="card mb-3" style="border: 3px solid grey;">
+                                <div class="card mb-3" style="border: 3px solid grey; background-color: rgba(0,0,0,0)">
                                     <div class="card-body">
                                         <h3 class="card-title"><?= $row->imie ?> <?= $row->nazwisko ?></h3>
                                         <h5>Szkoła: <?= $row->akronim ?></h5>

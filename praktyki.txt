@@ -1,0 +1,29 @@
+Określenie celu przeds. i analiza wykonalności / 3
+1* Zapoznanie się z modelem MVC. 8h
+2* Zapoznanie się z frameworkiem CodeIgniter. 8h
+3* Zapoznanie się z serwisem GitHub. 8h
+
+Analiza wymagań klienta i przydzielenie zadań / 2
+4* Określenie wymagań klienta. 8h
+5* Przydzielenie i podzielenie zadań. 8h
+
+Projektowanie aplikcaji / 5 
+6* Zaprojektowanie i normalizacja bazy danych. 8h
+7* Zaprojektowanie Frontendu stron głównych. 8h
+8* Zaprojektowanie Frontendu stron dodatkowych. 8h
+9* Zaprojektowanie Backendu stron głównych. 8h
+10* Zaprojektowanie Backendu stron dodatkowych. 8h
+
+Implementacja projektu / 7
+11* Stworzenie bazy danych. 8h
+12* Stworzenie struktury plików. 8h
+13* Programowanie głownych stron. 8h
+14* Programowanie głownych stron. 8h
+15* Programowanie strony logowania. 8h
+16* Programowanie stron dodatkowych. 8h
+17* Programowanie stron dodatkowych. 8h
+
+Testowanie aplikacj / 3
+18* Testowanie funkcjonalności strony. 8h
+19* Testowanie bezpieczeństwa strony. 8h
+20* Implementacja strony na serwer. 8h

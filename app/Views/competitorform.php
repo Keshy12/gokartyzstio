@@ -31,7 +31,7 @@
                    <input type="checkbox" class="form-check-input" id="rules_form_check" required>
                    <label class="form-check-label" for="rules_form_check">Akceptuje regulamin zawodów.</label>
                </div><br>
-               <input type="submit" value="ZATWIERDŹ" class="btn btn-success" />
+               <input type="submit" value="ZATWIERDŹ" class="btn btn-success mb-4" />
            </form>
        </div>
         <div class="col">

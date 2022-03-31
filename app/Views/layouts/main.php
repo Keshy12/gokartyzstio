@@ -56,6 +56,12 @@
         body,html{
             height:100%;
         }
+        body {
+            background: rgb(255,255,255);
+            background: linear-gradient(124deg, rgba(255,255,255,0.05) 12%, rgba(246,255,0,0.05) 46%, rgba(255,0,0,0.05) 76%);
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
         ::-webkit-scrollbar {
             width: 10px;
             background: white;

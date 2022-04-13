@@ -44,13 +44,9 @@ class CompModificationModel extends AppendModel{
     {
         $liczbaosob = count($osoby);
         shuffle($osoby);
-        // $liczbaosobnaprzejazd = 4;
-        // $liczbagokart = 3;
 
         $liczbaprzejazdow = ($liczbaosob % $liczbaosobnaprzejazd == 0) ? (int)($liczbaosob / $liczbaosobnaprzejazd) : (int)($liczbaosob / $liczbaosobnaprzejazd) + 1;
 
-        // $osoby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-        // $osoby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         $zawody = array();
         $osobyI = 0;
 
